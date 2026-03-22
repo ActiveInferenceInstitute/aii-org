@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>The Self-Evidencing Tree — Active Inference Tutorial</title>
+<title>The Self-Evidencing Tree — Active Inference &amp; Morphogenesis</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
@@ -43,28 +43,28 @@ canvas{display:block;width:100%;height:100%}
 #explainer.open{right:0}
 #explainer::-webkit-scrollbar{width:5px}
 #explainer::-webkit-scrollbar-thumb{background:rgba(120,100,70,.12);border-radius:0}
-#ex-close{position:absolute;top:16px;right:20px;font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(60,50,30,.35);cursor:pointer;background:none;border:none;padding:4px 10px;transition:color .2s}
-#ex-close:hover{color:rgba(50,40,20,.6)}
-#explainer h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(20px,2.8vw,28px);letter-spacing:.15em;color:rgba(50,40,25,.6);margin-bottom:28px}
-#explainer h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(14px,1.7vw,18px);letter-spacing:.06em;color:rgba(50,40,25,.55);margin:32px 0 12px;border-bottom:1px solid rgba(120,100,70,.08);padding-bottom:8px}
-#explainer p{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(14px,1.5vw,17px);color:rgba(40,30,15,.55);line-height:1.85;margin-bottom:16px}
-#explainer em{font-style:italic;color:rgba(40,60,25,.65)}
-#explainer strong{font-weight:500;color:rgba(40,30,15,.65)}
-#explainer code{font-family:'JetBrains Mono',monospace;font-size:.82em;color:rgba(80,60,30,.50);background:rgba(120,100,70,.06);padding:2px 6px;border-radius:0}
-#explainer .eq-block{font-family:'JetBrains Mono',monospace;font-size:clamp(11px,1.2vw,13px);color:rgba(60,50,30,.45);background:rgba(120,100,70,.04);border-left:2px solid rgba(120,100,70,.12);padding:12px 16px;margin:16px 0;line-height:1.85;border-radius:0}
-#explainer .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(14px,1.4vw,16px);color:rgba(40,30,15,.48);background:rgba(120,100,70,.03);border-left:2px solid rgba(120,100,70,.12);padding:14px 18px;margin:18px 0;line-height:1.85}
-#explainer .quote .attr{display:block;font-style:normal;font-size:.82em;color:rgba(60,50,30,.35);margin-top:8px;text-align:right}
-#explainer .note{font-family:'JetBrains Mono',monospace;font-size:clamp(10px,1.1vw,12px);color:rgba(60,50,30,.30);line-height:1.7;margin-top:36px;padding-top:16px;border-top:1px solid rgba(120,100,70,.06)}
+#ex-close{position:absolute;top:16px;right:20px;font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(40,30,15,.45);cursor:pointer;background:none;border:none;padding:4px 10px;transition:color .2s}
+#ex-close:hover{color:rgba(35,25,10,.7)}
+#explainer h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(22px,3vw,30px);letter-spacing:.15em;color:rgba(35,25,10,.72);margin-bottom:28px}
+#explainer h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(16px,1.9vw,20px);letter-spacing:.06em;color:rgba(35,25,10,.68);margin:32px 0 12px;border-bottom:1px solid rgba(120,100,70,.10);padding-bottom:8px}
+#explainer p{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(16px,1.7vw,19px);color:rgba(30,22,8,.68);line-height:1.85;margin-bottom:16px}
+#explainer em{font-style:italic;color:rgba(30,50,15,.78)}
+#explainer strong{font-weight:500;color:rgba(30,22,8,.78)}
+#explainer code{font-family:'JetBrains Mono',monospace;font-size:.82em;color:rgba(60,45,20,.62);background:rgba(120,100,70,.07);padding:2px 6px;border-radius:0}
+#explainer .eq-block{font-family:'JetBrains Mono',monospace;font-size:clamp(12px,1.3vw,14px);color:rgba(45,35,18,.58);background:rgba(120,100,70,.05);border-left:2px solid rgba(120,100,70,.15);padding:12px 16px;margin:16px 0;line-height:1.85;border-radius:0}
+#explainer .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,1.6vw,18px);color:rgba(30,22,8,.58);background:rgba(120,100,70,.035);border-left:2px solid rgba(120,100,70,.15);padding:14px 18px;margin:18px 0;line-height:1.85}
+#explainer .quote .attr{display:block;font-style:normal;font-size:.82em;color:rgba(50,38,18,.45);margin-top:8px;text-align:right}
+#explainer .note{font-family:'JetBrains Mono',monospace;font-size:clamp(11px,1.2vw,13px);color:rgba(50,38,18,.40);line-height:1.7;margin-top:36px;padding-top:16px;border-top:1px solid rgba(120,100,70,.08)}
 #explainer .glossary-item{margin-bottom:18px}
-#explainer .glossary-term{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(50,40,25,.50);letter-spacing:.06em;font-weight:400}
-#explainer .glossary-def{font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(40,30,15,.45);line-height:1.75;margin-top:4px;padding-left:14px;border-left:1px solid rgba(120,100,70,.08)}
+#explainer .glossary-term{font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(35,25,10,.62);letter-spacing:.06em;font-weight:400}
+#explainer .glossary-def{font-family:'Cormorant Garamond',serif;font-size:16px;color:rgba(30,22,8,.58);line-height:1.75;margin-top:4px;padding-left:14px;border-left:1px solid rgba(120,100,70,.10)}
 </style>
 </head>
 <body>
 <canvas id="cv"></canvas>
 
 <div id="eq">F = E<sub>Q</sub>[ln Q(μ) − ln P(o, μ)]</div>
-<div id="title">THE SELF-EVIDENCING TREE<br><span style="font-size:.7em;opacity:.6">Active Inference in Growing Systems</span><br><span style="font-size:.6em;opacity:.4">Parr, Pezzulo &amp; Friston (2022)</span></div>
+<div id="title">THE SELF-EVIDENCING TREE<br><span style="font-size:.7em;opacity:.6">Active Inference &amp; Morphogenesis</span><br><span style="font-size:.6em;opacity:.4">after Friston, Levin et al. (2015) · Parr, Pezzulo &amp; Friston (2022)</span></div>
 
 <div id="hud"></div>
 <div id="fep-hud"></div>
@@ -96,9 +96,9 @@ canvas{display:block;width:100%;height:100%}
 
 <h2>THE SELF-EVIDENCING TREE</h2>
 
-<p>This tree grows by <em>Active Inference</em>. Every branch tip is an agent that holds a generative model — a prediction about where it should grow — and acts to minimise the discrepancy between that prediction and the world.</p>
+<p>This is a pedagogical demonstration applying <em>Active Inference</em> to morphogenesis — the process by which biological form emerges from growth. Friston, Levin and colleagues (2015) showed that morphogenesis can be understood through the Free Energy Principle: developing tissues maintain their organisation by minimising variational free energy, just as brains do. Here, every branch tip is an agent that holds a generative model — a prediction about where it should grow — and acts to minimise the discrepancy between that prediction and the world.</p>
 
-<p>The tree doesn't just grow. It <em>expects</em> to grow, and then fulfils that expectation. This is what Friston calls <em>self-evidencing</em>: an organism that gathers evidence for its own existence by acting on the world.</p>
+<p>The tree doesn't just grow. It <em>expects</em> to grow, and then fulfils that expectation. This is what Hohwy (2016) calls <em>self-evidencing</em>: a system that gathers evidence for its own existence by acting on the world. All concepts and equations presented here are drawn from the Active Inference textbook by Parr, Pezzulo &amp; Friston (2022).</p>
 
 <div class="quote">"By maximizing model evidence — i.e., self-evidencing — an organism ensures that it realises its prior preferences and avoids surprising states."<span class="attr">— Parr, Pezzulo &amp; Friston, <em>Active Inference</em>, Ch. 3</span></div>
 
@@ -250,11 +250,13 @@ Low Π  → vague predictions → wide branching (explore)</div>
 
 <div class="glossary-item">
 <div class="glossary-term">SELF-EVIDENCING</div>
-<div class="glossary-def">The process by which an organism gathers evidence for its own existence. By acting to minimise surprise, it remains in states consistent with its continued existence. The tree grows because growing is what trees do — its model predicts growth, and action realises that prediction.</div>
+<div class="glossary-def">A term introduced by Hohwy (2016) for the process by which a system gathers evidence for its own existence. By acting to minimise surprise, it remains in states consistent with its continued existence. Friston, Levin et al. (2015) showed this applies to morphogenesis: developing tissues self-evidence by maintaining the forms their generative models predict. The tree grows because growing is what trees do — its model predicts growth, and action realises that prediction.</div>
 </div>
 
 <p class="note">§ Active Inference Tutorial — The Self-Evidencing Tree
-Based on: Parr, Pezzulo &amp; Friston (2022) Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press.
+Concepts &amp; equations: Parr, Pezzulo &amp; Friston (2022) Active Inference: The Free Energy Principle in Mind, Brain, and Behavior. MIT Press.
+Morphogenesis framing: Friston, Levin et al. (2015) "Knowing one's place: a free-energy approach to pattern regulation."
+Self-evidencing: Hohwy (2016) "The self-evidencing brain."
 Simulation: Alexander Sabine · Active Inference Institute Board of Directors
 temporalgrammar.ai · Alexander@activeinference.institute</p>
 </div>
@@ -262,10 +264,12 @@ temporalgrammar.ai · Alexander@activeinference.institute</p>
 <script>
 // ═══════════════════════════════════════════════════════════════
 // THE SELF-EVIDENCING TREE
-// Active Inference Tutorial — Pedagogical Simulation
+// Active Inference & Morphogenesis — Pedagogical Simulation
 //
 // GUI Layer: All concepts from peer-reviewed FEP/Active Inference
 //   Parr, Pezzulo & Friston (2022), MIT Press
+//   Morphogenesis: Friston, Levin et al. (2015)
+//   Self-evidencing: Hohwy (2016)
 //
 // Computational Engine: CRR temporal grammar (internal only)
 //   C(x,t) = ∫L(x,τ)dτ     — coherence accumulates
