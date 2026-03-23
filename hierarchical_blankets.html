@@ -142,27 +142,29 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
     <div class="sg">
       <div class="lb">Π<sub>individual</sub> <span class="vl" id="v_pr">1.00</span></div>
       <input type="range" id="s_pr" min="0" max="100" value="50">
-      <div class="en"><span>rigid (tight oscillators)</span><span>fluid (loose oscillators)</span></div>
+      <div class="en"><span>low precision (flexible)</span><span>high precision (rigid)</span></div>
       <span class="cite-tag">Parr, Pezzulo & Friston (2022) Ch.4</span>
     </div>
     <div class="sg">
       <div class="lb">Π<sub>within-group</sub> <span class="vl" id="v_bp">1.00</span></div>
       <input type="range" id="s_bp" min="0" max="100" value="50">
-      <div class="en"><span>strong blanket</span><span>permeable blanket</span></div>
-      <div class="ds">Blanket permeability within each school</div>
+      <div class="en"><span>permeable blanket</span><span>individual rigid blanket</span></div>
+      <div class="ds">Individual blanket permeability within each school</div>
       <span class="cite-tag">Palacios et al. (2020)</span>
     </div>
     <div class="sg">
-      <div class="lb">Π<sub>between-groups</sub> <span class="vl" id="v_cp">1.00</span></div>
-      <input type="range" id="s_cp" min="0" max="100" value="30">
-      <div class="en"><span>separate schools</span><span>schools merge</span></div>
-      <div class="ds" style="color:rgba(220,150,255,.45)">Cross-group blanket coupling</div>
+      <div class="lb">Π<sub>between-groups</sub> <span class="vl" id="v_cp">2.50</span></div>
+      <input type="range" id="s_cp" min="0" max="100" value="70">
+      <div class="en"><span>schools merge</span><span>separate schools</span></div>
+      <div class="ds" style="color:rgba(220,150,255,.45)">School-level blanket permeability between groups</div>
       <span class="cite-tag">Thestrup Waade et al. (2025)</span>
     </div>
     <div class="sg">
       <div class="lb">Prediction error drive <span class="vl" id="v_pe">1.00</span></div>
       <input type="range" id="s_pe" min="0" max="100" value="50">
       <div class="en"><span>low drive</span><span>high drive</span></div>
+      <div class="ds">Proprioceptive prediction strength driving motor output</div>
+      <span class="cite-tag">Parr, Pezzulo & Friston (2022) Ch.5</span>
     </div>
   </div>
   <div class="sec"><h3>Intra-group Synchrony</h3><div id="p_intra"></div></div>
@@ -188,10 +190,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
       <div class="ex-title">Hierarchical Markov Blankets</div>
       <div class="ex-subtitle">Nested Self-Organisation in Active Inference</div>
 
-      <div class="ex-section" style="background:rgba(140,220,200,.03);border:1px solid rgba(140,220,200,.08);border-radius:4px;padding:14px 16px;margin-bottom:20px">
-        <p style="font-size:14px;color:rgba(220,235,240,.7);margin-bottom:0"><strong>Pedagogical note.</strong> This is a simplified demonstration of how the Free Energy Principle and Active Inference apply to collective behaviour. The actual application of these frameworks to biological systems such as fish schools is considerably more detailed and depends on how the generative model is specified for the system in question (see Parr, Pezzulo & Friston 2022, Ch.6). Here, precision controls the <em>tightness of each agent's physiological oscillators</em> — not its psychological confidence — so high precision produces rigid, repetitive body mechanics, while low precision allows fluid, exploratory movement.</p>
-      </div>
-
       <div class="ex-section">
         <h4>What You Are Seeing</h4>
         <p>Six fish swim in two schools of three. Each fish is an <em>active inference agent</em> — it minimises variational free energy through perception (sensing the flow field via its lateral line) and action (generating thrust via tail-beats that shed vortices into the water).</p>
@@ -202,7 +200,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
         <h4>Three Levels of Markov Blanket</h4>
         <p><strong>Level 1 — Individual blanket.</strong> Each fish maintains a statistical boundary between its internal states (body oscillators) and the external world (water flow). The dashed line around each fish represents this boundary. The fish's sensory states are its lateral line receptors; its active states are its tail-beat thrust vectors.</p>
         <p><strong>Level 2 — Group blanket.</strong> Within each school, pairs of fish accumulate evidence of mutual predictability — <em>generalised synchrony</em>. When fish can predict each other's movements, a group-level Markov blanket emerges (the larger dashed boundary around each school). The school now behaves as a single higher-order agent.</p>
-        <p><strong>Level 3 — Collective blanket.</strong> When the two schools interact strongly enough, an even larger blanket can form around the entire collective. This appears as the purple dashed boundary when between-group precision is sufficiently high.</p>
+        <p><strong>Level 3 — Collective blanket.</strong> When the two schools interact strongly enough, an even larger blanket can form around the entire collective. This appears as the purple dashed boundary when the boundary between schools becomes sufficiently permeable (low Π<sub>between-groups</sub>).</p>
       </div>
 
       <div class="cite">
@@ -212,10 +210,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 
       <div class="ex-section">
         <h4>What the Sliders Control</h4>
-        <p><strong>Π<sub>individual</sub></strong> controls precision at the individual level — how tightly each fish's body oscillators (tail-beat, gills, pectoral fins) are constrained. High precision means narrow variance: the oscillators lock into rigid, repetitive patterns and the fish exploits a fixed motor programme. Low precision means broad variance: the oscillators are loosely tuned, producing fluid, variable swimming that explores new trajectories. This is precision as <em>inverse variance of the generative model</em> (Π = 1/σ²), not as colloquial "confidence."</p>
-        <p><strong>Π<sub>within-group</sub></strong> controls how permeable the within-group blanket is. High values create tight, bonded trios. Low values leave fish swimming independently.</p>
-        <p><strong>Π<sub>between-groups</sub></strong> controls cross-group blanket permeability. Push this high enough and the two schools merge into a single collective agent with a shared generative model.</p>
-        <p><strong>Prediction error drive</strong> controls how strongly the fish are driven to move — analogous to the strength of proprioceptive predictions that generate action via classical reflex arcs.</p>
+        <p><strong>Π<sub>individual</sub></strong> controls the precision of each fish's internal oscillators — how tightly its body dynamics are tuned. High precision means slow, stereotyped tail-beats: the fish repeats the same motor pattern precisely. Low precision means loose, variable oscillators producing fast, irregular swimming. Note: this is <em>oscillator precision</em> (the tightness of internal dynamics), distinct from the <em>policy precision</em> (γ) that governs the exploration–exploitation trade-off in Chapter 7 of the textbook.</p>
+        <p><strong>Π<sub>within-group</sub></strong> controls each fish's individual blanket rigidity within its school. High precision means each fish strongly maintains its own boundary, resisting social influence — the school dissolves into independent swimmers. Low precision means permeable individual blankets, allowing generalised synchrony to build — the school self-organises as a higher-order agent.</p>
+        <p><strong>Π<sub>between-groups</sub></strong> controls how strongly each school maintains its boundary against the other. High precision means autonomous, separate schools. Lower precision allows cross-group coupling — push this low enough and the two schools merge into a single collective agent with a shared generative model.</p>
+        <p><strong>Prediction error drive</strong> controls the strength of proprioceptive predictions that generate action via classical reflex arcs (Ch.5). Higher drive means stronger descending motor predictions, producing more vigorous thrust and larger vortices shed into the water. This is the <em>amplitude</em> of active inference — how forcefully the fish acts on its beliefs — not the direction of action selection.</p>
       </div>
 
       <div class="cite">
@@ -225,10 +223,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 
       <div class="ex-section">
         <h4>Try This</h4>
-        <p>1. Set Π<sub>between-groups</sub> to minimum. Watch the two schools drift apart — two separate agents with independent generative models.</p>
-        <p>2. Slowly raise Π<sub>between-groups</sub>. Watch generalised synchrony build between the schools until they merge — a single collective agent emerges.</p>
-        <p>3. Now raise Π<sub>individual</sub> to maximum. Each fish's body oscillators lock into tight, repetitive cycles — high precision constrains the motor pattern, producing rigid, stereotyped swimming. The fish exploits a narrow behavioural repertoire.</p>
-        <p>4. Lower Π<sub>individual</sub> to minimum. The oscillators loosen — each fish moves with wide, variable strokes and explores diverse trajectories. But this variability makes pairs less predictable to one another, so the group blanket weakens: generalised synchrony cannot accumulate.</p>
+        <p>1. Set Π<sub>between-groups</sub> to maximum (slider right). The two schools maintain strong, separate boundaries — two autonomous agents with independent generative models.</p>
+        <p>2. Slowly lower Π<sub>between-groups</sub> (slide left). Watch generalised synchrony build between the schools. When blanket permeability is high enough, a collective Markov blanket emerges (the purple dashed boundary) — a single higher-order agent.</p>
+        <p>3. Now raise Π<sub>individual</sub> to maximum (slider right). Each fish's oscillators become tight and precise — slow, stereotyped tail-beats. This is exploitation: repeating known patterns.</p>
+        <p>4. Lower Π<sub>individual</sub> to minimum (slider left). Fish become fast and wriggly — loose oscillators producing high-variance motor output. Notice that the group blanket may weaken because rapid, irregular movement makes mutual predictability harder to sustain.</p>
       </div>
     </div>
 
@@ -285,8 +283,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 
       <div class="ex-section">
         <h4>The Exploration–Exploitation Balance</h4>
-        <p>Precision acts as an inverse temperature governing the explore–exploit trade-off. High individual precision (low variance) means exploitation: the fish's body oscillators lock into tight, repetitive cycles, and it repeats known motor patterns. Low individual precision (high variance) means exploration: loose oscillators produce variable, fluid movement that samples new trajectories.</p>
-        <p>Note that in this simulation, precision governs the <em>tightness of the agent's physiological dynamics</em> — its motor coordination — rather than a psychological sense of "confidence about the world." A fish with high precision is not bolder; it is more mechanically constrained. The application of precision to different aspects of a generative model (sensory likelihood, transition dynamics, policy selection) produces different behavioural effects depending on the system being modelled.</p>
+        <p>In the textbook (Ch.7), the exploration–exploitation trade-off is governed by <em>precision on policies</em> (γ): the inverse temperature in the softmax π₀ = σ(−γG). High γ → peaked policy selection → exploitation. Low γ → flat policy selection → exploration. Both epistemic value (information gain) and pragmatic value (preference satisfaction) are components of the same expected free energy — Active Inference dissolves the exploration–exploitation dilemma by optimising both simultaneously.</p>
+        <p>The Π<sub>individual</sub> slider in this simulation controls a different level: <em>oscillator precision</em> — how tightly each fish's internal dynamics are tuned. High oscillator precision produces slow, stereotyped tail-beats (exploiting a known motor pattern). Low oscillator precision produces fast, variable swimming (noisier motor output, not confident exploration). The vigorous movement at low precision reflects higher variance in motor dynamics, not a deliberate search strategy.</p>
       </div>
     </div>
 
@@ -432,7 +430,7 @@ sz();onresize=sz;
 // ─── VISUAL OVERLAYS ─────────────────────────────────────────
 // Labels use FEP terminology for the GUI
 const layers=[
-  {id:'flow',name:'Flow field (generative process)',col:'#64c8dc',on:false},
+  {id:'flow',name:'Flow field (generative process)',col:'#64c8dc',on:true},
   {id:'vorticity',name:'Vorticity field',col:'#ff5040',on:false},
   {id:'cascade',name:'Energy cascade',col:'#ffc850',on:true},
   {id:'lateral',name:'Sensory states (lateral line)',col:'#ffdc50',on:false},
@@ -455,15 +453,15 @@ layers.forEach(l=>{const d=document.createElement('div');d.className='ly';
 let ωFish=1,ωIntra=1,ωInter=.4,drive=1;
 function eM(v,lo,hi){return lo*pow(hi/lo,v/100)}
 document.getElementById('s_pr').oninput=function(){
-  ωFish=eM(+this.value,.15,5);
+  ωFish=eM(100-this.value,.15,5);
   // GUI shows precision (1/Ω), engine uses Ω
   document.getElementById('v_pr').textContent=(1/ωFish).toFixed(2);
   fishes.forEach(f=>{f.tail.ω=ωFish/P;f.gill.ω=ωFish/T;f.pect.ω=ωFish/T})};
 document.getElementById('s_bp').oninput=function(){
-  ωIntra=eM(+this.value,.15,5);
+  ωIntra=eM(100-this.value,.15,5);
   document.getElementById('v_bp').textContent=(1/ωIntra).toFixed(2)};
 document.getElementById('s_cp').oninput=function(){
-  ωInter=eM(+this.value,.15,5);
+  ωInter=eM(100-this.value,.15,5);
   document.getElementById('v_cp').textContent=(1/ωInter).toFixed(2)};
 document.getElementById('s_pe').oninput=function(){
   drive=eM(+this.value,.15,5);
@@ -541,6 +539,35 @@ function wV(px,py){
   vx+=sin(t*.12)*2+sin(py*.003+t*.18)*1.2;vy+=cos(t*.1)*1+sin(px*.002+t*.12)*.6;
   return{vx,vy}}
 
+// ─── FLOW TRACER PARTICLES (Generative Process Visualization) ─
+// Massless tracer particles advected by the vortex velocity field.
+// They reveal the generative process — the external dynamics that
+// produce observations at each agent's sensory states.
+// Colour encodes velocity magnitude: slow = deep blue, fast = bright cyan.
+const TRACERS=600,trailLen=14;
+const tracers=[];
+function initTracers(){
+  const uiW=228*DR;
+  for(let i=0;i<TRACERS;i++){
+    const tr={x:uiW+R()*(W-uiW),y:R()*H,trail:[],age:R()*8};
+    for(let j=0;j<trailLen;j++)tr.trail.push({x:tr.x,y:tr.y});
+    tracers.push(tr)}}
+function updTracers(dt){
+  const uiW=228*DR;
+  for(const tr of tracers){
+    tr.age+=dt;
+    // Advect by velocity field
+    const v=wV(tr.x,tr.y);
+    tr.x+=v.vx*dt*1.2;tr.y+=v.vy*dt*1.2;
+    // Push current position into trail
+    tr.trail.unshift({x:tr.x,y:tr.y});
+    if(tr.trail.length>trailLen)tr.trail.pop();
+    // Recycle if off-screen or stale
+    if(tr.x<uiW-20||tr.x>W+20||tr.y<-20||tr.y>H+20||tr.age>12){
+      tr.x=uiW+R()*(W-uiW);tr.y=R()*H;tr.age=0;
+      for(let j=0;j<tr.trail.length;j++)tr.trail[j]={x:tr.x,y:tr.y}}}}
+initTracers();
+
 // ─── SIX AGENTS, TWO SCHOOLS ────────────────────────────────
 // School A (teal): agents α, β, γ     School B (amber): agents δ, ε, ζ
 const SCHOOL_A={name:'School A',col:'rgba(80,200,190,',h:185,members:[0,1,2]};
@@ -557,7 +584,8 @@ for(let g=0;g<2;g++){
       // CRR oscillators: Z₂ for tail (bistable), SO(2) for gills/pectorals
       tail:new CRR(1/P,1/T),gill:new CRR(1/T,1/(4*P)),pect:new CRR(1/T,1/(4*P)),
       tailSide:1,fp:R()*T,len:0,
-      thrustVx:0,thrustVy:0,dragVx:0,dragVy:0,
+      thrustVx:0,thrustVy:0,burstVx:0,burstVy:0,baseVx:0,baseVy:0,
+      activeSmX:0,activeSmY:0,dragVx:0,dragVy:0,
       latPoints:[],sensedVx:0,sensedVy:0,
       h:sc.h+hShift,s:50+R()*25,l:52+R()*18,
       col:g===0?`hsl(${185+hShift},65%,60%)`:`hsl(${30+hShift},70%,62%)`,
@@ -587,13 +615,13 @@ for(let i=0;i<3;i++)for(let j=3;j<6;j++){
     name:fishes[i].name+'↔'+fishes[j].name})}
 
 function initFishes(){
-  const L=min(W,H)*.11;
-  const ax=W*.38,ay=H*.42;
+  const L=min(W,H)*.19;
+  const ax=W*.35,ay=H*.4;
   for(let i=0;i<3;i++){const a=T/3*i;
-    fishes[i].x=ax+cos(a)*L*.5;fishes[i].y=ay+sin(a)*L*.4;fishes[i].len=L;fishes[i].ang=0}
-  const bx=W*.65,by=H*.48;
+    fishes[i].x=ax+cos(a)*L*.7;fishes[i].y=ay+sin(a)*L*.6;fishes[i].len=L;fishes[i].ang=0}
+  const bx=W*.68,by=H*.5;
   for(let i=3;i<6;i++){const a=T/3*(i-3)+P;
-    fishes[i].x=bx+cos(a)*L*.5;fishes[i].y=by+sin(a)*L*.4;fishes[i].len=L;fishes[i].ang=P}
+    fishes[i].x=bx+cos(a)*L*.7;fishes[i].y=by+sin(a)*L*.6;fishes[i].len=L;fishes[i].ang=P}
 }
 
 // ─── PAIR FORCES ─────────────────────────────────────────────
@@ -636,12 +664,24 @@ function applyPairForces(pair,coupling,dt){
 
 // ─── UPDATE ──────────────────────────────────────────────────
 function upd(dt){
-  t+=dt;
   for(const f of fishes){
-    const tL=(2.8+sin(t*.3+f.id)*.3)*drive;
+    // CRR accumulation rate — boosted baseline so fish beat at all precision settings
+    // High precision (ωFish=0.15): threshold ≈ 21, rate ≈ 8 → beat every ~2.6s (slow, powerful)
+    // Low precision (ωFish=5): threshold ≈ 0.63, rate ≈ 8 → beat every ~0.08s (rapid, fluttery)
+    const tL=(8+sin(t*.3+f.id)*.8)*drive;
     f.tail.step(tL,dt);f.fp+=dt*(5+f.tail.sa*20);
-    f.thrustVx=0;f.thrustVy=0;
-    // Tail rupture → vortex shedding (active state → generative process)
+
+    // === CONTINUOUS BASELINE SWIMMING (always active) ===
+    // Fish undulate continuously; CRR ruptures add burst thrust on top.
+    // Baseline is gentle forward thrust modulated by body wave.
+    const baseForce=18*(.4+drive*.6);
+    const waveOsc=sin(f.fp*1.5)*.15; // subtle lateral oscillation
+    f.baseVx=cos(f.ang+waveOsc)*baseForce*dt;
+    f.baseVy=sin(f.ang+waveOsc)*baseForce*dt;
+    f.vx+=f.baseVx;f.vy+=f.baseVy;
+
+    // === CRR BURST THRUST (on tail-beat rupture) ===
+    f.burstVx=0;f.burstVy=0;
     if(f.tail.st===1){
       f.tailSide*=-1;
       const wave=sin(f.fp)*f.len*.12;
@@ -650,9 +690,16 @@ function upd(dt){
       const vG=70*f.tailSide*(.5+drive*.5);
       spawnV(tx,ty,-cos(f.ang)*18+sin(f.ang)*f.tailSide*25,
         -sin(f.ang)*18-cos(f.ang)*f.tailSide*25,vG,f.len*.09,0);
-      const thrust=90*(.5+drive*.5);
-      f.thrustVx=cos(f.ang)*thrust*dt;f.thrustVy=sin(f.ang)*thrust*dt;
-      f.vx+=f.thrustVx;f.vy+=f.thrustVy}
+      const burst=65*(.5+drive*.5);
+      f.burstVx=cos(f.ang)*burst*dt;f.burstVy=sin(f.ang)*burst*dt;
+      f.vx+=f.burstVx;f.vy+=f.burstVy}
+
+    // Combined instantaneous active state (for visualization)
+    f.thrustVx=f.baseVx+f.burstVx;f.thrustVy=f.baseVy+f.burstVy;
+    // Smoothed active state (for persistent arrow display)
+    f.activeSmX+=(f.thrustVx-f.activeSmX)*min(1,dt*8);
+    f.activeSmY+=(f.thrustVy-f.activeSmY)*min(1,dt*8);
+
     // Lateral line: sensory states sampling the generative process
     f.latPoints=[];let lx=0,ly=0;
     for(let s=.1;s<.8;s+=.14){
@@ -665,12 +712,28 @@ function upd(dt){
   for(const p of intraPairs)applyPairForces(p,ωIntra,dt);
   // Precision-weighted coupling at between-group level
   for(const p of interPairs)applyPairForces(p,ωInter,dt);
+  // Hard body collision — prevents fish from occupying the same space
+  // This is independent of pair coupling; it applies to ALL fish pairs
+  for(let i=0;i<fishes.length;i++)for(let j=i+1;j<fishes.length;j++){
+    const fi=fishes[i],fj=fishes[j];
+    const dx=fj.x-fi.x,dy=fj.y-fi.y,d=sqrt(dx*dx+dy*dy)+.1;
+    const minD=fi.len*.45; // hard exclusion radius based on body length
+    if(d<minD){
+      const overlap=(minD-d)/minD;
+      const push=overlap*120*dt;
+      const nx2=dx/d,ny2=dy/d;
+      fi.vx-=nx2*push;fi.vy-=ny2*push;
+      fj.vx+=nx2*push;fj.vy+=ny2*push;
+      // Also nudge positions directly to prevent deep overlap
+      const nudge=overlap*2;
+      fi.x-=nx2*nudge;fi.y-=ny2*nudge;
+      fj.x+=nx2*nudge;fj.y+=ny2*nudge}}
   // Physics integration
   for(const f of fishes){
     const fc=-sin(f.ang)*f.sensedVx+cos(f.ang)*f.sensedVy;
-    f.ang+=fc*(.0003+.001/max(.1,ωFish))*dt;
+    f.ang+=fc*(.0006+.0008/max(.1,ωFish))*dt;
     const spd=sqrt(f.vx*f.vx+f.vy*f.vy);
-    if(spd>.1){const drag=.012*spd;f.dragVx=-f.vx/spd*drag;f.dragVy=-f.vy/spd*drag;
+    if(spd>.1){const drag=.018*spd;f.dragVx=-f.vx/spd*drag;f.dragVy=-f.vy/spd*drag;
       f.vx+=f.dragVx;f.vy+=f.dragVy}else{f.dragVx=0;f.dragVy=0}
     const w2=wV(f.x,f.y);f.x+=(f.vx+w2.vx*.3)*dt;f.y+=(f.vy+w2.vy*.3)*dt;
     if(spd>5){let da=atan2(f.vy,f.vx)-f.ang;
@@ -763,26 +826,38 @@ function drawFish(f){
   bg.addColorStop(.8,`hsla(${f.h-5},${f.s}%,${f.l+3}%,.88)`);
   bg.addColorStop(1,`hsla(${f.h-10},${f.s-8}%,${f.l-8}%,.82)`);
   X.fillStyle=bg;X.fill();
-  // Scales with thin-film iridescence
-  const sR=L*.009;const ir=sin(t*2.2+f.id*1.1)*.5+.5;
-  for(let row=0;row<12;row++)for(let col=0;col<26;col++){
-    const s=(col+.5)/26,v=(row+.5)/12,side=v<.5?-1:1,vF=abs(v-.5)*2;
-    const sO=s+(row%2)*.019;if(sO>1)continue;
+  // Scales with enhanced thin-film iridescence
+  const sR=L*.01;const ir=sin(t*2.2+f.id*1.1)*.5+.5;
+  const ir2=cos(t*1.7+f.id*.8)*.3+.5; // second iridescence wave
+  for(let row=0;row<14;row++)for(let col=0;col<30;col++){
+    const s=(col+.5)/30,v=(row+.5)/14,side=v<.5?-1:1,vF=abs(v-.5)*2;
+    const sO=s+(row%2)*.017;if(sO>1)continue;
     const p=bP(f,sO,side*vF);
-    const th=vF*P*.35+sin(t*.8+sO*4+f.id*1.3)*.06+ir*.04;
-    const tk=92+sin(sO*22+row*3.1+f.h*.12)*16+sin(t*1.8+col*.4+row*.6)*4;
+    // Stronger angle variation for more vivid color shifts
+    const th=vF*P*.4+sin(t*1.1+sO*5+f.id*1.3)*.1+ir*.06+ir2*.04;
+    // Wider wavelength range for richer spectrum
+    const tk=85+sin(sO*24+row*3.1+f.h*.14)*22+sin(t*2.2+col*.5+row*.7)*6;
     const cl=tF(tk,th);
-    const inten=.05+.14*(1-vF)+f.tail.sa*.04;
+    // Boosted intensity — especially along the dorsal ridge
+    const dorsalBoost=max(0,1-vF*1.8)*.08;
+    const inten=.07+.18*(1-vF)+dorsalBoost+f.tail.sa*.06+ir2*.02;
     X.fillStyle=`rgba(${round(cl.r*255)},${round(cl.g*255)},${round(cl.b*255)},${inten})`;
-    X.beginPath();X.arc(p.x,p.y,sR*(.8+vF*.35),-P*.7,P*.7);X.fill();
+    X.beginPath();X.arc(p.x,p.y,sR*(.85+vF*.3),-P*.7,P*.7);X.fill();
   }
-  // Shimmer
-  const sh=sin(t*3.2+f.id*2.3+f.x*.02)*.065+.015;
-  if(sh>.01){X.fillStyle=`rgba(255,255,255,${sh})`;
+  // Enhanced shimmer — dual highlight
+  const sh=sin(t*3.2+f.id*2.3+f.x*.02)*.08+.025;
+  if(sh>.01){
     const sp2=bP(f,.15,-.1),sp3=bP(f,.55,-.05);
     X.beginPath();X.moveTo(sp2.x,sp2.y);
     X.quadraticCurveTo((sp2.x+sp3.x)/2+nx*L*.01,(sp2.y+sp3.y)/2+ny*L*.01,sp3.x,sp3.y);
-    X.lineWidth=L*.012;X.strokeStyle=`rgba(255,255,255,${sh*.7})`;X.stroke()}
+    X.lineWidth=L*.015;X.strokeStyle=`rgba(255,255,255,${sh*.8})`;X.stroke();
+    // Second shimmer band (belly)
+    const sh2=sin(t*2.5+f.id*1.7+f.x*.015)*.05+.01;
+    if(sh2>.005){
+      const sb1=bP(f,.2,.25),sb2=bP(f,.5,.2);
+      X.beginPath();X.moveTo(sb1.x,sb1.y);
+      X.quadraticCurveTo((sb1.x+sb2.x)/2-nx*L*.005,(sb1.y+sb2.y)/2-ny*L*.005,sb2.x,sb2.y);
+      X.lineWidth=L*.008;X.strokeStyle=`rgba(255,252,240,${sh2*.6})`;X.stroke()}}
   // Lateral line
   X.beginPath();
   for(let s=.05;s<.88;s+=.007){const p=bP(f,s,0);
@@ -861,12 +936,56 @@ function drawFish(f){
 
 // ─── OVERLAYS (FEP-labelled) ─────────────────────────────────
 function drawFlow(){
-  if(!show.flow)return;const step=55;X.save();X.globalAlpha=.3;
-  for(let gx=step+228*DR;gx<W;gx+=step)for(let gy=step;gy<H;gy+=step){
-    const v=wV(gx,gy),mag=sqrt(v.vx*v.vx+v.vy*v.vy);if(mag<.3)continue;
-    const len=min(16,mag*1.2),a=atan2(v.vy,v.vx);
-    X.beginPath();X.moveTo(gx,gy);X.lineTo(gx+cos(a)*len,gy+sin(a)*len);
-    X.strokeStyle=`rgba(100,200,220,${min(.4,mag*.03)})`;X.lineWidth=.8;X.stroke()}
+  if(!show.flow)return;X.save();
+  const uiW=228*DR;
+  // === LAYER 1: Dense vector field arrows ===
+  const step=38;
+  for(let gx=uiW+step*.5;gx<W;gx+=step)for(let gy=step*.5;gy<H;gy+=step){
+    const v=wV(gx,gy);
+    const mag=sqrt(v.vx*v.vx+v.vy*v.vy);
+    if(mag<.15)continue;
+    const a=atan2(v.vy,v.vx);
+    // Arrow length scales with speed, capped
+    const len=min(step*.65,mag*2.5+2);
+    // Colour: slow = deep teal, fast = bright cyan
+    const spd01=min(1,mag*.06);
+    const r=round(40+spd01*60);
+    const g=round(120+spd01*135);
+    const b=round(170+spd01*85);
+    const al=.12+spd01*.35;
+    const lw=.8+spd01*1.5;
+    // Shaft
+    const sx=gx-cos(a)*len*.35,sy=gy-sin(a)*len*.35;
+    const ex=gx+cos(a)*len*.65,ey=gy+sin(a)*len*.65;
+    X.beginPath();X.moveTo(sx,sy);X.lineTo(ex,ey);
+    X.strokeStyle=`rgba(${r},${g},${b},${al})`;X.lineWidth=lw;X.stroke();
+    // Arrowhead (filled triangle)
+    if(len>4){
+      const hL=min(6,len*.3),hA=.55;
+      X.beginPath();X.moveTo(ex,ey);
+      X.lineTo(ex-cos(a-hA)*hL,ey-sin(a-hA)*hL);
+      X.lineTo(ex-cos(a+hA)*hL,ey-sin(a+hA)*hL);
+      X.closePath();X.fillStyle=`rgba(${r},${g},${b},${al})`;X.fill()}}
+  // === LAYER 2: Streakline tracers (advected by same field) ===
+  for(const tr of tracers){
+    const trail=tr.trail;if(trail.length<2)continue;
+    const v=wV(tr.x,tr.y);
+    const mag=sqrt(v.vx*v.vx+v.vy*v.vy);
+    const spd01=min(1,mag*.06);
+    const r=round(60+spd01*100);
+    const g=round(180+spd01*75);
+    const b=round(220+spd01*35);
+    for(let i=0;i<trail.length-1;i++){
+      const fade=1-i/(trail.length-1);
+      const al=fade*fade*(.06+spd01*.2);
+      if(al<.004)continue;
+      X.beginPath();X.moveTo(trail[i].x,trail[i].y);X.lineTo(trail[i+1].x,trail[i+1].y);
+      X.strokeStyle=`rgba(${r},${g},${b},${al})`;X.lineWidth=(.4+spd01*1.8)*fade;X.stroke()}
+    // Head dot
+    if(spd01>.15){
+      const headAl=.08+spd01*.3;
+      X.beginPath();X.arc(tr.x,tr.y,1+spd01*1.8,0,T);
+      X.fillStyle=`rgba(${min(255,r+40)},${min(255,g+30)},255,${headAl})`;X.fill()}}
   X.restore()}
 function drawVort(){
   if(!show.vorticity)return;const step=30;X.save();X.globalAlpha=.18;
@@ -887,17 +1006,79 @@ function drawCasc(){
   X.restore()}
 function drawLat(){
   if(!show.lateral)return;X.save();
-  for(const f of fishes)for(const lp of f.latPoints){
-    X.beginPath();X.arc(lp.x,lp.y,2,0,T);X.fillStyle='rgba(255,220,80,.4)';X.fill();
-    X.beginPath();X.moveTo(lp.x,lp.y);X.lineTo(lp.x+lp.vx*2,lp.y+lp.vy*2);
-    X.strokeStyle='rgba(255,220,80,.3)';X.lineWidth=1;X.stroke()}X.restore()}
+  for(const f of fishes){
+    const L=f.len;
+    for(let li=0;li<f.latPoints.length;li++){
+      const lp=f.latPoints[li];
+      const vmag=sqrt(lp.vx*lp.vx+lp.vy*lp.vy);
+      // Receptor dot — prominent, clear
+      const dotR=max(3.5,L*.018);
+      X.beginPath();X.arc(lp.x,lp.y,dotR,0,T);
+      X.fillStyle='rgba(255,210,50,.7)';X.fill();
+      X.strokeStyle='rgba(255,240,150,.4)';X.lineWidth=1.2;X.stroke();
+      // Sensed flow arrow — shows what this receptor is detecting
+      if(vmag>.15){
+        const arLen=min(L*.2,vmag*4+4);
+        const arAng=atan2(lp.vy,lp.vx);
+        const ex=lp.x+cos(arAng)*arLen,ey=lp.y+sin(arAng)*arLen;
+        const al=min(.75,vmag*.05+.25);
+        // Shaft with glow
+        X.beginPath();X.moveTo(lp.x,lp.y);X.lineTo(ex,ey);
+        X.strokeStyle=`rgba(255,210,50,${al*.3})`;X.lineWidth=4;X.stroke();
+        X.beginPath();X.moveTo(lp.x,lp.y);X.lineTo(ex,ey);
+        X.strokeStyle=`rgba(255,220,80,${al})`;X.lineWidth=2;X.stroke();
+        // Filled arrowhead
+        const hL=max(6,L*.03),hA=.5;
+        X.beginPath();X.moveTo(ex,ey);
+        X.lineTo(ex-cos(arAng-hA)*hL,ey-sin(arAng-hA)*hL);
+        X.lineTo(ex-cos(arAng+hA)*hL,ey-sin(arAng+hA)*hL);
+        X.closePath();X.fillStyle=`rgba(255,220,80,${al})`;X.fill()}}
+    // Label — positioned offset from the lateral line
+    const mp=f.latPoints[Math.floor(f.latPoints.length/2)];
+    if(mp){const lx2=mp.x+sin(f.ang)*L*.12,ly2=mp.y-cos(f.ang)*L*.12;
+      X.fillStyle='rgba(255,220,80,.5)';X.font=`bold ${7*DR}px JetBrains Mono,monospace`;
+      X.fillText('SENSORY',lx2,ly2)}}
+  X.restore()}
 function drawThr(){
   if(!show.thrust)return;X.save();
-  for(const f of fishes){if(abs(f.thrustVx)+abs(f.thrustVy)<.0001)continue;
-    const sc=600,tx=f.x+f.thrustVx*sc,ty=f.y+f.thrustVy*sc;
-    X.beginPath();X.moveTo(f.x,f.y);X.lineTo(tx,ty);
-    X.strokeStyle='rgba(80,255,120,.5)';X.lineWidth=1.5;X.stroke();
-    X.beginPath();X.arc(tx,ty,2.5,0,T);X.fillStyle='rgba(80,255,120,.5)';X.fill()}
+  for(const f of fishes){
+    const L=f.len;
+    const smMag=sqrt(f.activeSmX*f.activeSmX+f.activeSmY*f.activeSmY);
+    if(smMag<.00001)continue;
+    // Arrow origin: at the tail
+    const ox=f.x-cos(f.ang)*L*.38,oy=f.y-sin(f.ang)*L*.38;
+    // Smoothed thrust direction
+    const arLen=min(L*.4,smMag*2200+L*.1);
+    const arAng=atan2(f.activeSmY,f.activeSmX);
+    const ex=ox+cos(arAng)*arLen,ey=oy+sin(arAng)*arLen;
+    // Brightness — base + burst flash
+    const burstMag=sqrt(f.burstVx*f.burstVx+f.burstVy*f.burstVy);
+    const baseAl=min(.5,smMag*700+.15);
+    const burstAl=min(.55,burstMag*1400);
+    const al=min(.9,baseAl+burstAl);
+    const lw=2+(burstAl>0.05?2:0);
+    // Glow layer
+    X.beginPath();X.moveTo(ox,oy);X.lineTo(ex,ey);
+    X.strokeStyle=`rgba(80,255,120,${al*.25})`;X.lineWidth=lw+4;X.stroke();
+    // Shaft
+    X.beginPath();X.moveTo(ox,oy);X.lineTo(ex,ey);
+    X.strokeStyle=`rgba(80,255,120,${al})`;X.lineWidth=lw;X.stroke();
+    // Filled arrowhead
+    const hL=max(8,L*.04),hA=.5;
+    X.beginPath();X.moveTo(ex,ey);
+    X.lineTo(ex-cos(arAng-hA)*hL,ey-sin(arAng-hA)*hL);
+    X.lineTo(ex-cos(arAng+hA)*hL,ey-sin(arAng+hA)*hL);
+    X.closePath();X.fillStyle=`rgba(80,255,120,${al})`;X.fill();
+    // Burst flash ring at tail on rupture
+    if(burstAl>.05){
+      X.beginPath();X.arc(ox,oy,L*.06,0,T);
+      X.strokeStyle=`rgba(80,255,120,${burstAl})`;X.lineWidth=2.5;X.stroke();
+      X.beginPath();X.arc(ox,oy,L*.06+3,0,T);
+      X.strokeStyle=`rgba(80,255,120,${burstAl*.4})`;X.lineWidth=1.5;X.stroke()}
+    // Label — positioned offset from tail
+    const lx3=ox-sin(f.ang)*L*.12,ly3=oy+cos(f.ang)*L*.12;
+    X.fillStyle=`rgba(80,255,120,${min(.5,al*.8)})`;X.font=`bold ${7*DR}px JetBrains Mono,monospace`;
+    X.fillText('ACTIVE',lx3,ly3)}
   X.restore()}
 function drawCRR(){
   if(!show.crr)return;X.save();
@@ -1004,7 +1185,7 @@ function drawEnv(){
 initFishes();let lt=0;
 function frame(now){
   const dt=min(.033,(now-lt)/1000);lt=now;t+=dt;
-  upd(dt);updV(dt);drawEnv();drawVort();drawFlow();drawCasc();
+  upd(dt);updV(dt);updTracers(dt);drawEnv();drawVort();drawFlow();drawCasc();
   if(show.fish){const sorted=[...fishes].sort((a,b)=>a.d-b.d);for(const f of sorted)drawFish(f)}
   drawLat();drawThr();drawCRR();drawBlankets();drawPairs();
   const v=X.createRadialGradient(W/2,H/2,W*.18,W/2,H/2,W*.55);
