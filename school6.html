@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Active Inference School</title>
+<title>Active Inference School — temporalgrammar.ai</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#000;overflow:hidden;cursor:crosshair}
 canvas{display:block;width:100vw;height:100vh}
 #mode{position:fixed;top:16px;left:16px;z-index:10;
-  font:11px/1 'Georgia',serif;color:rgba(220,240,238,.6);
+  font:11px/1 'Georgia',serif;color:rgba(220,240,238,.35);
   padding:8px 14px;background:rgba(4,12,20,.7);
   border:1px solid rgba(80,140,160,.15);border-radius:3px;
   cursor:pointer;backdrop-filter:blur(6px);transition:all .3s;
   user-select:none;letter-spacing:.5px}
 #mode:hover{background:rgba(10,25,40,.85);border-color:rgba(80,140,160,.3)}
-#mode .icon{display:inline-block;margin-right:6px}
+#mode .sep{color:rgba(150,180,175,.25);margin:0 2px}
+#mode .sel{color:rgba(220,240,238,.8)}
 #mode.threat{border-color:rgba(255,100,80,.2)}
-#mode.threat .icon{color:rgba(255,120,80,.8)}
-#mode.food .icon{color:rgba(120,255,160,.8)}
+#mode.threat #mThreat{color:rgba(255,120,80,.85)}
+#mode.threat #mFood{color:rgba(220,240,238,.3)}
+#mode.food #mFood{color:rgba(120,255,160,.85)}
+#mode.food #mThreat{color:rgba(220,240,238,.3)}
 #narrator{position:fixed;bottom:20px;left:20px;max-width:400px;z-index:10;
   pointer-events:none;opacity:0;transition:opacity 1.2s}
 #narrator.vis{opacity:1}
@@ -36,7 +39,7 @@ canvas{display:block;width:100vw;height:100vh}
   color:rgba(120,175,160,.15);letter-spacing:.5px;z-index:2;pointer-events:none}
 </style></head><body>
 <canvas id="c"></canvas>
-<div id="mode" class="food" onclick="toggleMode()"><span class="icon">◉</span><span id="modeLbl">food source — click to attract</span></div>
+<div id="mode" class="food" onclick="toggleMode()"><span id="mFood" class="sel">◉ food source</span><span class="sep"> · </span><span id="mThreat">◉ predator</span></div>
 <div id="narrator">
   <div class="who"><span class="dot"></span><span class="name">Daniel Friedman · Active Inference Institute</span></div>
   <div class="quote" id="nq"></div>
@@ -44,11 +47,11 @@ canvas{display:block;width:100vw;height:100vh}
   <div class="src" id="ns"></div>
   <div class="state" id="nst"></div>
 </div>
-<div id="sig">ActiveInferenceInstitute.org</div>
+<div id="sig">www.activeinference.org</div>
 <script>
 // ═══════════════════════════════════════════════════════════════
 //  CRR-powered Active Inference School
-//  Computational method: CRR (Sabine 2024)
+//  Computational method: CRR (Sabine 2024) — temporalgrammar.ai
 //  GUI: FEP / Active Inference terminology only
 //  Alexander Sabine · Active Inference Institute · 2025
 // ═══════════════════════════════════════════════════════════════
@@ -67,11 +70,7 @@ c.onmousedown=()=>{clicking=true};
 c.onmouseup=()=>{clicking=false};
 function toggleMode(){
   mMode=mMode==='food'?'threat':'food';
-  const el=document.getElementById('mode');
-  el.className=mMode;
-  document.getElementById('modeLbl').textContent=
-    mMode==='food'?'food source — click to attract':'predator — click to scatter';
-  // Trigger narrator comment on mode switch
+  document.getElementById('mode').className=mMode;
   narTimer=NAR_INTERVAL-.2}
 
 // ─── SPATIAL HASH ───────────────────────────────────────────
@@ -253,6 +252,13 @@ function getState(){
   if(groupCount===1&&prevGroupCount>1)return'merging';
   if(groupCount>2)return'scattered';
   return'one'}
+const stLabels={one:'one school · one blanket',two:'two schools · two blankets',
+  splitting:'blanket rupture',merging:'blankets merging',scattered:'fragmented',
+  threat:'predator — flight response',reuniting:'school reforming'};
+function updStateLabel(){
+  const st=getState();
+  document.getElementById('nst').textContent=
+    `${stLabels[st]||st} · ${groupCount} group${groupCount>1?'s':''} · avg Π = ${(1/(Ω/(avgCoherence+.01))).toFixed(1)}`}
 function updNarrator(dt){
   narTimer+=dt;narFade+=(narTarget-narFade)*dt*2;
   if(narTimer>NAR_INTERVAL){
@@ -265,11 +271,7 @@ function updNarrator(dt){
       document.getElementById('nq').textContent=q.q;
       document.getElementById('no').textContent=q.o;
       document.getElementById('ns').textContent='— '+q.s;
-      const stLabels={one:'one school · one blanket',two:'two schools · two blankets',
-        splitting:'blanket rupture',merging:'blankets merging',scattered:'fragmented',
-        threat:'predator — flight response',reuniting:'school reforming'};
-      document.getElementById('nst').textContent=
-        `${stLabels[st]||st} · ${groupCount} group${groupCount>1?'s':''} · avg Π = ${(1/(Ω/(avgCoherence+.01))).toFixed(1)}`;
+      updStateLabel();
       narState=st;narTarget=1;
     },800)}
   document.getElementById('narrator').classList.toggle('vis',narFade>.3)}
@@ -565,7 +567,7 @@ function frame(now){
   const dt=min(.033,(now-lt)/1000);lt=now;t+=dt;
   upd(dt);
   // Group detection every 0.5s (cheap — uses existing spatial hash)
-  groupTimer+=dt;if(groupTimer>.5){groupTimer=0;detectGroups()}
+  groupTimer+=dt;if(groupTimer>.5){groupTimer=0;detectGroups();updStateLabel()}
   updNarrator(dt);
   drawEnv();
   const sorted=[...fishes].sort((a,b)=>a.depth-b.depth);
