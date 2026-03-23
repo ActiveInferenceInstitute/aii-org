@@ -142,7 +142,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
     <div class="sg">
       <div class="lb">Π<sub>individual</sub> <span class="vl" id="v_pr">1.00</span></div>
       <input type="range" id="s_pr" min="0" max="100" value="50">
-      <div class="en"><span>high precision (rigid)</span><span>low precision (flexible)</span></div>
+      <div class="en"><span>rigid (tight oscillators)</span><span>fluid (loose oscillators)</span></div>
       <span class="cite-tag">Parr, Pezzulo & Friston (2022) Ch.4</span>
     </div>
     <div class="sg">
@@ -188,6 +188,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
       <div class="ex-title">Hierarchical Markov Blankets</div>
       <div class="ex-subtitle">Nested Self-Organisation in Active Inference</div>
 
+      <div class="ex-section" style="background:rgba(140,220,200,.03);border:1px solid rgba(140,220,200,.08);border-radius:4px;padding:14px 16px;margin-bottom:20px">
+        <p style="font-size:14px;color:rgba(220,235,240,.7);margin-bottom:0"><strong>Pedagogical note.</strong> This is a simplified demonstration of how the Free Energy Principle and Active Inference apply to collective behaviour. The actual application of these frameworks to biological systems such as fish schools is considerably more detailed and depends on how the generative model is specified for the system in question (see Parr, Pezzulo & Friston 2022, Ch.6). Here, precision controls the <em>tightness of each agent's physiological oscillators</em> — not its psychological confidence — so high precision produces rigid, repetitive body mechanics, while low precision allows fluid, exploratory movement.</p>
+      </div>
+
       <div class="ex-section">
         <h4>What You Are Seeing</h4>
         <p>Six fish swim in two schools of three. Each fish is an <em>active inference agent</em> — it minimises variational free energy through perception (sensing the flow field via its lateral line) and action (generating thrust via tail-beats that shed vortices into the water).</p>
@@ -208,7 +212,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 
       <div class="ex-section">
         <h4>What the Sliders Control</h4>
-        <p><strong>Π<sub>individual</sub></strong> controls precision at the individual level — how sharply each fish's oscillators are tuned. High precision means rigid, stereotyped movements. Low precision means fluid, exploratory swimming. This corresponds to the inverse variance of each agent's generative model predictions.</p>
+        <p><strong>Π<sub>individual</sub></strong> controls precision at the individual level — how tightly each fish's body oscillators (tail-beat, gills, pectoral fins) are constrained. High precision means narrow variance: the oscillators lock into rigid, repetitive patterns and the fish exploits a fixed motor programme. Low precision means broad variance: the oscillators are loosely tuned, producing fluid, variable swimming that explores new trajectories. This is precision as <em>inverse variance of the generative model</em> (Π = 1/σ²), not as colloquial "confidence."</p>
         <p><strong>Π<sub>within-group</sub></strong> controls how permeable the within-group blanket is. High values create tight, bonded trios. Low values leave fish swimming independently.</p>
         <p><strong>Π<sub>between-groups</sub></strong> controls cross-group blanket permeability. Push this high enough and the two schools merge into a single collective agent with a shared generative model.</p>
         <p><strong>Prediction error drive</strong> controls how strongly the fish are driven to move — analogous to the strength of proprioceptive predictions that generate action via classical reflex arcs.</p>
@@ -223,8 +227,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
         <h4>Try This</h4>
         <p>1. Set Π<sub>between-groups</sub> to minimum. Watch the two schools drift apart — two separate agents with independent generative models.</p>
         <p>2. Slowly raise Π<sub>between-groups</sub>. Watch generalised synchrony build between the schools until they merge — a single collective agent emerges.</p>
-        <p>3. Now raise Π<sub>individual</sub> to maximum. Each fish becomes rigid and stereotyped — high precision suppresses flexibility. This is the exploration–exploitation trade-off in action.</p>
-        <p>4. Lower Π<sub>individual</sub> to minimum. Fish become unpredictable. The group blanket weakens because mutual predictability (generalised synchrony) cannot accumulate.</p>
+        <p>3. Now raise Π<sub>individual</sub> to maximum. Each fish's body oscillators lock into tight, repetitive cycles — high precision constrains the motor pattern, producing rigid, stereotyped swimming. The fish exploits a narrow behavioural repertoire.</p>
+        <p>4. Lower Π<sub>individual</sub> to minimum. The oscillators loosen — each fish moves with wide, variable strokes and explores diverse trajectories. But this variability makes pairs less predictable to one another, so the group blanket weakens: generalised synchrony cannot accumulate.</p>
       </div>
     </div>
 
@@ -281,7 +285,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 
       <div class="ex-section">
         <h4>The Exploration–Exploitation Balance</h4>
-        <p>Precision acts as an inverse temperature governing the explore–exploit trade-off. High individual precision (low variance) means exploitation: the fish repeat known patterns. Low individual precision (high variance) means exploration: fish sample new trajectories. The optimal balance depends on context.</p>
+        <p>Precision acts as an inverse temperature governing the explore–exploit trade-off. High individual precision (low variance) means exploitation: the fish's body oscillators lock into tight, repetitive cycles, and it repeats known motor patterns. Low individual precision (high variance) means exploration: loose oscillators produce variable, fluid movement that samples new trajectories.</p>
+        <p>Note that in this simulation, precision governs the <em>tightness of the agent's physiological dynamics</em> — its motor coordination — rather than a psychological sense of "confidence about the world." A fish with high precision is not bolder; it is more mechanically constrained. The application of precision to different aspects of a generative model (sensory likelihood, transition dynamics, policy selection) produces different behavioural effects depending on the system being modelled.</p>
       </div>
     </div>
 
