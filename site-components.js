@@ -39,7 +39,7 @@
               <h4>Our People</h4>
               <ul>
                 <li><a href="${basePath}sab.html" role="menuitem">Scientific Advisory Board<span class="menu-desc">Research &amp; rigour</span></a></li>
-                <li><a href="${basePath}index.html#people" role="menuitem">Board of Directors<span class="menu-desc">Governance and leadership</span></a></li>
+                <li><a href="${basePath}bod.html" role="menuitem">Board of Directors<span class="menu-desc">Governance and leadership</span></a></li>
               </ul>
             </div>
             <div class="mega-menu-col">
@@ -99,7 +99,7 @@
       <a href="${basePath}index.html#vision-mission">Vision, Mission &amp; Objectives</a>
       <div class="mobile-subnav-label">Our People</div>
       <a href="${basePath}sab.html">Scientific Advisory Board</a>
-      <a href="${basePath}index.html#people">Board of Directors</a>
+      <a href="${basePath}bod.html">Board of Directors</a>
       <div class="mobile-subnav-label">Our Work</div>
       <a href="${basePath}index.html#research">Past Projects</a>
       <a href="${basePath}index.html#research">Current Projects</a>
@@ -135,7 +135,7 @@
         <h4>About</h4>
         <ul>
           <li><a href="${basePath}index.html#vision-mission">Vision &amp; Mission</a></li>
-          <li><a href="${basePath}index.html#people">Our People</a></li>
+          <li><a href="${basePath}bod.html">Our People</a></li>
           <li><a href="${basePath}index.html#history">History</a></li>
         </ul>
       </div>
