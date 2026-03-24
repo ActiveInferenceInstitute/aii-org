@@ -47,17 +47,14 @@
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 56px;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
       align-items: center;
     }
     .textbook-cover {
       aspect-ratio: 3 / 4;
       background: #f0eeec;
       border: 1px solid var(--grey-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
       overflow: hidden;
     }
@@ -74,23 +71,6 @@
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-    .cover-placeholder {
-      text-align: center;
-      padding: 30px;
-    }
-    .cover-placeholder .cover-icon {
-      font-size: 48px;
-      color: var(--grey-light);
-      margin-bottom: 16px;
-      display: block;
-    }
-    .cover-placeholder p {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 13px;
-      color: var(--grey-light);
-      line-height: 1.6;
-      font-style: italic;
     }
     .textbook-info h2 {
       font-size: 1.8rem;
@@ -169,7 +149,7 @@
 
     /* ═══ CHAPTER GROUPING ═══ */
     .chapter-group {
-      margin-bottom: 64px;
+      margin-bottom: 56px;
     }
     .chapter-group:last-child {
       margin-bottom: 0;
@@ -182,53 +162,50 @@
       color: var(--accent-deep);
       padding-bottom: 14px;
       border-bottom: 1px solid var(--grey-border);
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
-    /* ═══ SIM CARDS ═══ */
+    /* ═══ COMPACT SIM CARDS ═══ */
     .sims-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
     .sim-card {
       background: #ffffff;
       border: 1px solid var(--grey-border);
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
       text-decoration: none;
       color: inherit;
-      display: block;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      position: relative;
     }
     .sim-card::after {
       content: '';
       position: absolute;
       bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
       width: 0;
-      height: 3px;
+      height: 2px;
       background: var(--accent);
       transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .sim-card:hover {
       border-color: var(--accent);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     }
     .sim-card:hover::after {
-      width: 60px;
+      width: 100%;
     }
 
     .sim-thumb {
-      width: 100%;
-      aspect-ratio: 16 / 9;
+      width: 140px;
+      height: 140px;
       background: linear-gradient(135deg, #1a2a3a 0%, #0d1825 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
       overflow: hidden;
+      flex-shrink: 0;
     }
     .sim-thumb img {
       width: 100%;
@@ -236,39 +213,35 @@
       object-fit: cover;
       display: block;
     }
-    .sim-thumb .thumb-label {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 12px;
-      font-style: italic;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.5px;
-    }
 
     .sim-body {
-      padding: 28px 28px 32px;
+      padding: 18px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 140px;
     }
 
-    /* ═══ META ROW: chapter ref + difficulty tag ═══ */
+    /* ═══ META ROW ═══ */
     .sim-meta {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
       gap: 12px;
+      margin-bottom: 6px;
     }
     .sim-chapter-ref {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       color: var(--accent);
     }
     .difficulty-tag {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 10px;
+      font-size: 9px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      padding: 3px 12px;
+      padding: 2px 10px;
       flex-shrink: 0;
     }
     .difficulty-tag.beginner {
@@ -288,44 +261,31 @@
     }
 
     .sim-title {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 400;
       color: var(--grey-dark);
-      margin-bottom: 12px;
-      line-height: 1.4;
+      margin-bottom: 6px;
+      line-height: 1.35;
     }
     .sim-desc {
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       color: var(--grey-mid);
-      line-height: 1.75;
-      margin-bottom: 18px;
+      line-height: 1.7;
+      margin-bottom: 10px;
     }
     .sim-concepts {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
     .concept-tag {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.3px;
       color: var(--grey-light);
       background: var(--grey-pale);
-      padding: 4px 12px;
+      padding: 2px 10px;
       border: 1px solid var(--grey-border);
-    }
-
-    /* ═══ FEATURED (full-width) ═══ */
-    .sim-card.featured {
-      grid-column: 1 / -1;
-    }
-    .sim-card.featured .sim-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .sim-card.featured .sim-thumb {
-      aspect-ratio: auto;
-      min-height: 280px;
     }
 
     /* ═══ CONTRIBUTION CTA ═══ */
@@ -408,8 +368,8 @@
     /* ═══ RESPONSIVE ═══ */
     @media (max-width: 1024px) {
       .textbook-inner {
-        grid-template-columns: 200px 1fr;
-        gap: 36px;
+        grid-template-columns: 160px 1fr;
+        gap: 32px;
       }
     }
     @media (max-width: 768px) {
@@ -417,24 +377,38 @@
       .textbook-section { padding: 50px 20px; }
       .textbook-inner {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 28px;
       }
       .textbook-cover {
-        max-width: 220px;
+        max-width: 180px;
         margin: 0 auto;
       }
       .textbook-info { text-align: center; }
       .sims-section { padding: 60px 20px; }
-      .sims-grid { grid-template-columns: 1fr; }
-      .sim-card.featured .sim-inner {
-        grid-template-columns: 1fr;
+      .sim-card {
+        grid-template-columns: 100px 1fr;
       }
-      .sim-card.featured .sim-thumb {
-        min-height: 200px;
+      .sim-thumb {
+        width: 100px;
+        height: 100px;
       }
+      .sim-body {
+        padding: 14px 16px;
+        min-height: 100px;
+      }
+      .sim-title { font-size: 1rem; }
+      .sim-desc { font-size: 0.82rem; }
       .section-header h2 { font-size: 1.8rem; }
       .contrib-section { padding: 50px 20px; }
-      .sim-meta { flex-wrap: wrap; }
+    }
+    @media (max-width: 480px) {
+      .sim-card {
+        grid-template-columns: 1fr;
+      }
+      .sim-thumb {
+        width: 100%;
+        height: 160px;
+      }
     }
   </style>
 </head>
@@ -445,24 +419,20 @@
 <!-- ═══ HERO ═══ -->
 <section class="page-hero">
   <h1>Interactive Simulations</h1>
-  <p>Hands-on demonstrations of the Free Energy Principle and Active Inference, built as companions to the foundational textbook. Learn by doing – adjust parameters, watch systems adapt, and build intuition for how adaptive behaviour emerges from first principles.</p>
+  <p>Hands-on demonstrations of the Free Energy Principle and Active Inference, built as companions to the foundational textbook. Learn by doing, adjust parameters, watch systems adapt, and build intuition for how adaptive behaviour emerges from first principles.</p>
 </section>
 
 <!-- ═══ TEXTBOOK ═══ -->
 <section class="textbook-section">
   <div class="textbook-inner">
     <div class="textbook-cover">
-      <!-- Replace with: <img src="images/textbook-cover.jpg" alt="Active Inference: The Free Energy Principle in Mind, Brain, and Behavior"> -->
-      <div class="cover-placeholder">
-        <span class="cover-icon">&#x03C0;</span>
-        <p>Active Inference<br>The Free Energy Principle in Mind, Brain, and Behavior</p>
-      </div>
+      <img src="images/textbook-cover.jpg" alt="Active Inference: The Free Energy Principle in Mind, Brain, and Behavior">
     </div>
     <div class="textbook-info">
       <p class="section-label">Foundation Text</p>
       <h2>Active Inference</h2>
       <p class="textbook-authors">Thomas Parr, Giovanni Pezzulo &amp; Karl J. Friston</p>
-      <p class="textbook-desc">The definitive guide to the Free Energy Principle and Active Inference framework. These simulations follow the textbook's progression – from the thermodynamic foundations of self-organisation through generative models, belief updating, and policy selection in partially observable environments.</p>
+      <p class="textbook-desc">The definitive guide to the Free Energy Principle and Active Inference framework. These simulations follow the textbook's progression, from the thermodynamic foundations of self-organisation through generative models, belief updating, and policy selection in partially observable environments.</p>
       <p class="textbook-meta">MIT Press, 2022 &middot; ISBN 978-0-262-04535-3</p>
       <a href="https://mitpress.mit.edu/9780262045353/active-inference/" target="_blank" class="textbook-link">View at MIT Press</a>
     </div>
@@ -478,44 +448,36 @@
       <p>Each simulation pairs interactive demonstrations with direct quotations from the textbook, step-by-step tutorials, and comprehensive glossaries of key concepts.</p>
     </div>
 
-    <!-- ══════════════════════════════════════════════
-         BEGINNER – First Principles
-         ══════════════════════════════════════════════ -->
+    <!-- ═══ BEGINNER ═══ -->
     <div class="chapter-group">
       <div class="chapter-group-label">First Principles – What Is Active Inference?</div>
       <div class="sims-grid">
 
-        <!-- Living Ink (Featured) -->
-        <a href="Ink.html" class="sim-card featured">
-          <div class="sim-inner">
-            <div class="sim-thumb">
-              <!-- Replace with: <img src="images/sim-ink.jpg" alt="Living Ink – Life Emerges simulation screenshot"> -->
-              <span class="thumb-label">Screenshot placeholder</span>
+        <a href="Ink.html" class="sim-card">
+          <div class="sim-thumb">
+            <img src="images/sim-ink.jpg" alt="Living Ink simulation screenshot">
+          </div>
+          <div class="sim-body">
+            <div class="sim-meta">
+              <div class="sim-chapter-ref">Chapters 1&ndash;3</div>
+              <span class="difficulty-tag beginner">Beginner</span>
             </div>
-            <div class="sim-body">
-              <div class="sim-meta">
-                <div class="sim-chapter-ref">Chapters 1&ndash;3</div>
-                <span class="difficulty-tag beginner">Beginner</span>
-              </div>
-              <div class="sim-title">Life Emerges – Living Ink</div>
-              <p class="sim-desc">Watch particles self-organise from chaos into a living system. Toggle between entropy-maximising dissipation and free-energy-minimising life to see the fundamental difference the FEP describes. Includes a faithful recreation of Figure 3.3 from the textbook (nonequilibrium steady state vs dissipation), a comprehensive glossary, real-time variational free energy computation, and commentary from Virtual Karl Friston.</p>
-              <div class="sim-concepts">
-                <span class="concept-tag">Free Energy</span>
-                <span class="concept-tag">Self-Organisation</span>
-                <span class="concept-tag">NESS</span>
-                <span class="concept-tag">Entropy</span>
-                <span class="concept-tag">Markov Blanket</span>
-                <span class="concept-tag">Figure 3.3</span>
-              </div>
+            <div class="sim-title">Life Emerges – Living Ink</div>
+            <p class="sim-desc">Watch particles self-organise from chaos into a living system. Toggle between entropy-maximising dissipation and free-energy-minimising life to see the fundamental difference the FEP describes. Includes a faithful recreation of Figure 3.3, a comprehensive glossary, real-time variational free energy computation, and commentary from Virtual Karl Friston.</p>
+            <div class="sim-concepts">
+              <span class="concept-tag">Free Energy</span>
+              <span class="concept-tag">Self-Organisation</span>
+              <span class="concept-tag">NESS</span>
+              <span class="concept-tag">Entropy</span>
+              <span class="concept-tag">Markov Blanket</span>
+              <span class="concept-tag">Figure 3.3</span>
             </div>
           </div>
         </a>
 
-        <!-- Apple or Frog -->
         <a href="Apple-Frog.html" class="sim-card">
           <div class="sim-thumb">
-            <!-- Replace with: <img src="images/sim-apple-frog.jpg" alt="Apple or Frog simulation screenshot"> -->
-            <span class="thumb-label">Screenshot placeholder</span>
+            <img src="images/sim-apple-frog.jpg" alt="Apple or Frog simulation screenshot">
           </div>
           <div class="sim-body">
             <div class="sim-meta">
@@ -523,7 +485,7 @@
               <span class="difficulty-tag beginner">Beginner</span>
             </div>
             <div class="sim-title">Apple or Frog? – Perception as Inference</div>
-            <p class="sim-desc">A step-by-step tutorial demonstrating how the brain resolves ambiguous sensory data through Bayesian inference. Adjust prior beliefs and likelihoods to see how perception emerges from the interplay between expectation and observation – two hypotheses, one ambiguous stimulus, and the mathematics of how we decide what we see.</p>
+            <p class="sim-desc">A step-by-step tutorial demonstrating how the brain resolves ambiguous sensory data through Bayesian inference. Adjust prior beliefs and likelihoods to see how perception emerges from the interplay between expectation and observation: two hypotheses, one ambiguous stimulus, and the mathematics of how we decide what we see.</p>
             <div class="sim-concepts">
               <span class="concept-tag">Bayesian Inference</span>
               <span class="concept-tag">Prior Beliefs</span>
@@ -533,11 +495,9 @@
           </div>
         </a>
 
-        <!-- Surprise Fish -->
         <a href="fep_surprise.html" class="sim-card">
           <div class="sim-thumb">
-            <!-- Replace with: <img src="images/sim-surprise.jpg" alt="Surprise Minimisation simulation screenshot"> -->
-            <span class="thumb-label">Screenshot placeholder</span>
+            <img src="images/sim-surprise.jpg" alt="Surprise Minimisation simulation screenshot">
           </div>
           <div class="sim-body">
             <div class="sim-meta">
@@ -555,11 +515,9 @@
           </div>
         </a>
 
-        <!-- Fish School -->
         <a href="school6.html" class="sim-card">
           <div class="sim-thumb">
-            <!-- Replace with: <img src="images/sim-school.jpg" alt="Collective Active Inference – fish schooling simulation screenshot"> -->
-            <span class="thumb-label">Screenshot placeholder</span>
+            <img src="images/sim-school.jpg" alt="Fish schooling simulation screenshot">
           </div>
           <div class="sim-body">
             <div class="sim-meta">
@@ -581,18 +539,14 @@
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════
-         INTERMEDIATE – The Full Framework
-         ══════════════════════════════════════════════ -->
+    <!-- ═══ INTERMEDIATE ═══ -->
     <div class="chapter-group">
       <div class="chapter-group-label">The Full Framework – Generative Models &amp; Morphogenesis</div>
       <div class="sims-grid">
 
-        <!-- From Beliefs to Action -->
         <a href="fep_tutorial (3).html" class="sim-card">
           <div class="sim-thumb">
-            <!-- Replace with: <img src="images/sim-beliefs-action.jpg" alt="From Beliefs to Action tutorial screenshot"> -->
-            <span class="thumb-label">Screenshot placeholder</span>
+            <img src="images/sim-beliefs-action.jpg" alt="From Beliefs to Action tutorial screenshot">
           </div>
           <div class="sim-body">
             <div class="sim-meta">
@@ -600,7 +554,7 @@
               <span class="difficulty-tag intermediate">Intermediate</span>
             </div>
             <div class="sim-title">From Beliefs to Action – The Complete Loop</div>
-            <p class="sim-desc">An eight-step guided tutorial that walks through the entire Active Inference cycle. Starting from a fish's generative model and its beliefs about the world, you progress through prediction error, variational free energy, prior preferences, policy evaluation, counterfactual reasoning, and expected free energy – building up the full framework one concept at a time.</p>
+            <p class="sim-desc">An eight-step guided tutorial that walks through the entire Active Inference cycle. Starting from a fish's generative model and its beliefs about the world, you progress through prediction error, variational free energy, prior preferences, policy evaluation, counterfactual reasoning, and expected free energy, building up the full framework one concept at a time.</p>
             <div class="sim-concepts">
               <span class="concept-tag">Generative Model</span>
               <span class="concept-tag">VFE</span>
@@ -611,11 +565,9 @@
           </div>
         </a>
 
-        <!-- Self-Evidencing Tree -->
         <a href="self_evidencing_tree.html" class="sim-card">
           <div class="sim-thumb">
-            <!-- Replace with: <img src="images/sim-tree.jpg" alt="Self-Evidencing Tree simulation screenshot"> -->
-            <span class="thumb-label">Screenshot placeholder</span>
+            <img src="images/sim-tree.jpg" alt="Self-Evidencing Tree simulation screenshot">
           </div>
           <div class="sim-body">
             <div class="sim-meta">
@@ -637,43 +589,35 @@
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════
-         ADVANCED – Deep Structure
-         ══════════════════════════════════════════════ -->
+    <!-- ═══ ADVANCED ═══ -->
     <div class="chapter-group">
       <div class="chapter-group-label">Advanced – Planning, Hierarchy &amp; Deep Structure</div>
       <div class="sims-grid">
 
-        <!-- T-Maze (Featured) -->
-        <a href="T_Maze (FEP).html" class="sim-card featured">
-          <div class="sim-inner">
-            <div class="sim-thumb">
-              <!-- Replace with: <img src="images/sim-tmaze.jpg" alt="T-Maze Expected Free Energy simulation screenshot"> -->
-              <span class="thumb-label">Screenshot placeholder</span>
+        <a href="T_Maze (FEP).html" class="sim-card">
+          <div class="sim-thumb">
+            <img src="images/sim-tmaze.jpg" alt="T-Maze Expected Free Energy simulation screenshot">
+          </div>
+          <div class="sim-body">
+            <div class="sim-meta">
+              <div class="sim-chapter-ref">Chapter 7</div>
+              <span class="difficulty-tag advanced">Advanced</span>
             </div>
-            <div class="sim-body">
-              <div class="sim-meta">
-                <div class="sim-chapter-ref">Chapter 7</div>
-                <span class="difficulty-tag advanced">Advanced</span>
-              </div>
-              <div class="sim-title">T-Maze – Expected Free Energy</div>
-              <p class="sim-desc">The canonical Active Inference demonstration. Watch an agent navigate a T-maze by evaluating policies through Expected Free Energy – balancing the epistemic value of information-seeking against the pragmatic value of reward. Adjust precision and epistemic weighting in real time to see how planning under uncertainty unfolds in a partially observable environment.</p>
-              <div class="sim-concepts">
-                <span class="concept-tag">Expected Free Energy</span>
-                <span class="concept-tag">Epistemic Value</span>
-                <span class="concept-tag">Pragmatic Value</span>
-                <span class="concept-tag">POMDP</span>
-                <span class="concept-tag">Policy Selection</span>
-              </div>
+            <div class="sim-title">T-Maze – Expected Free Energy</div>
+            <p class="sim-desc">The canonical Active Inference demonstration. Watch an agent navigate a T-maze by evaluating policies through Expected Free Energy, balancing the epistemic value of information-seeking against the pragmatic value of reward. Adjust precision and epistemic weighting in real time to see how planning under uncertainty unfolds in a partially observable environment.</p>
+            <div class="sim-concepts">
+              <span class="concept-tag">Expected Free Energy</span>
+              <span class="concept-tag">Epistemic Value</span>
+              <span class="concept-tag">Pragmatic Value</span>
+              <span class="concept-tag">POMDP</span>
+              <span class="concept-tag">Policy Selection</span>
             </div>
           </div>
         </a>
 
-        <!-- Hierarchical Blankets -->
         <a href="hierarchical_blankets.html" class="sim-card">
           <div class="sim-thumb">
-            <!-- Replace with: <img src="images/sim-blankets.jpg" alt="Hierarchical Markov Blankets simulation screenshot"> -->
-            <span class="thumb-label">Screenshot placeholder</span>
+            <img src="images/sim-blankets.jpg" alt="Hierarchical Markov Blankets simulation screenshot">
           </div>
           <div class="sim-body">
             <div class="sim-meta">
@@ -681,7 +625,7 @@
               <span class="difficulty-tag advanced">Advanced</span>
             </div>
             <div class="sim-title">Hierarchical Markov Blankets</div>
-            <p class="sim-desc">Visualise how Markov blankets nest within one another – from cells to organs to organisms. This simulation demonstrates the recursive structure of self-organisation, where each level maintains its own statistical boundary while participating in the dynamics of the whole.</p>
+            <p class="sim-desc">Visualise how Markov blankets nest within one another, from cells to organs to organisms. This simulation demonstrates the recursive structure of self-organisation, where each level maintains its own statistical boundary while participating in the dynamics of the whole.</p>
             <div class="sim-concepts">
               <span class="concept-tag">Markov Blankets</span>
               <span class="concept-tag">Hierarchy</span>
@@ -708,6 +652,11 @@
       <a href="https://discord.com/invite/FSUvYD2p9S" target="_blank" class="contrib-link outline">Join Discord</a>
     </div>
   </div>
+</section>
+
+<!-- ═══ CREDIT ═══ -->
+<section class="sim-credit">
+  <p>Simulations developed by <a href="https://www.temporalgrammar.ai" target="_blank">Alexander Sabine</a> &middot; Active Inference Institute Board of Directors &middot; <a href="mailto:Alexander@activeinference.institute">Alexander@activeinference.institute</a></p>
 </section>
 
 <div id="site-footer"></div>
