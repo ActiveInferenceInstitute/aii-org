@@ -69,7 +69,7 @@
               <h4>Explore</h4>
               <ul>
                 <li><a href="https://www.youtube.com/c/ActiveInference" target="_blank" role="menuitem">Livestreams &amp; Lectures<span class="menu-desc">Weekly presentations on YouTube</span></a></li>
-                <li><a href="${basePath}index.html#tutorials" role="menuitem">Interactive Simulations<span class="menu-desc">Hands-on FEP and Active Inference demos</span></a></li>
+                <li><a href="${basePath}simulations.html" role="menuitem">Interactive Simulations<span class="menu-desc">Hands-on FEP and Active Inference demos</span></a></li>
               </ul>
             </div>
             <div class="mega-menu-col">
@@ -114,7 +114,7 @@
       <a href="${basePath}index.html#education">Textbook Group</a>
       <div class="mobile-subnav-label">Explore</div>
       <a href="https://www.youtube.com/c/ActiveInference" target="_blank">Livestreams &amp; Lectures</a>
-      <a href="${basePath}index.html#tutorials">Interactive Simulations</a>
+      <a href="${basePath}simulations.html">Interactive Simulations</a>
     </div>
   </div>
   <div class="mobile-nav-section"><a href="${basePath}index.html#research">Research</a></div>
@@ -142,7 +142,7 @@
       <div class="footer-col">
         <h4>Learn</h4>
         <ul>
-          <li><a href="${basePath}index.html#tutorials">Tutorials</a></li>
+          <li><a href="${basePath}simulations.html">Tutorials</a></li>
           <li><a href="${basePath}index.html#education">Courses</a></li>
           <li><a href="${basePath}index.html#education">Textbook Group</a></li>
         </ul>
