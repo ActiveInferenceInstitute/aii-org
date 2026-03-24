@@ -31,7 +31,7 @@
             <div class="mega-menu-col">
               <h4>Our Story</h4>
               <ul>
-                <li><a href="${basePath}index.html#history" role="menuitem">History<span class="menu-desc">From founding to present day</span></a></li>
+                <li><a href="${basePath}history.html" role="menuitem">History<span class="menu-desc">From founding to present day</span></a></li>
                 <li><a href="${basePath}index.html#vision-mission" role="menuitem">Vision, Mission &amp; Objectives<span class="menu-desc">What drives us forward</span></a></li>
               </ul>
             </div>
@@ -95,7 +95,7 @@
     <button class="mobile-nav-toggle" data-target="mobile-about">About <span class="mobile-chevron"></span></button>
     <div class="mobile-subnav" id="mobile-about">
       <div class="mobile-subnav-label">Our Story</div>
-      <a href="${basePath}index.html#history">History</a>
+      <a href="${basePath}history.html">History</a>
       <a href="${basePath}index.html#vision-mission">Vision, Mission &amp; Objectives</a>
       <div class="mobile-subnav-label">Our People</div>
       <a href="${basePath}sab.html">Scientific Advisory Board</a>
@@ -136,7 +136,7 @@
         <ul>
           <li><a href="${basePath}index.html#vision-mission">Vision &amp; Mission</a></li>
           <li><a href="${basePath}bod.html">Our People</a></li>
-          <li><a href="${basePath}index.html#history">History</a></li>
+          <li><a href="${basePath}history.html">History</a></li>
         </ul>
       </div>
       <div class="footer-col">
