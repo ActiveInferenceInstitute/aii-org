@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our History – Active Inference Institute</title>
+  <link rel="stylesheet" href="site.css">
+  <style>
+    /* ═══ PAGE HERO ═══ */
+    .page-hero {
+      background: var(--black);
+      padding: 160px 40px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(180, 70, 45, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .page-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 660px;
+      margin: 0 auto;
+      line-height: 1.8;
+      position: relative;
+    }
+
+    /* ═══ TIMELINE SECTION ═══ */
+    .timeline-section {
+      background: var(--white);
+      padding: 80px 40px 100px;
+    }
+    .timeline {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ═══ CENTRAL DOTTED LINE ═══ */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      border-left: 2px dotted var(--grey-border);
+    }
+
+    /* ═══ YEAR NODE ═══ */
+    .tl-node {
+      position: relative;
+      text-align: center;
+      padding-bottom: 0;
+    }
+
+    /* The year badge - sits on the line */
+    .tl-badge {
+      display: inline-block;
+      position: relative;
+      z-index: 3;
+      background: var(--black);
+      color: var(--white);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+      padding: 10px 28px;
+      margin-bottom: 0;
+    }
+    .tl-node.current .tl-badge {
+      background: var(--accent);
+    }
+
+    /* Small dot above and below each badge to anchor to the line */
+    .tl-connector {
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Theme title */
+    .tl-theme {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--accent-deep);
+      margin: 16px 0 12px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Content card */
+    .tl-content {
+      background: var(--grey-pale);
+      border: 1px solid var(--grey-border);
+      padding: 28px 32px;
+      margin: 0 auto 0;
+      max-width: 600px;
+      text-align: left;
+      font-size: 0.95rem;
+      color: var(--grey-mid);
+      line-height: 1.85;
+    }
+    .tl-content strong {
+      color: var(--grey-dark);
+      font-weight: 400;
+    }
+
+    /* Spacer between nodes - just breathing room */
+    .tl-spacer {
+      height: 48px;
+      position: relative;
+    }
+
+    /* Small diamond midway down each spacer */
+    .tl-spacer::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 6px;
+      height: 6px;
+      border: 1px solid var(--grey-border);
+      background: var(--white);
+      z-index: 3;
+    }
+
+    /* ═══ CTA ═══ */
+    .history-cta {
+      background: #f8f8f7;
+      padding: 80px 40px;
+      text-align: center;
+      border-top: 1px solid var(--grey-border);
+    }
+    .history-cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .history-cta h2 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--grey-dark);
+      margin-bottom: 16px;
+    }
+    .history-cta p {
+      font-size: 1.05rem;
+      color: var(--grey-mid);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .history-cta .btn {
+      display: inline-block;
+      padding: 15px 34px;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    .history-cta .btn:hover {
+      background: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(197,74,42,0.3);
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 768px) {
+      .page-hero { padding: 120px 20px 60px; }
+      .timeline-section { padding: 50px 16px 60px; }
+      .tl-content {
+        padding: 20px 22px;
+        font-size: 0.9rem;
+      }
+      .tl-badge { font-size: 13px; padding: 8px 22px; }
+      .tl-theme { font-size: 1rem; }
+      .tl-spacer { height: 36px; }
+      .history-cta { padding: 50px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- ═══ HERO ═══ -->
+<section class="page-hero">
+  <h1>Our History</h1>
+  <p>From a shared curiosity about Active Inference to a global open-science institute. Six years of community-driven growth, one year at a time.</p>
+</section>
+
+<!-- ═══ TIMELINE ═══ -->
+<section class="timeline-section" id="history">
+  <div class="timeline">
+
+    <!-- 2020 -->
+    <div class="tl-node">
+      <div class="tl-connector"></div>
+      <div class="tl-badge">2020</div>
+      <div class="tl-theme">Origins</div>
+      <div class="tl-content">A group of researchers and enthusiasts met online around a shared interest in Active Inference. The collaboration produced its first publication, <strong>"Active Inference &amp; Behaviour Engineering for Teams"</strong> (Vyatkin et al., 2020), and the group's first livestream aired on 28 July 2020. From these early conversations about accessibility, rigour, and open science, the <strong>Active Inference Lab</strong> (ActInfLab) was formed.</div>
+    </div>
+
+    <div class="tl-spacer"></div>
+
+    <!-- 2021 -->
+    <div class="tl-node">
+      <div class="tl-connector"></div>
+      <div class="tl-badge">2021</div>
+      <div class="tl-theme">First Operations</div>
+      <div class="tl-content">ActInfLab began formal operations with three organisational units: Education, Communication, and Tools. Dozens of participants from around the world joined through educational livestreams, open-source publishing, and collaborative research. The <strong>Active Inference Journal</strong> and the <strong>Active Inference Ontology</strong> project launched, and the quarterly roundtable tradition began. In June, ActInfLab hosted the <strong>1st Applied Active Inference Symposium</strong>, featuring Professor Karl Friston.</div>
+    </div>
+
+    <div class="tl-spacer"></div>
+
+    <!-- 2022 -->
+    <div class="tl-node">
+      <div class="tl-connector"></div>
+      <div class="tl-badge">2022</div>
+      <div class="tl-theme">Institutionalisation</div>
+      <div class="tl-content">A cohort-based <strong>Scientific Advisory Board</strong> was established. The foundational textbook <strong>"Active Inference"</strong> by Parr, Pezzulo, and Friston was published by MIT Press, and the Institute launched its <strong>Textbook Group</strong> (now in its seventh cohort) alongside an <strong>internship programme</strong>. Mid-year, ActInfLab became <strong>The Active Inference Institute</strong>, a nonprofit organisation registered in Delaware, with a Board of Directors holding its first meeting at year's end.</div>
+    </div>
+
+    <div class="tl-spacer"></div>
+
+    <!-- 2023 -->
+    <div class="tl-node">
+      <div class="tl-connector"></div>
+      <div class="tl-badge">2023</div>
+      <div class="tl-theme">Growth</div>
+      <div class="tl-content">The Institute expanded its educational offerings with dedicated <strong>Physics</strong> and <strong>Social Science</strong> courses, and launched the <strong>Active Inference Insights podcast</strong>. Grant research began in earnest. The overview publication <strong>"The Active Inference Institute and Active Inference Ecosystem"</strong> provided a comprehensive account of the organisation's structure and mission. The <strong>2nd Applied Active Inference Symposium</strong> brought the growing community together.</div>
+    </div>
+
+    <div class="tl-spacer"></div>
+
+    <!-- 2024 -->
+    <div class="tl-node">
+      <div class="tl-connector"></div>
+      <div class="tl-badge">2024</div>
+      <div class="tl-theme">Recognition</div>
+      <div class="tl-content">The Institute received official <strong>501(c)(3) tax-exempt status</strong>, achieved with pro bono support from the Fried Frank law firm. A <strong>Fellows programme</strong> launched to recognise substantial contributions through publications and presentations. The <strong>mentorship programme</strong> and a formal <strong>Prepare &amp; Measure</strong> system for tracking participation and impact were introduced. The Scientific Advisory Board welcomed its largest cohort to date, and the <strong>4th Applied Active Inference Symposium</strong> was held.</div>
+    </div>
+
+    <div class="tl-spacer"></div>
+
+    <!-- 2025 -->
+    <div class="tl-node">
+      <div class="tl-connector"></div>
+      <div class="tl-badge">2025</div>
+      <div class="tl-theme">Expansion</div>
+      <div class="tl-content">The Institute formalised a <strong>partnership with BIASlab</strong> at Eindhoven University of Technology (TU/e), bridging academic research in message-passing inference with the Institute's open-science mission. The <strong>AICACP</strong> project secured the Institute's first funded grant. In November, the <strong>5th Applied Active Inference Symposium</strong>, themed "Industry", brought together 45+ presenters across 30+ hours of sessions, with Karl Friston as keynote speaker.</div>
+    </div>
+
+    <div class="tl-spacer"></div>
+
+    <!-- 2026 -->
+    <div class="tl-node current">
+      <div class="tl-connector"></div>
+      <div class="tl-badge">2026</div>
+      <div class="tl-theme">Today</div>
+      <div class="tl-content">The Institute enters 2026 with a <strong>nine-member Board of Directors</strong>, over <strong>35 Scientific Advisory Board members</strong> in its fifth cohort, seven Research Fellows, and <strong>26+ active projects</strong> spanning education, research, and tool development. In March, MIT Press publishes <strong>"Fundamentals of Active Inference"</strong> by Sanjeev V. Namjoshi, an engineering-focused textbook developed in collaboration with the Institute since 2023 and endorsed by Karl Friston. Interactive simulations accompany the original textbook, the community continues to grow across Discord, YouTube, and collaborative research, and planning is underway for the 6th Applied Active Inference Symposium.</div>
+      <div class="tl-connector" style="margin-top: 12px;"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="history-cta">
+  <div class="history-cta-inner">
+    <h2>Write the Next Chapter</h2>
+    <p>The Institute is volunteer-led and open to all. Whether you are a researcher, student, engineer, or simply curious, there is a place for you here.</p>
+    <a href="index.html#community" class="btn">Get Involved</a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="site-components.js"></script>
+
+</body>
+</html>
