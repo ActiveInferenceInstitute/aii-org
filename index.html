@@ -4,185 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Active Inference Institute</title>
+  <link rel="stylesheet" href="site.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    :root {
-      --black: #0a0a0a;
-      --deep: #141210;
-      --charcoal: #1c1a18;
-      --white: #faf9f8;
-      --grey-dark: #1a1918;
-      --grey-mid: #5a5856;
-      --grey-light: #8a8886;
-      --grey-pale: #f5f4f2;
-      --grey-border: #e8e6e4;
-      --accent: #c54a2a;
-      --accent-deep: #b33d20;
-      --accent-light: #d4593a;
-      --accent-subtle: rgba(197, 74, 42, 0.08);
-      --gold: #c9a227;
-    }
-    
-    ::selection { background: var(--accent); color: var(--white); }
-    @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-    
-    body {
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      color: var(--grey-dark);
-      line-height: 1.7;
-      background: var(--white);
-    }
-
-    /* ═══ HEADER ═══ */
-    .header {
-      background: var(--black);
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .header-inner {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 72px; padding: 0 40px;
-    }
-    .logo-container canvas { display: block; }
-    
-    .nav-links { display: flex; gap: 0; align-items: center; }
-    
-    .nav-item {
-      position: relative; padding: 0 18px; height: 72px;
-      display: flex; align-items: center;
-    }
-    .nav-item > a, .nav-item > button {
-      color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px;
-      transition: color 0.3s ease; font-family: Georgia, 'Times New Roman', serif;
-      letter-spacing: 0.5px; background: none; border: none; cursor: pointer;
-      display: flex; align-items: center; gap: 5px; padding: 0;
-    }
-    .nav-item > a:hover, .nav-item > button:hover,
-    .nav-item.active > a, .nav-item.active > button { color: var(--white); }
-    
-    .nav-chevron {
-      width: 8px; height: 8px;
-      border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
-      transform: rotate(45deg) translateY(-2px); transition: transform 0.25s ease;
-      flex-shrink: 0;
-    }
-    .nav-item.active .nav-chevron { transform: rotate(-135deg) translateY(-2px); }
-    
-    .nav-cta-wrap { margin-left: 18px; }
-    .nav-cta {
-      background: var(--accent); color: var(--white) !important;
-      padding: 10px 24px; font-weight: 500; text-decoration: none;
-      font-size: 13px; font-family: Georgia, 'Times New Roman', serif;
-      letter-spacing: 0.5px; transition: background 0.3s ease;
-    }
-    .nav-cta:hover { background: var(--accent-light); }
-
-    /* ═══ MEGA MENU ═══ */
-    .mega-menu {
-      position: absolute; top: 72px; left: 50%; transform: translateX(-50%);
-      background: var(--white); border: 1px solid var(--grey-border);
-      border-top: 3px solid var(--accent);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08);
-      padding: 40px 44px 36px; display: none; z-index: 999; min-width: 680px;
-    }
-    .mega-menu.wide { min-width: 780px; }
-    .nav-item.active .mega-menu { display: block; }
-    .nav-item:first-child .mega-menu { left: 0; transform: none; }
-    
-    .mega-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-    
-    .mega-menu-col h4 {
-      font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
-      color: var(--accent-deep); margin-bottom: 20px;
-      font-family: Georgia, 'Times New Roman', serif;
-      padding-bottom: 12px; border-bottom: 1px solid var(--grey-border);
-    }
-    .mega-menu-col ul { list-style: none; }
-    .mega-menu-col li { margin-bottom: 4px; }
-    .mega-menu-col a {
-      color: var(--grey-dark); text-decoration: none; font-size: 14px;
-      font-family: Georgia, 'Times New Roman', serif;
-      display: block; padding: 8px 12px; margin: 0 -12px;
-      transition: all 0.2s ease; line-height: 1.4;
-    }
-    .mega-menu-col a:hover { background: var(--accent-subtle); color: var(--accent-deep); }
-    .mega-menu-col a .menu-desc {
-      display: block; font-size: 12px; color: var(--grey-light);
-      margin-top: 2px; line-height: 1.5;
-    }
-    .mega-menu-col a:hover .menu-desc { color: var(--grey-mid); }
-    
-    .mega-menu-overlay {
-      display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.15); z-index: 998;
-    }
-    .mega-menu-overlay.active { display: block; }
-
-    /* ═══ MOBILE ═══ */
-    .mobile-menu-btn {
-      display: none; background: transparent; border: none;
-      cursor: pointer; padding: 8px; z-index: 1001;
-    }
-    .mobile-menu-btn span {
-      display: block; width: 24px; height: 2px;
-      background: var(--white); margin: 5px 0; transition: all 0.3s ease;
-    }
-    .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
-    .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-    
-    .mobile-nav {
-      display: none; position: fixed; top: 60px; left: 0; right: 0; bottom: 0;
-      background: var(--black); padding: 20px; z-index: 999; overflow-y: auto;
-    }
-    .mobile-nav.active { display: block; }
-    .mobile-nav-section { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 16px 0; }
-    .mobile-nav-section:last-child { border-bottom: none; }
-    .mobile-nav-toggle {
-      display: flex; justify-content: space-between; align-items: center;
-      color: rgba(255,255,255,0.85); font-family: Georgia, 'Times New Roman', serif;
-      font-size: 15px; background: none; border: none; cursor: pointer;
-      width: 100%; padding: 8px 0; text-align: left;
-    }
-    .mobile-nav-toggle .mobile-chevron {
-      width: 8px; height: 8px;
-      border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
-      transform: rotate(45deg); transition: transform 0.25s ease;
-    }
-    .mobile-nav-toggle.open .mobile-chevron { transform: rotate(-135deg); }
-    .mobile-nav-section > a {
-      display: block; color: rgba(255,255,255,0.7); text-decoration: none;
-      font-family: Georgia, 'Times New Roman', serif; font-size: 15px; padding: 8px 0;
-    }
-    .mobile-subnav { display: none; padding-left: 16px; padding-top: 8px; }
-    .mobile-subnav.open { display: block; }
-    .mobile-subnav-label {
-      font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px;
-      color: var(--accent-light); margin: 12px 0 6px;
-      font-family: Georgia, 'Times New Roman', serif;
-    }
-    .mobile-subnav a {
-      display: block; font-size: 14px; padding: 6px 0;
-      color: rgba(255,255,255,0.55); text-decoration: none;
-      font-family: Georgia, 'Times New Roman', serif;
-    }
-    .mobile-subnav a:hover { color: var(--white); }
-    .mobile-nav-cta {
-      display: block; background: var(--accent); color: var(--white) !important;
-      text-align: center; padding: 14px; margin-top: 16px; text-decoration: none;
-      font-family: Georgia, 'Times New Roman', serif; font-size: 15px;
-    }
-    @media (max-width: 900px) {
-      .mobile-menu-btn { display: block; }
-      .nav-links { display: none; }
-    }
-
+    /* ═══ INDEX PAGE STYLES ═══ */
     /* ═══ HERO ═══ */
-    .hero { min-height: 115vh; position: relative; overflow: hidden; background: var(--black); }
+    .hero { min-height: 100vh; position: relative; overflow: hidden; background: var(--black); }
     .hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; will-change: opacity; }
     .hero-content {
       position: relative; z-index: 10; max-width: 1200px; margin: 0 auto;
@@ -205,10 +31,6 @@
       background: transparent; transition: all 0.3s ease;
     }
     .hero .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
-    .hero.inverted h1 { color: var(--grey-dark); }
-    .hero.inverted .hero-tagline { color: var(--grey-mid); }
-    .hero.inverted .btn-outline { border-color: var(--grey-dark); color: var(--grey-dark); }
-    .hero.inverted .btn-outline:hover { background: rgba(0,0,0,0.05); }
     
     .btn {
       padding: 15px 34px; font-size: 14px; text-decoration: none;
@@ -242,47 +64,61 @@
     .mission-section { background: var(--white); }
     .mission-content { max-width: 750px; margin: 0 auto; text-align: center; }
     .mission-content p { font-size: 1.2rem; color: var(--grey-mid); margin-bottom: 24px; line-height: 1.85; }
+    .mission-vision {
+      font-size: 1.5rem;
+      color: var(--grey-dark);
+      margin-bottom: 24px;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    
+    .mission-welcome {
+      margin-top: 36px;
+      font-size: 1rem;
+      color: var(--grey-light);
+    }
+
 
     /* VMO */
-    .vmo-section { background: #f8f8f7; border-top: 1px solid var(--grey-border); }
-    .vmo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--grey-border); }
-    .vmo-card { padding: 48px 36px; background: #ffffff; position: relative; }
-    .vmo-card:not(:last-child) { border-right: 1px solid var(--grey-border); }
-    .vmo-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-    .vmo-card:hover::before { transform: scaleX(1); }
-    .vmo-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-deep); margin-bottom: 16px; font-family: Georgia, 'Times New Roman', serif; }
-    .vmo-card h3 { font-size: 1.5rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 18px; line-height: 1.35; }
-    .vmo-card p { color: var(--grey-mid); font-size: 1rem; line-height: 1.8; }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /* History */
-    .history-section { background: var(--white); border-top: 1px solid var(--grey-border); }
-    .timeline { max-width: 800px; margin: 0 auto; position: relative; padding-left: 60px; }
-    .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 1px; background: var(--grey-border); }
-    .timeline-item { position: relative; margin-bottom: 48px; }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-dot { position: absolute; left: -48px; top: 6px; width: 12px; height: 12px; border: 2px solid var(--accent); background: var(--white); }
-    .timeline-item:first-child .timeline-dot { background: var(--accent); }
-    .timeline-year { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-deep); margin-bottom: 8px; font-family: Georgia, 'Times New Roman', serif; }
-    .timeline-item h4 { font-size: 1.15rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 8px; }
-    .timeline-item p { color: var(--grey-mid); font-size: 0.95rem; line-height: 1.75; }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /* People */
-    .people-section { background: #f8f8f7; border-top: 1px solid var(--grey-border); }
-    .people-subsection { margin-bottom: 64px; }
-    .people-subsection:last-child { margin-bottom: 0; }
-    .people-subsection-header { margin-bottom: 36px; }
-    .people-subsection-header h3 { font-size: 1.6rem; font-weight: 400; color: var(--grey-dark); }
-    .people-subsection-header p { color: var(--grey-mid); margin-top: 8px; font-size: 1rem; }
-    .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .person-card { background: #ffffff; border: 1px solid var(--grey-border); transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; }
-    .person-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.06); }
-    .person-photo { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, var(--grey-pale) 0%, var(--grey-border) 100%); display: flex; align-items: center; justify-content: center; }
-    .person-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .person-initials { font-size: 2rem; color: var(--grey-light); font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
-    .person-info { padding: 20px; }
-    .person-info h4 { font-size: 1rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 4px; }
-    .person-info .person-role { font-size: 12px; color: var(--accent-deep); font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.3px; margin-bottom: 8px; }
-    .person-info .person-bio { font-size: 13px; color: var(--grey-mid); line-height: 1.65; }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /* Pillars */
     .pillars-section { background: #f8f8f7; }
@@ -295,43 +131,43 @@
     .pillar-card p { color: var(--grey-mid); font-size: 1rem; line-height: 1.75; }
 
     /* Programs */
-    .programs-section { background: linear-gradient(to bottom, var(--deep) 0%, var(--black) 100%); color: var(--white); }
-    .programs-section .section-label { color: var(--accent-light); }
-    .programs-section .section-header h2 { color: var(--white); }
-    .programs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .program-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 40px; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; display: flex; flex-direction: column; }
-    .program-card p { flex-grow: 1; }
-    .program-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent) 0%, transparent 100%); opacity: 0; transition: opacity 0.25s ease; }
-    .program-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
-    .program-card:hover::before { opacity: 1; }
-    .program-card h3 { font-size: 1.3rem; font-weight: 400; margin-bottom: 14px; }
-    .program-card p { color: rgba(255,255,255,0.65); font-size: 1rem; margin-bottom: 20px; line-height: 1.75; }
-    .program-link { color: var(--accent-light); text-decoration: none; font-size: 14px; font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.3px; transition: color 0.2s; }
-    .program-link:hover { color: var(--white); }
-    .membership-card { grid-column: span 2; }
-    .membership-tiers { display: flex; gap: 16px; margin: 20px 0; }
-    .tier { flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 16px; display: flex; flex-direction: column; gap: 6px; transition: all 0.2s ease; }
-    .tier:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
-    .tier-name { font-size: 13px; color: var(--white); font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.3px; }
-    .tier-price { font-size: 1.4rem; color: var(--accent-light); font-family: Georgia, serif; }
-    .tier-desc { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; font-family: Georgia, 'Times New Roman', serif; }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /* Tutorials */
-    .tutorials-section { background: #f8f8f7; border-top: 1px solid var(--grey-border); }
-    .tutorials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
-    .tutorial-card { background: #ffffff; border: 1px solid var(--grey-border); padding: 36px; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; display: block; position: relative; }
-    .tutorial-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--accent); transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
-    .tutorial-card:hover { border-color: var(--accent); box-shadow: 0 8px 32px rgba(0,0,0,0.06); transform: translateY(-3px); }
-    .tutorial-card:hover::before { height: 100%; }
-    .tutorial-badge { display: inline-block; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 10px; margin-bottom: 16px; font-family: Georgia, 'Times New Roman', serif; }
-    .tutorial-badge.beginner { background: rgba(63,185,80,0.15); color: #2da44e; }
-    .tutorial-badge.foundational { background: rgba(201,162,39,0.15); color: #b8922a; }
-    .tutorial-badge.intermediate { background: rgba(88,166,255,0.15); color: #0969da; }
-    .tutorial-badge.advanced { background: rgba(197,74,42,0.15); color: var(--accent); }
-    .tutorial-card h3 { font-size: 1.35rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 14px; }
-    .tutorial-card p { color: var(--grey-mid); font-size: 1rem; line-height: 1.75; margin-bottom: 18px; }
-    .tutorial-link { color: var(--accent-deep); font-size: 14px; font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.3px; }
-    .tutorial-card:hover .tutorial-link { text-decoration: underline; }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /* Quote */
     .quote-section { background: var(--white); padding: 100px 40px; text-align: center; border-top: 1px solid var(--grey-border); position: relative; }
@@ -370,21 +206,21 @@
 
     /* ═══ RESPONSIVE ═══ */
     @media (max-width: 1200px) {
-      .programs-grid { grid-template-columns: 1fr 1fr; }
-      .membership-card { grid-column: span 2; }
-      .people-grid { grid-template-columns: repeat(3, 1fr); }
+      
+      
+      
     }
     @media (max-width: 1024px) {
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .pillars-grid { grid-template-columns: 1fr; }
-      .programs-grid { grid-template-columns: 1fr; }
-      .membership-card { grid-column: span 1; }
-      .membership-tiers { flex-direction: column; }
-      .tutorials-grid { grid-template-columns: 1fr; }
+      
+      
+      
+      
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .vmo-grid { grid-template-columns: 1fr; }
-      .vmo-card:not(:last-child) { border-right: none; border-bottom: 1px solid var(--grey-border); }
-      .people-grid { grid-template-columns: repeat(2, 1fr); }
+      
+      
+      
     }
     @media (max-width: 900px) {
       .header-inner { padding: 0 16px; height: 60px; }
@@ -405,21 +241,21 @@
       .stat-item h3 { font-size: 2.2rem; }
       .pillar-card { padding: 36px 24px; }
       .pillar-card h3 { font-size: 1.2rem; }
-      .program-card { padding: 28px 24px; }
-      .tier { padding: 14px; }
-      .tier-price { font-size: 1.2rem; }
-      .tutorial-card { padding: 28px 24px; }
-      .tutorial-card h3 { font-size: 1.15rem; }
+      
+      
+      
+      
+      
       blockquote { font-size: 1.3rem; }
       .cta-section { padding: 60px 20px; }
       .cta-section h2 { font-size: 1.6rem; }
       .footer { padding: 40px 20px 24px; }
       .footer-grid { grid-template-columns: 1fr; gap: 30px; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-      .people-grid { grid-template-columns: 1fr 1fr; }
-      .timeline { padding-left: 40px; }
-      .timeline::before { left: 10px; }
-      .timeline-dot { left: -38px; }
+      
+      
+      
+      
     }
     @media (max-width: 480px) {
       .stats-inner { grid-template-columns: 1fr; gap: 24px; }
@@ -427,125 +263,14 @@
       .hero h1 { font-size: 1.5rem; }
       .hero-tagline { font-size: 0.95rem; }
       .section-header h2 { font-size: 1.5rem; }
-      .membership-tiers { gap: 12px; }
-      .people-grid { grid-template-columns: 1fr; }
+      
+      
     }
   </style>
 </head>
 <body>
 
-<!-- Header -->
-<header class="header">
-  <div class="header-inner">
-    <div class="logo-container">
-      <canvas id="header-logo" width="280" height="40"></canvas>
-    </div>
-    <nav class="nav-links">
-      <div class="nav-item" data-menu="about">
-        <button aria-expanded="false" aria-haspopup="true">About <span class="nav-chevron"></span></button>
-        <div class="mega-menu" role="menu">
-          <div class="mega-menu-grid">
-            <div class="mega-menu-col">
-              <h4>Our Story</h4>
-              <ul>
-                <li><a href="#history" role="menuitem">History<span class="menu-desc">From founding to present day</span></a></li>
-                <li><a href="#vision-mission" role="menuitem">Vision &amp; Mission<span class="menu-desc">What drives us forward</span></a></li>
-                <li><a href="#vision-mission" role="menuitem">Objectives<span class="menu-desc">Strategic goals and principles</span></a></li>
-              </ul>
-            </div>
-            <div class="mega-menu-col">
-              <h4>Our People</h4>
-              <ul>
-                <li><a href="#people" role="menuitem">Board of Directors<span class="menu-desc">Governance and leadership</span></a></li>
-                <li><a href="#people" role="menuitem">Scientific Advisory Board<span class="menu-desc">Research guidance</span></a></li>
-              </ul>
-            </div>
-            <div class="mega-menu-col">
-              <h4>Our Work</h4>
-              <ul>
-                <li><a href="#research" role="menuitem">Current Projects<span class="menu-desc">Ongoing research and initiatives</span></a></li>
-                <li><a href="#research" role="menuitem">Past Projects<span class="menu-desc">Completed research programmes</span></a></li>
-                <li><a href="#research" role="menuitem">Future Aspirations<span class="menu-desc">Where we are headed</span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item" data-menu="learn">
-        <button aria-expanded="false" aria-haspopup="true">Learn <span class="nav-chevron"></span></button>
-        <div class="mega-menu" role="menu">
-          <div class="mega-menu-grid">
-            <div class="mega-menu-col">
-              <h4>Study</h4>
-              <ul>
-                <li><a href="#education" role="menuitem">Courses &amp; Dates<span class="menu-desc">Upcoming cohorts and enrolment</span></a></li>
-                <li><a href="#education" role="menuitem">Textbook Group<span class="menu-desc">Peer-led study of the foundational text</span></a></li>
-                <li><a href="#education" role="menuitem">Internship Programme<span class="menu-desc">Mentored research curriculum</span></a></li>
-              </ul>
-            </div>
-            <div class="mega-menu-col">
-              <h4>Explore</h4>
-              <ul>
-                <li><a href="#tutorials" role="menuitem">Interactive Simulations<span class="menu-desc">Hands-on FEP and Active Inference demos</span></a></li>
-                <li><a href="https://www.youtube.com/c/ActiveInference" target="_blank" role="menuitem">Livestreams &amp; Lectures<span class="menu-desc">Weekly presentations on YouTube</span></a></li>
-              </ul>
-            </div>
-            <div class="mega-menu-col">
-              <h4>Tools</h4>
-              <ul>
-                <li><a href="#education" role="menuitem">RxInfer.jl<span class="menu-desc">Probabilistic graphical inference</span></a></li>
-                <li><a href="https://github.com/ActiveInferenceInstitute" target="_blank" role="menuitem">Open-Source Code<span class="menu-desc">GitHub repositories and libraries</span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="nav-item"><a href="#research">Research</a></div>
-      <div class="nav-item"><a href="#community">Community</a></div>
-      <div class="nav-cta-wrap"><a href="#" class="nav-cta">Get Involved</a></div>
-    </nav>
-    <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-  </div>
-</header>
-
-<div class="mega-menu-overlay" id="mega-overlay"></div>
-
-<!-- Mobile Navigation -->
-<nav class="mobile-nav" id="mobile-nav">
-  <div class="mobile-nav-section">
-    <button class="mobile-nav-toggle" data-target="mobile-about">About <span class="mobile-chevron"></span></button>
-    <div class="mobile-subnav" id="mobile-about">
-      <div class="mobile-subnav-label">Our Story</div>
-      <a href="#history">History</a>
-      <a href="#vision-mission">Vision &amp; Mission</a>
-      <a href="#vision-mission">Objectives</a>
-      <div class="mobile-subnav-label">Our People</div>
-      <a href="#people">Board of Directors</a>
-      <a href="#people">Scientific Advisory Board</a>
-      <div class="mobile-subnav-label">Our Work</div>
-      <a href="#research">Current Projects</a>
-      <a href="#research">Past Projects</a>
-    </div>
-  </div>
-  <div class="mobile-nav-section">
-    <button class="mobile-nav-toggle" data-target="mobile-learn">Learn <span class="mobile-chevron"></span></button>
-    <div class="mobile-subnav" id="mobile-learn">
-      <div class="mobile-subnav-label">Study</div>
-      <a href="#education">Courses &amp; Dates</a>
-      <a href="#education">Textbook Group</a>
-      <a href="#education">Internship Programme</a>
-      <div class="mobile-subnav-label">Explore</div>
-      <a href="#tutorials">Interactive Simulations</a>
-      <a href="https://www.youtube.com/c/ActiveInference" target="_blank">Livestreams &amp; Lectures</a>
-      <div class="mobile-subnav-label">Tools</div>
-      <a href="#education">RxInfer.jl</a>
-      <a href="https://github.com/ActiveInferenceInstitute" target="_blank">Open-Source Code</a>
-    </div>
-  </div>
-  <div class="mobile-nav-section"><a href="#research">Research</a></div>
-  <div class="mobile-nav-section"><a href="#community">Community</a></div>
-  <a href="#" class="mobile-nav-cta">Get Involved</a>
-</nav>
+<div id="site-header"></div>
 
 <!-- Hero -->
 <section class="hero">
@@ -574,166 +299,12 @@
 <!-- Mission -->
 <section class="section mission-section" id="about">
   <div class="section-inner">
-    <div class="section-header">
-      <p class="section-label">Our Mission</p>
-      <h2>Bridging Theory and Practice</h2>
-    </div>
     <div class="mission-content">
-      <p>The Free Energy Principle offers a unified account of how adaptive systems - from cells to societies - maintain their existence by minimizing surprise. Active Inference, an applied theory of the FEP, characterizes perception, planning, and action in terms of probabilistic inference. Originated by theoretical neuroscientist Karl Friston, Active Inference is rapidly becoming a unifying paradigm across the sciences of mind, life, and machine.</p>
-      <p>All backgrounds, time zones, and levels of familiarity are welcome. We are a volunteer-led organization following open science principles.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Vision, Mission, Objectives -->
-<section class="section vmo-section" id="vision-mission">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-label">Strategic Direction</p>
-      <h2>Vision, Mission, Objectives</h2>
-    </div>
-    <div class="vmo-grid">
-      <div class="vmo-card">
-        <p class="vmo-label">Vision</p>
-        <h3>A world where the science of adaptive systems is accessible to all</h3>
-        <p>We envision a future in which the mathematical principles governing adaptive behaviour — from single cells to global ecosystems — are understood, openly shared, and applied to benefit humanity. Active Inference provides the unifying language to bridge disciplines and empower action.</p>
-      </div>
-      <div class="vmo-card">
-        <p class="vmo-label">Mission</p>
-        <h3>To advance the accessibility, rigour, and applicability of Active Inference</h3>
-        <p>We serve as a global nexus for education, research, and community-building around the Free Energy Principle. Through open science, participatory governance, and inclusive pedagogy, we lower every barrier between curiosity and competence.</p>
-      </div>
-      <div class="vmo-card">
-        <p class="vmo-label">Objectives</p>
-        <h3>Measurable goals across education, research, and community</h3>
-        <p>Develop standardised educational pathways from novice to expert. Support empirically falsifiable research programmes. Build open-source tools and ontologies. Foster interdisciplinary collaboration. Ensure equitable global participation through volunteer-led, nonprofit governance.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- History -->
-<section class="section history-section" id="history">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-label">Our Story</p>
-      <h2>History</h2>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-year">2024 — Present</p>
-        <h4>Expanding Reach and Rigour</h4>
-        <p>Continued growth of the textbook group programme, launch of interactive pedagogical simulations, deepening partnerships with research institutions globally. Board of Directors established to guide strategic direction.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-year">2022 — 2023</p>
-        <h4>Formalising the Institute</h4>
-        <p>Incorporation as a 501(c)(3) nonprofit. Establishment of the Active Inference Ontology, internship programme, and seasonal schools. Growing community across Discord and YouTube.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-year">2020 — 2021</p>
-        <h4>Community Origins</h4>
-        <p>Born from a grassroots community of researchers and enthusiasts drawn together by the Free Energy Principle. Early livestreams with Karl Friston and collaborators catalysed a global network of learners.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-year">Origins</p>
-        <h4>The Free Energy Principle</h4>
-        <p>Karl Friston's formulation of the Free Energy Principle as a unifying account of adaptive systems — from neuroscience to physics to artificial intelligence — provided the intellectual foundation upon which the Institute would be built.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- People -->
-<section class="section people-section" id="people">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-label">Our People</p>
-      <h2>Leadership &amp; Governance</h2>
-    </div>
-    <div class="people-subsection">
-      <div class="people-subsection-header">
-        <h3>Board of Directors</h3>
-        <p>Providing strategic oversight and governance for the Institute.</p>
-      </div>
-      <div class="people-grid">
-        <div class="person-card">
-          <div class="person-photo"><span class="person-initials">DF</span></div>
-          <div class="person-info">
-            <h4>Daniel Friedman</h4>
-            <p class="person-role">President</p>
-            <p class="person-bio">Bio placeholder — to be provided.</p>
-          </div>
-        </div>
-        <div class="person-card">
-          <div class="person-photo"><span class="person-initials">AS</span></div>
-          <div class="person-info">
-            <h4>Alexander Sabine</h4>
-            <p class="person-role">Board Member</p>
-            <p class="person-bio">Bio placeholder — to be provided.</p>
-          </div>
-        </div>
-        <div class="person-card">
-          <div class="person-photo"><span class="person-initials">—</span></div>
-          <div class="person-info">
-            <h4>Board Member</h4>
-            <p class="person-role">Title</p>
-            <p class="person-bio">Bio placeholder — to be provided.</p>
-          </div>
-        </div>
-        <div class="person-card">
-          <div class="person-photo"><span class="person-initials">—</span></div>
-          <div class="person-info">
-            <h4>Board Member</h4>
-            <p class="person-role">Title</p>
-            <p class="person-bio">Bio placeholder — to be provided.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="people-subsection">
-      <div class="people-subsection-header">
-        <h3>Scientific Advisory Board</h3>
-        <p>Guiding the Institute's research direction and academic rigour.</p>
-      </div>
-      <div class="people-grid">
-        <div class="person-card">
-          <div class="person-photo"><span class="person-initials">KF</span></div>
-          <div class="person-info">
-            <h4>Karl Friston FRS</h4>
-            <p class="person-role">Scientific Advisor</p>
-            <p class="person-bio">Bio placeholder — to be provided.</p>
-          </div>
-        </div>
-        <div class="person-card">
-          <div class="person-photo"><span class="person-initials">—</span></div>
-          <div class="person-info">
-            <h4>Advisory Member</h4>
-            <p class="person-role">Title</p>
-            <p class="person-bio">Bio placeholder — to be provided.</p>
-          </div>
-        </div>
-        <div class="person-card">
-          <div class="person-photo"><span class="person-initials">—</span></div>
-          <div class="person-info">
-            <h4>Advisory Member</h4>
-            <p class="person-role">Title</p>
-            <p class="person-bio">Bio placeholder — to be provided.</p>
-          </div>
-        </div>
-        <div class="person-card">
-          <div class="person-photo"><span class="person-initials">—</span></div>
-          <div class="person-info">
-            <h4>Advisory Member</h4>
-            <p class="person-role">Title</p>
-            <p class="person-bio">Bio placeholder — to be provided.</p>
-          </div>
-        </div>
-      </div>
+      <p class="section-label">Our Vision</p>
+      <p class="mission-vision">A world where active inference, a framework of adaptive behaviour grounded in first principles, is known, taught, and applied across science, engineering, and everyday life.</p>
+      <p class="section-label" style="margin-top: 48px;">Our Mission</p>
+      <p>To translate the science of how natural systems adapt and self-organise, known as active inference, into practical tools, resources, and educational experiences that empower people, communities, and technology to enhance decision-making and reduce uncertainty.</p>
+      <p class="mission-welcome">All backgrounds, time zones, and levels of familiarity are welcome. We are a volunteer-led 501(c)(3) nonprofit following open science principles.</p>
     </div>
   </div>
 </section>
@@ -762,75 +333,6 @@
   </div>
 </section>
 
-<!-- Programs -->
-<section class="section programs-section" id="research">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-label">Programs</p>
-      <h2>Ways to Engage</h2>
-    </div>
-    <div class="programs-grid">
-      <div class="program-card membership-card">
-        <h3>Membership</h3>
-        <p>Join a global ecosystem of researchers, developers, and organizations advancing the science of adaptive systems.</p>
-        <div class="membership-tiers">
-          <div class="tier"><span class="tier-name">Public Access</span><span class="tier-price">Free</span><span class="tier-desc">Newsletter, Discord, public livestreams, voting rights, textbook group access</span></div>
-          <div class="tier"><span class="tier-name">Research Support</span><span class="tier-price">TBC</span><span class="tier-desc">Public Access + 1:1 expert sessions, course library, journal club</span></div>
-          <div class="tier"><span class="tier-name">Advanced</span><span class="tier-price">TBC</span><span class="tier-desc">Research Support + RxInfer.jl tools, pymdp library, research datasets, API access</span></div>
-        </div>
-        <a href="#" class="program-link">Become a Member &rarr;</a>
-      </div>
-      <div class="program-card"><h3>Textbook Group</h3><p>Join a cohort working through the foundational textbook with peer support and expert guidance.</p><a href="#" class="program-link">Join Cohort 8 &rarr;</a></div>
-      <div class="program-card"><h3>RxInfer.jl</h3><p>Learn and apply RxInfer.jl, an open-source package for probabilistic graphical inference.</p><a href="#" class="program-link">Explore RxInfer &rarr;</a></div>
-      <div class="program-card"><h3>Internship Program</h3><p>Develop a personalized education and research curriculum with dedicated mentorship.</p><a href="#" class="program-link">Apply Now &rarr;</a></div>
-      <div class="program-card"><h3>Livestreams</h3><p>Weekly presentations and discussions featuring leading researchers including Karl Friston.</p><a href="#" class="program-link">View Schedule &rarr;</a></div>
-      <div class="program-card"><h3>Seasonal School</h3><p>Intensive learning experiences bringing together practitioners for deep dives into theory and application.</p><a href="#" class="program-link">Learn More &rarr;</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- Interactive Tutorials -->
-<section class="section tutorials-section" id="tutorials">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-label">Interactive Learning</p>
-      <h2>Explore Active Inference</h2>
-    </div>
-    <div class="tutorials-grid">
-      <a href="Ink.html" class="tutorial-card">
-        <span class="tutorial-badge foundational">Foundational</span>
-        <h3>Ink in Water</h3>
-        <p>The essential distinction visualized. Watch passive matter diffuse, then see how active inference creates a living system that maintains itself against entropy.</p>
-        <span class="tutorial-link">Experience Demo &rarr;</span>
-      </a>
-      <a href="Apple-Frog.html" class="tutorial-card">
-        <span class="tutorial-badge beginner">Beginner</span>
-        <h3>Apple or Frog?</h3>
-        <p>An intuitive introduction to Bayesian inference. Watch how an agent updates its beliefs about ambiguous stimuli through sensory evidence.</p>
-        <span class="tutorial-link">Start Tutorial &rarr;</span>
-      </a>
-      <a href="fep_tutorial (3).html" class="tutorial-card">
-        <span class="tutorial-badge beginner">Beginner</span>
-        <h3>From Beliefs to Action</h3>
-        <p>A comprehensive introduction to Active Inference fundamentals. Learn how agents form beliefs, minimize surprise, and select actions.</p>
-        <span class="tutorial-link">Start Tutorial &rarr;</span>
-      </a>
-      <a href="fep_surprise.html" class="tutorial-card">
-        <span class="tutorial-badge intermediate">Intermediate</span>
-        <h3>Surprise Minimization</h3>
-        <p>Dive deeper into the Free Energy Principle. Explore how biological systems minimize variational free energy and maintain their existence.</p>
-        <span class="tutorial-link">Explore Demo &rarr;</span>
-      </a>
-      <a href="T_Maze (FEP).html" class="tutorial-card">
-        <span class="tutorial-badge intermediate">Intermediate</span>
-        <h3>T-Maze Navigation</h3>
-        <p>The classic Active Inference paradigm. Observe an agent navigate a T-maze, balancing exploitation of known rewards with exploration.</p>
-        <span class="tutorial-link">Run Simulation &rarr;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- Quote -->
 <section class="quote-section">
   <div class="quote-inner">
@@ -849,33 +351,12 @@
 </section>
 
 <!-- Footer -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <canvas id="footer-logo" width="220" height="35"></canvas>
-        <p>The Active Inference Institute is a volunteer-led 501(c)(3) nonprofit dedicated to the accessibility, rigor, and applicability of the Free Energy Principle and Active Inference, following open science principles.</p>
-      </div>
-      <div class="footer-col"><h4>About</h4><ul><li><a href="#vision-mission">Vision &amp; Mission</a></li><li><a href="#people">Our People</a></li><li><a href="#history">History</a></li></ul></div>
-      <div class="footer-col"><h4>Learn</h4><ul><li><a href="#tutorials">Tutorials</a></li><li><a href="#education">Courses</a></li><li><a href="#education">Textbook Group</a></li></ul></div>
-      <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://discord.com/invite/FSUvYD2p9S" target="_blank">Discord</a></li><li><a href="https://www.youtube.com/c/ActiveInference" target="_blank">YouTube</a></li><li><a href="https://github.com/ActiveInferenceInstitute" target="_blank">GitHub</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <p>2026 The Active Inference Institute</p>
-      <div class="social-links">
-        <a href="https://www.youtube.com/c/ActiveInference" target="_blank" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
-        <a href="https://discord.com/invite/FSUvYD2p9S" target="_blank" title="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.36-.698.772-1.362 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.12-.094.246-.194.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>Discord</a>
-        <a href="https://github.com/ActiveInferenceInstitute" target="_blank" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a>
-      </div>
-    </div>
-  </div>
-</footer>
+
+<div id="site-footer"></div>
 
 <script>
 // ═══════════════════════════════════════════════════════════════════════════
-// CRR-INFUSED LIVING BACKGROUND
-// Coherence builds, ruptures occur, regeneration follows
-// All driven by φ and π timing, breath rhythms
+// LIVING BACKGROUND
 // ═══════════════════════════════════════════════════════════════════════════
 
 const PI = Math.PI, TAU = PI * 2;
@@ -1148,7 +629,7 @@ function drawHeroLogo() {
   const ξ = logoT * ψ;                           // Phase accumulation  
   const β = (logoT % BREATH) / BREATH;           // Breath cycle
   const breathMod = Math.sin(β * TAU);
-  const C = Math.min(1, logoT * 0.3);            // Coherence integral
+  const C = Math.min(1, logoT * 0.3);            // Animation progress
   const Cs = C * C * (3 - 2 * C);                // Smoothstep transfer function
   
   // ═══ PRISM FLASH → TEXT WAVE ═══
@@ -1440,293 +921,9 @@ function drawMiniPi(ctx, x, y, scale, tilt) {
 
 drawHeroLogo();
 
-// ═══ HEADER & FOOTER LOGOS ═══
-function drawStaticLogo(canvasId, scale) {
-  const canvas = document.getElementById(canvasId);
-  const ctx = canvas.getContext('2d');
-  const D = devicePixelRatio || 1;
-  
-  const baseW = parseInt(canvas.width);
-  const baseH = parseInt(canvas.height);
-  
-  canvas.width = baseW * D;
-  canvas.height = baseH * D;
-  canvas.style.width = baseW + 'px';
-  canvas.style.height = baseH + 'px';
-  ctx.scale(D, D);
-  
-  const H = baseH;
-  const cx = 22 * scale;
-  const cy = H / 2;
-  const s = 18 * scale;
-  
-  ctx.fillStyle = '#fff';
-  
-  // Pi
-  ctx.beginPath();
-  ctx.moveTo(cx - 0.52*s, cy - 0.28*s);
-  ctx.quadraticCurveTo(cx - 0.50*s, cy - 0.42*s, cx - 0.38*s, cy - 0.44*s);
-  ctx.bezierCurveTo(cx - 0.15*s, cy - 0.45*s, cx + 0.25*s, cy - 0.44*s, cx + 0.42*s, cy - 0.44*s);
-  ctx.quadraticCurveTo(cx + 0.54*s, cy - 0.43*s, cx + 0.56*s, cy - 0.30*s);
-  ctx.quadraticCurveTo(cx + 0.50*s, cy - 0.36*s, cx + 0.38*s, cy - 0.36*s);
-  ctx.lineTo(cx - 0.32*s, cy - 0.36*s);
-  ctx.quadraticCurveTo(cx - 0.44*s, cy - 0.36*s, cx - 0.52*s, cy - 0.28*s);
-  ctx.fill();
-  
-  ctx.beginPath();
-  ctx.moveTo(cx - 0.18*s, cy - 0.38*s);
-  ctx.bezierCurveTo(cx - 0.22*s, cy - 0.12*s, cx - 0.36*s, cy + 0.12*s, cx - 0.42*s, cy + 0.38*s);
-  ctx.bezierCurveTo(cx - 0.46*s, cy + 0.50*s, cx - 0.43*s, cy + 0.58*s, cx - 0.36*s, cy + 0.62*s);
-  ctx.quadraticCurveTo(cx - 0.30*s, cy + 0.66*s, cx - 0.26*s, cy + 0.58*s);
-  ctx.bezierCurveTo(cx - 0.30*s, cy + 0.48*s, cx - 0.28*s, cy + 0.32*s, cx - 0.26*s, cy + 0.22*s);
-  ctx.bezierCurveTo(cx - 0.22*s, cy + 0.05*s, cx - 0.12*s, cy - 0.18*s, cx - 0.06*s, cy - 0.36*s);
-  ctx.fill();
-  
-  ctx.beginPath();
-  ctx.moveTo(cx + 0.22*s, cy - 0.38*s);
-  ctx.bezierCurveTo(cx + 0.18*s, cy - 0.12*s, cx + 0.14*s, cy + 0.12*s, cx + 0.10*s, cy + 0.38*s);
-  ctx.bezierCurveTo(cx + 0.06*s, cy + 0.52*s, cx + 0.10*s, cy + 0.60*s, cx + 0.18*s, cy + 0.62*s);
-  ctx.quadraticCurveTo(cx + 0.24*s, cy + 0.65*s, cx + 0.26*s, cy + 0.56*s);
-  ctx.bezierCurveTo(cx + 0.20*s, cy + 0.46*s, cx + 0.18*s, cy + 0.32*s, cx + 0.20*s, cy + 0.18*s);
-  ctx.bezierCurveTo(cx + 0.22*s, cy + 0.02*s, cx + 0.28*s, cy - 0.16*s, cx + 0.32*s, cy - 0.36*s);
-  ctx.fill();
-  
-  // Text
-  ctx.font = `500 ${14 * scale}px Georgia, "Times New Roman", Times, serif`;
-  ctx.textAlign = 'left';
-  ctx.textBaseline = 'middle';
-  ctx.fillText('Active Inference Institute', cx + 20 * scale, cy);
-}
 
-drawStaticLogo('header-logo', 1);
-drawStaticLogo('footer-logo', 0.9);
-
-// Hero scroll transition - whole section fades black to white, text inverts
-(function() {
-  const hero = document.querySelector('.hero');
-  const heroCanvas = document.getElementById('hero-canvas');
-  const heroLogo = document.querySelector('.hero-logo-area');
-  
-  // Colors to interpolate
-  const startColor = { r: 10, g: 10, b: 10 };      // #0a0a0a
-  const endColor = { r: 250, g: 249, b: 248 };     // #faf9f8
-  
-  let ticking = false;
-  let lastProgress = -1;
-  
-  function lerp(start, end, t) {
-    return Math.round(start + (end - start) * t);
-  }
-  
-  function easeOutQuad(t) {
-    return t * (2 - t);
-  }
-  
-  function updateHeroTransition() {
-    const scrollY = window.scrollY;
-    const viewportHeight = window.innerHeight;
-    
-    // Faster fade - complete by 50% scroll so it's white before edge shows
-    const fadeStart = viewportHeight * 0.1;
-    const fadeEnd = viewportHeight * 0.5;
-    
-    // Calculate progress
-    let rawProgress = 0;
-    if (scrollY > fadeStart) {
-      rawProgress = (scrollY - fadeStart) / (fadeEnd - fadeStart);
-      rawProgress = Math.max(0, Math.min(1, rawProgress));
-    }
-    
-    const progress = easeOutQuad(rawProgress);
-    
-    if (Math.abs(progress - lastProgress) > 0.005) {
-      lastProgress = progress;
-      
-      // Interpolate background color
-      const r = lerp(startColor.r, endColor.r, progress);
-      const g = lerp(startColor.g, endColor.g, progress);
-      const b = lerp(startColor.b, endColor.b, progress);
-      hero.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-      
-      // Fade out particles
-      heroCanvas.style.opacity = 1 - progress;
-      
-      // Fade out logo
-      const logoOpacity = Math.max(0, 1 - (rawProgress * 2));
-      heroLogo.style.opacity = logoOpacity;
-      
-      // Invert text at 40% progress
-      if (progress > 0.4) {
-        hero.classList.add('inverted');
-      } else {
-        hero.classList.remove('inverted');
-      }
-    }
-    
-    ticking = false;
-  }
-  
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(updateHeroTransition);
-      ticking = true;
-    }
-  }, { passive: true });
-  
-  updateHeroTransition();
-})();
-
-// ═══ MEGA MENU ═══
-(function() {
-  const navItems = document.querySelectorAll('.nav-item[data-menu]');
-  const overlay = document.getElementById('mega-overlay');
-  let closeTimer = null;
-
-  function openMenu(item) {
-    if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
-    navItems.forEach(ni => {
-      if (ni !== item) { ni.classList.remove('active'); const b = ni.querySelector('button'); if (b) b.setAttribute('aria-expanded', 'false'); }
-    });
-    item.classList.add('active');
-    const btn = item.querySelector('button');
-    if (btn) btn.setAttribute('aria-expanded', 'true');
-    overlay.classList.add('active');
-  }
-
-  function closeAll() {
-    navItems.forEach(ni => { ni.classList.remove('active'); const b = ni.querySelector('button'); if (b) b.setAttribute('aria-expanded', 'false'); });
-    overlay.classList.remove('active');
-  }
-
-  navItems.forEach(item => {
-    const trigger = item.querySelector('button');
-    const menu = item.querySelector('.mega-menu');
-    if (trigger) {
-      trigger.addEventListener('click', e => {
-        e.stopPropagation();
-        item.classList.contains('active') ? closeAll() : openMenu(item);
-      });
-    }
-    item.addEventListener('mouseenter', () => { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } openMenu(item); });
-    item.addEventListener('mouseleave', () => { closeTimer = setTimeout(closeAll, 250); });
-    if (menu) {
-      menu.addEventListener('mouseenter', () => { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } });
-      menu.addEventListener('mouseleave', () => { closeTimer = setTimeout(closeAll, 250); });
-    }
-  });
-
-  overlay.addEventListener('click', closeAll);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
-  document.querySelectorAll('.mega-menu a').forEach(l => l.addEventListener('click', closeAll));
-})();
-
-// Mobile menu toggle
-(function() {
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileNav = document.getElementById('mobile-nav');
-
-  menuBtn.addEventListener('click', function() {
-    mobileNav.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-  });
-
-  // Accordion toggles for sub-navigation
-  document.querySelectorAll('.mobile-nav-toggle').forEach(toggle => {
-    toggle.addEventListener('click', function() {
-      const subnav = document.getElementById(this.dataset.target);
-      this.classList.toggle('open');
-      subnav.classList.toggle('open');
-    });
-  });
-
-  // Close menu when clicking a link
-  mobileNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileNav.classList.remove('active');
-      menuBtn.classList.remove('active');
-    });
-  });
-})();
-
-// UK spelling localisation
-(function() {
-  const isUK = navigator.language === 'en-GB' || 
-               navigator.language.startsWith('en-GB') ||
-               navigator.languages?.some(l => l === 'en-GB');
-  
-  if (isUK) {
-    const replacements = [
-      // -ize to -ise
-      ['minimizing', 'minimising'],
-      ['Minimization', 'Minimisation'],
-      ['minimization', 'minimisation'],
-      ['minimize', 'minimise'],
-      ['Minimize', 'Minimise'],
-      ['characterizes', 'characterises'],
-      ['characterized', 'characterised'],
-      ['characterize', 'characterise'],
-      ['visualized', 'visualised'],
-      ['visualization', 'visualisation'],
-      ['visualizations', 'visualisations'],
-      ['visualize', 'visualise'],
-      ['standardized', 'standardised'],
-      ['standardize', 'standardise'],
-      ['personalized', 'personalised'],
-      ['personalize', 'personalise'],
-      ['Normalized', 'Normalised'],
-      ['normalized', 'normalised'],
-      ['normalize', 'normalise'],
-      ['optimized', 'optimised'],
-      ['optimization', 'optimisation'],
-      ['optimize', 'optimise'],
-      ['recognized', 'recognised'],
-      ['recognize', 'recognise'],
-      ['organized', 'organised'],
-      ['organize', 'organise'],
-      // -or to -our
-      ['behavior', 'behaviour'],
-      ['Behavior', 'Behaviour'],
-      ['favor', 'favour'],
-      // -am to -amme (must use word boundaries)
-      ['Programs', 'Programmes'],
-      ['programs', 'programmes'],
-      ['Program', 'Programme'],
-      ['program', 'programme'],
-      // other
-      ['organizations', 'organisations'],
-      ['organization', 'organisation'],
-      ['Organization', 'Organisation'],
-      ['rigor', 'rigour'],
-      ['Rigor', 'Rigour'],
-      ['modeling', 'modelling'],
-      ['Modeling', 'Modelling'],
-      ['labeled', 'labelled'],
-      ['traveled', 'travelled'],
-      ['catalog', 'catalogue']
-    ];
-    
-    // Walk text nodes and replace using word boundaries
-    const walker = document.createTreeWalker(
-      document.body,
-      NodeFilter.SHOW_TEXT,
-      null,
-      false
-    );
-    
-    const textNodes = [];
-    while (walker.nextNode()) textNodes.push(walker.currentNode);
-    
-    textNodes.forEach(node => {
-      let text = node.nodeValue;
-      replacements.forEach(([us, uk]) => {
-        const regex = new RegExp('\\b' + us + '\\b', 'g');
-        text = text.replace(regex, uk);
-      });
-      node.nodeValue = text;
-    });
-  }
-})();
 </script>
+<script src="site-components.js"></script>
 
 </body>
 </html>
