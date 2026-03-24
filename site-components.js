@@ -32,22 +32,21 @@
               <h4>Our Story</h4>
               <ul>
                 <li><a href="${basePath}index.html#history" role="menuitem">History<span class="menu-desc">From founding to present day</span></a></li>
-                <li><a href="${basePath}index.html#vision-mission" role="menuitem">Vision &amp; Mission<span class="menu-desc">What drives us forward</span></a></li>
-                <li><a href="${basePath}index.html#vision-mission" role="menuitem">Objectives<span class="menu-desc">Strategic goals and principles</span></a></li>
+                <li><a href="${basePath}index.html#vision-mission" role="menuitem">Vision, Mission &amp; Objectives<span class="menu-desc">What drives us forward</span></a></li>
               </ul>
             </div>
             <div class="mega-menu-col">
               <h4>Our People</h4>
               <ul>
+                <li><a href="${basePath}sab.html" role="menuitem">Scientific Advisory Board<span class="menu-desc">Research &amp; rigour</span></a></li>
                 <li><a href="${basePath}index.html#people" role="menuitem">Board of Directors<span class="menu-desc">Governance and leadership</span></a></li>
-                <li><a href="${basePath}sab.html" role="menuitem">Scientific Advisory Board<span class="menu-desc">Research guidance</span></a></li>
               </ul>
             </div>
             <div class="mega-menu-col">
               <h4>Our Work</h4>
               <ul>
-                <li><a href="${basePath}index.html#research" role="menuitem">Current Projects<span class="menu-desc">Ongoing research and initiatives</span></a></li>
                 <li><a href="${basePath}index.html#research" role="menuitem">Past Projects<span class="menu-desc">Completed research programmes</span></a></li>
+                <li><a href="${basePath}index.html#research" role="menuitem">Current Projects<span class="menu-desc">Ongoing research and initiatives</span></a></li>
                 <li><a href="${basePath}index.html#research" role="menuitem">Future Aspirations<span class="menu-desc">Where we are headed</span></a></li>
               </ul>
             </div>
@@ -69,8 +68,8 @@
             <div class="mega-menu-col">
               <h4>Explore</h4>
               <ul>
-                <li><a href="${basePath}index.html#tutorials" role="menuitem">Interactive Simulations<span class="menu-desc">Hands-on FEP and Active Inference demos</span></a></li>
                 <li><a href="https://www.youtube.com/c/ActiveInference" target="_blank" role="menuitem">Livestreams &amp; Lectures<span class="menu-desc">Weekly presentations on YouTube</span></a></li>
+                <li><a href="${basePath}index.html#tutorials" role="menuitem">Interactive Simulations<span class="menu-desc">Hands-on FEP and Active Inference demos</span></a></li>
               </ul>
             </div>
             <div class="mega-menu-col">
@@ -97,12 +96,14 @@
     <div class="mobile-subnav" id="mobile-about">
       <div class="mobile-subnav-label">Our Story</div>
       <a href="${basePath}index.html#history">History</a>
-      <a href="${basePath}index.html#vision-mission">Vision &amp; Mission</a>
+      <a href="${basePath}index.html#vision-mission">Vision, Mission &amp; Objectives</a>
       <div class="mobile-subnav-label">Our People</div>
-      <a href="${basePath}index.html#people">Board of Directors</a>
       <a href="${basePath}sab.html">Scientific Advisory Board</a>
+      <a href="${basePath}index.html#people">Board of Directors</a>
       <div class="mobile-subnav-label">Our Work</div>
+      <a href="${basePath}index.html#research">Past Projects</a>
       <a href="${basePath}index.html#research">Current Projects</a>
+      <a href="${basePath}index.html#research">Future Aspirations</a>
     </div>
   </div>
   <div class="mobile-nav-section">
@@ -112,8 +113,8 @@
       <a href="${basePath}index.html#education">Courses &amp; Dates</a>
       <a href="${basePath}index.html#education">Textbook Group</a>
       <div class="mobile-subnav-label">Explore</div>
+      <a href="https://www.youtube.com/c/ActiveInference" target="_blank">Livestreams &amp; Lectures</a>
       <a href="${basePath}index.html#tutorials">Interactive Simulations</a>
-      <a href="https://www.youtube.com/c/ActiveInference" target="_blank">Livestreams</a>
     </div>
   </div>
   <div class="mobile-nav-section"><a href="${basePath}index.html#research">Research</a></div>
