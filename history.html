@@ -37,17 +37,18 @@
     .epoch-banner {
       position: relative;
       display: flex;
-      align-items: stretch;
-      max-width: 1000px;
+      align-items: center;
+      justify-content: center;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 0 40px;
-      min-height: 220px;
+      padding: 0 60px;
+      gap: 0;
     }
     .epoch-panel {
       flex: 1;
       position: relative;
       overflow: hidden;
-      min-height: 200px;
+      max-height: 240px;
     }
     .epoch-panel img {
       width: 100%;
@@ -55,23 +56,30 @@
       object-fit: cover;
       display: block;
     }
+    /* Soft vignette on all panels */
+    .epoch-panel::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      box-shadow: inset 0 0 40px 20px rgba(10,10,10,0.95);
+      pointer-events: none;
+    }
     .epoch-panel.left img {
-      filter: grayscale(40%) sepia(15%);
-      opacity: 0.85;
+      filter: grayscale(50%) sepia(20%) brightness(0.85);
     }
     .epoch-panel.right img {
-      filter: grayscale(10%);
-      opacity: 0.9;
       object-fit: contain;
-      background: rgba(240,238,235,0.08);
+      padding: 20px;
+      background: rgba(20,18,16,0.6);
+      filter: brightness(0.95);
     }
     .epoch-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 16px 20px;
-      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.3) 70%, transparent 100%);
+      padding: 14px 20px;
+      z-index: 2;
     }
     .epoch-year {
       font-family: Georgia, 'Times New Roman', serif;
@@ -84,7 +92,7 @@
     .epoch-caption {
       font-family: Georgia, 'Times New Roman', serif;
       font-size: 12px;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.55);
       line-height: 1.5;
       font-style: italic;
     }
@@ -141,7 +149,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 39px;
+      left: 40px;
       width: 1px;
       background: var(--grey-border);
     }
@@ -155,31 +163,30 @@
     }
     .tl-dot {
       position: absolute;
-      left: -52px;
-      top: 0;
-      width: 24px;
-      height: 24px;
+      left: -45px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      border: 2px solid var(--accent);
-      background: var(--accent-subtle);
-      box-shadow: 0 0 0 3px var(--white);
+      background: var(--accent);
+      opacity: 0.4;
       z-index: 2;
     }
     .tl-node.current .tl-dot {
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(197, 74, 42, 0.12);
+      opacity: 1;
+      box-shadow: 0 0 0 3px rgba(197, 74, 42, 0.15);
     }
     .tl-year {
       position: absolute;
       left: -80px;
-      top: 2px;
-      width: 40px;
+      top: 1px;
+      width: 28px;
       text-align: right;
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
-      color: var(--accent-deep);
-      letter-spacing: 0.5px;
+      color: var(--grey-dark);
+      letter-spacing: 0;
     }
     .tl-theme {
       font-family: Georgia, 'Times New Roman', serif;
@@ -244,15 +251,15 @@
     @media (max-width: 768px) {
       .history-hero { padding: 100px 0 0; }
       .history-hero-text { padding: 0 20px 32px; }
-      .epoch-banner { flex-direction: column; padding: 0 20px; min-height: auto; }
-      .epoch-panel { min-height: 160px; }
+      .epoch-banner { flex-direction: column; padding: 0 20px; gap: 0; }
+      .epoch-panel { max-height: 180px; }
       .epoch-bridge { width: 100%; height: 40px; }
       .bridge-line { top: 0; bottom: 0; left: 50%; }
       .timeline-section { padding: 30px 20px 60px; }
       .timeline { padding-left: 64px; }
-      .timeline::before { left: 31px; }
-      .tl-dot { left: -44px; width: 20px; height: 20px; }
-      .tl-year { left: -64px; width: 32px; font-size: 12px; }
+      .timeline::before { left: 32px; }
+      .tl-dot { left: -38px; width: 8px; height: 8px; top: 7px; }
+      .tl-year { left: -56px; width: 28px; font-size: 12px; }
       .tl-theme { font-size: 1.15rem; }
       .tl-body { font-size: 0.9rem; }
       .tl-node { padding-bottom: 36px; }
