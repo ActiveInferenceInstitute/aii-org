@@ -370,7 +370,11 @@ function initWorld(){
   for(let i=0;i<5;i++){
     const a=TAU/5*i+R()*.5;
     const d=120+R()*180;
-    foodSources.push({x:nestX+cos(a)*d,y:nestY+sin(a)*d,seeds:3+floor(R()*5),r:8+R()*4});
+    let fx=nestX+cos(a)*d,fy=nestY+sin(a)*d;
+    // Keep food away from UI edge and screen edges
+    fx=max(UL+50,min(W-40,fx));
+    fy=max(40,min(H-50,fy));
+    foodSources.push({x:fx,y:fy,seeds:3+floor(R()*5),r:8+R()*4});
   }
   seeds=0;
 }
@@ -445,9 +449,13 @@ function updateAnt(dt){
       ant.legPhase+=spd*.2;
     }
   }
-  // Bounds
-  if(ant.x<UL+10)ant.x=UL+10;if(ant.x>W-10)ant.x=W-10;
-  if(ant.y<10)ant.y=10;if(ant.y>H-10)ant.y=H-10;
+  // Bounds with angle correction — prevent getting stuck at edges
+  const margin=15;
+  if(ant.x<UL+margin){ant.x=UL+margin;ant.angle=abs(ant.angle)<PI/2?ant.angle:PI-ant.angle;if(cos(ant.angle)<0)ant.angle=R()*PI-PI/2}
+  if(ant.x>W-margin){ant.x=W-margin;ant.angle=PI-ant.angle}
+  if(ant.y<margin){ant.y=margin;ant.angle=-ant.angle}
+  if(ant.y>H-margin){ant.y=H-margin;ant.angle=-ant.angle}
+  while(ant.angle>PI)ant.angle-=TAU;while(ant.angle<-PI)ant.angle+=TAU;
   // Trail age
   for(const p of ant.trail)p.age+=dt;
   ant.trail=ant.trail.filter(p=>p.age<8);
