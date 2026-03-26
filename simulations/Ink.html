@@ -778,8 +778,38 @@
         }
 
     </style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
 </head>
 <body>
+<a href="../pages/simulations.html" class="aii-floating-back">&#8592; Back to Catalog</a>
 
     <!-- Tab Navigation -->
     <div class="tab-nav">

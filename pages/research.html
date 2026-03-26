@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work &amp; Research - Active Inference Institute</title>
+    <link rel="stylesheet" href="../site.css">
+    <style>
+        .research-hero { text-align: center; padding: 120px 40px 48px; background: var(--black); }
+        .research-hero .section-label { color: var(--accent-light); }
+        .research-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 400; color: var(--white); margin-bottom: 16px; }
+        .research-hero p { color: rgba(255,255,255,0.55); max-width: 620px; margin: 0 auto; line-height: 1.8; font-size: 1.05rem; }
+        .hero-fade { height: 60px; background: linear-gradient(to bottom, var(--black) 0%, var(--white) 100%); }
+
+        .research-section { padding: 60px 40px; max-width: 900px; margin: 0 auto; }
+        .research-section h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.6rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 24px; border-bottom: 1px solid var(--grey-border); padding-bottom: 12px; }
+        .research-section p, .research-section li { font-size: 1rem; color: var(--grey-mid); line-height: 1.85; }
+        .research-section a { color: var(--accent); text-decoration: none; }
+        .research-section a:hover { text-decoration: underline; }
+        .research-section ul { padding-left: 20px; }
+        .research-section li { margin-bottom: 14px; }
+        .research-section li strong { color: var(--grey-dark); font-weight: 400; }
+
+        .paper-year { font-family: Georgia, 'Times New Roman', serif; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-top: 32px; margin-bottom: 12px; }
+
+        .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; }
+        .r-card { border: 1px solid var(--grey-border); padding: 28px; background: #fff; }
+        .r-card h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 10px; }
+        .r-card p { font-size: 0.95rem; }
+        .r-card a { display: inline-block; margin-top: 10px; font-size: 0.9rem; color: var(--accent); text-decoration: none; }
+        .r-card a:hover { text-decoration: underline; }
+
+        .cta-bar { text-align: center; padding: 60px 40px; background: #f8f8f7; border-top: 1px solid var(--grey-border); }
+        .cta-bar h2 { font-size: 1.6rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 14px; }
+        .cta-bar p { font-size: 1.05rem; color: var(--grey-mid); max-width: 600px; margin: 0 auto 24px; line-height: 1.8; }
+        .cta-bar .btn { display: inline-block; padding: 14px 32px; background: var(--accent); color: var(--white); text-decoration: none; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; letter-spacing: 0.5px; transition: all 0.3s ease; }
+        .cta-bar .btn:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(197,74,42,0.3); }
+
+        @media (max-width: 768px) {
+            .research-hero { padding: 100px 20px 32px; }
+            .research-section { padding: 40px 20px; }
+            .card-grid { grid-template-columns: 1fr; }
+            .cta-bar { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="research-hero">
+    <p class="section-label">Research &amp; Open Science</p>
+    <h1>Our Work</h1>
+    <p>The Active Inference Institute conducts and supports open-science research on the theoretical advancement, cognitive modelling, and practical applications of the Free Energy Principle and Active Inference.</p>
+</section>
+<div class="hero-fade"></div>
+
+<!-- Current Programs -->
+<section class="research-section">
+    <h2>Current Programmes &amp; Fellowships</h2>
+    <div class="card-grid">
+        <div class="r-card">
+            <h3>Research Fellowships</h3>
+            <p>Self-directed projects for researchers at all career stages, with mentorship, resources, and open-science infrastructure.</p>
+            <a href="https://fellows.activeinference.institute" target="_blank" rel="noopener">Apply →</a>
+        </div>
+        <div class="r-card">
+            <h3>RxInfer.jl &amp; BIASlab Partnership</h3>
+            <p>A formal partnership with <a href="https://biaslab.github.io/" target="_blank" rel="noopener">BIASlab</a> at TU Eindhoven, bridging academic message-passing inference research with the Institute's open-science mission.</p>
+            <a href="https://rxinfer.ml" target="_blank" rel="noopener">RxInfer.jl →</a>
+        </div>
+        <div class="r-card">
+            <h3>Active Inference Ontology</h3>
+            <p>A knowledge engineering effort building a formal ontology for Active Inference concepts, supporting interoperability across research domains.</p>
+            <a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+        <div class="r-card">
+            <h3>Prepare &amp; Measure</h3>
+            <p>Core infrastructure for tracking the proposal (Preparation) and ongoing activity cycles (Measurement) of Institute-engaging research projects.</p>
+            <a href="https://www.activeinference.institute/research" target="_blank" rel="noopener">Learn more →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Publications -->
+<section class="research-section" style="background: #f8f8f7; max-width: none; padding-left: 0; padding-right: 0;">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 40px;">
+    <h2>Selected Publications</h2>
+    <p>A curated selection of Institute-affiliated research. For the full list, see the <a href="https://www.activeinference.institute/research" target="_blank" rel="noopener">Institute research page</a>.</p>
+
+    <div class="paper-year">2023</div>
+    <ul>
+        <li><strong>"The Active Inference Institute and Active Inference Ecosystem"</strong> — Daniel Friedman et al. Overview of the Institute's structure, mission, and ecosystem. <a href="https://www.activeinference.institute/research" target="_blank" rel="noopener">Read</a></li>
+        <li><strong>"Distributed Science — The Scientific Process as Multi-Scale Active Inference"</strong> — Balzan, Campbell, Friston, Ramstead, Friedman, Constant. <a href="https://www.activeinference.institute/research" target="_blank" rel="noopener">Read</a></li>
+        <li><strong>"A Variational Synthesis of Evolutionary and Developmental Dynamics"</strong> — Friston, Friedman, Constant, Knight, Parr, Campbell. <em>Entropy</em>, 2023. <a href="https://www.activeinference.institute/research" target="_blank" rel="noopener">Read</a></li>
+        <li><strong>"Generalized Notation Notation for Active Inference Models"</strong> — Smékal &amp; Friedman. <a href="https://www.activeinference.institute/research" target="_blank" rel="noopener">Read</a></li>
+        <li><strong>"A Single-Pheromone Model Accounts for Empirical Patterns of Ant Colony Foraging"</strong> — Saund &amp; Friedman. <em>Cognitive Systems Research</em>, 2023. <a href="https://www.activeinference.institute/research" target="_blank" rel="noopener">Read</a></li>
+    </ul>
+
+    <div class="paper-year">2022</div>
+    <ul>
+        <li><strong>"Active Blockference — cadCAD with Active Inference for Cognitive Systems Modeling"</strong> — Smékal et al. IWAI 2022. <a href="https://www.activeinference.institute/research" target="_blank" rel="noopener">Read</a></li>
+        <li><strong>"The Free Energy Principle &amp; Active Inference: a Systematic Literature Analysis"</strong> — Knight, Cordes, Friedman. <a href="https://www.activeinference.institute/research" target="_blank" rel="noopener">Read</a></li>
+        <li><strong>"An Active Inference Ontology for Decentralized Science"</strong> — From Situated Sensemaking to the Epistemic Commons. <a href="https://www.activeinference.institute/research" target="_blank" rel="noopener">Read</a></li>
+    </ul>
+
+    <div class="paper-year">2021</div>
+    <ul>
+        <li><strong>"Active InferAnts — The Basis for an Active Inference Framework for Ant Colony Behavior"</strong> — <em>Frontiers in Behavioral Neuroscience</em>. <a href="https://www.frontiersin.org/articles/10.3389/fnbeh.2021.647732/" target="_blank" rel="noopener">Read</a></li>
+        <li><strong>"Thinking like a State: Active Inference and the Deep Roots of Complex Societies"</strong> — Bleu Knight. <a href="https://osf.io/dxnzt/" target="_blank" rel="noopener">OSF Preprint</a></li>
+        <li><strong>1st Applied Active Inference Symposium — Karl Friston Transcript</strong> <a href="https://zenodo.org/record/5797041" target="_blank" rel="noopener">Zenodo</a></li>
+    </ul>
+
+    <div class="paper-year">2020</div>
+    <ul>
+        <li><strong>"Active Inference &amp; Behaviour Engineering for Teams"</strong> — Vyatkin et al. Poster at IWAI 2020. <a href="https://zenodo.org/record/4021163" target="_blank" rel="noopener">Zenodo</a></li>
+    </ul>
+    </div>
+</section>
+
+<!-- Open Source -->
+<section class="research-section">
+    <h2>Open-Source Repositories</h2>
+    <p>All Institute code is open-source. Browse the full collection at <a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener">github.com/ActiveInferenceInstitute</a>.</p>
+    <div class="card-grid">
+        <div class="r-card">
+            <h3>ActiveInferenceInstitute</h3>
+            <p>The Institute's main GitHub organisation hosting simulation code, course materials, research tools, and the codebase for this website.</p>
+            <a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener">Browse repos →</a>
+        </div>
+        <div class="r-card">
+            <h3>RxInfer.jl</h3>
+            <p>A Julia package for scalable Bayesian inference through reactive message passing — developed by BIASlab at TU Eindhoven in partnership with the Institute.</p>
+            <a href="https://rxinfer.ml" target="_blank" rel="noopener">Documentation →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Future -->
+<section class="research-section" style="background: #f8f8f7; max-width: none; padding-left: 0; padding-right: 0;">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 40px;">
+    <h2>Future Directions</h2>
+    <p>As we look to 2026 and beyond, the Institute is expanding foundational work bridging theory with real-world deployment — from cognitive modelling and AI safety to robotics and complex networks.</p>
+    <ul>
+        <li><strong>6th Applied Active Inference Symposium</strong> — Planning underway. <a href="https://symposium.activeinference.institute/" target="_blank" rel="noopener">symposium.activeinference.institute</a></li>
+        <li><strong>IWAI 2026</strong> — The 7th International Workshop on Active Inference, focusing on "Foundations" across computational theory, cognitive modelling, and empirical applications.</li>
+        <li><strong>Industry Partnerships</strong> — Actively seeking collaborators to translate foundational science into operational planning and decision-making platforms.</li>
+    </ul>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bar">
+    <h2>Get Involved</h2>
+    <p>Whether through fellowships, volunteer engagement, or collaborative research, there are many ways to contribute to the Institute's mission.</p>
+    <a href="https://www.activeinference.institute/research" class="btn" target="_blank" rel="noopener">View Full Research Page</a>
+</section>
+
+<div id="site-footer"></div>
+<script src="../site-components.js"></script>
+</body>
+</html>

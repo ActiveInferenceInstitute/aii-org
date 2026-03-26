@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools & Code - Active Inference Institute</title>
+    <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+
+<!-- Header Injection -->
+<div id="site-header"></div>
+
+<main>
+    <div class="page-header" style="text-align: center; padding: 100px 40px 40px; background: #fff;">
+        <p class="section-label" style="color: var(--accent);">Open-Source Infrastructure</p>
+        <h1 style="font-size: 3rem; color: var(--grey-dark); font-weight: 400; font-family: Georgia, 'Times New Roman', serif;">Tools & Code</h1>
+        <p style="color: var(--grey-mid); max-width: 600px; margin: 20px auto; line-height: 1.8;">Active Inference isn't just theory—it's computable. The Institute supports and contributes to an ecosystem of high-performance software enabling probabilistic programming and real-time modeling.</p>
+    </div>
+
+    <!-- RxInfer -->
+    <section id="rxinfer" class="section pillars-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2>RxInfer.jl</h2>
+                <p>Reactive Message Passing on Factor Graphs</p>
+            </div>
+            
+            <div class="pillar-card" style="max-width: 800px; margin: 0 auto; text-align: left; padding: 40px;">
+                <h3 style="color: var(--accent);">Bayesian Inference at Scale</h3>
+                <p style="margin-bottom: 20px;"><strong>RxInfer.jl</strong> is a powerful Julia package built by the ReactiveBayes ecosystem, specifically designed to automate Bayesian inference using reactive message passing on constraint-based factor graphs.</p>
+                <p style="margin-bottom: 20px;">Within the context of Active Inference, RxInfer allows practitioners to define models via readable Julia macros (powered by <code>GraphPPL.jl</code>), which compile into high-performance message passing networks (powered by <code>ReactiveMP.jl</code> and <code>Rocket.jl</code>).</p>
+                <p>This hybrid inference engine processes real-time streaming data, enabling seamless simulations of decision-making tasks, multi-agent scenarios, and generative world-models adapting to changing environments.</p>
+                <div style="margin-top: 30px;">
+                    <a href="https://rxinfer.com" target="_blank" class="btn btn-primary" style="display: inline-block; background: var(--accent); color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px;">Visit RxInfer.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Code -->
+    <section id="code" class="section mission-section">
+        <div class="section-inner" style="text-align: center;">
+            <div class="section-header">
+                <h2>Institute Repositories</h2>
+                <p style="color: var(--grey-mid); max-width: 700px; margin: 20px auto; line-height: 1.8;">Our GitHub organization hosts extensive open-source simulation code, documentation infrastructure, and the web components you see here.</p>
+            </div>
+            
+            <a href="https://github.com/ActiveInferenceInstitute" target="_blank" class="btn btn-primary" style="display: inline-block; border: 1px solid var(--grey-dark); color: var(--grey-dark); padding: 10px 20px; text-decoration: none; border-radius: 4px;">Explore GitHub</a>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer Injection -->
+<div id="site-footer"></div>
+
+<script src="../site-components.js"></script>
+</body>
+</html>

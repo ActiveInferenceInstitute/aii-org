@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Active Inference — Chapter 7: T-Maze</title>
+    <title>CRR Framework — T-Maze: Coherence-Rupture-Regeneration</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400&display=swap');
         
@@ -45,7 +45,7 @@
         }
         
         .tab-btn:hover { color: rgba(255, 255, 255, 0.85); background: rgba(255, 255, 255, 0.05); }
-        .tab-btn.active { color: #4af; border-bottom-color: #4af; background: rgba(100, 200, 255, 0.08); }
+        .tab-btn.active { color: #6fc; border-bottom-color: #6fc; background: rgba(100, 255, 180, 0.08); }
         
         .tab-content { 
             display: none; 
@@ -90,8 +90,8 @@
             transition: all 0.3s;
         }
         
-        .step-dot.active { background: #4af; box-shadow: 0 0 8px #4af; }
-        .step-dot.complete { background: #6c8; }
+        .step-dot.active { background: #6fc; box-shadow: 0 0 8px #6fc; }
+        .step-dot.complete { background: #4af; }
         
         .step-title { font-size: 1.15rem; color: #fff; font-style: italic; }
         
@@ -103,7 +103,7 @@
         
         .tutorial-content::-webkit-scrollbar { width: 5px; }
         .tutorial-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
-        .tutorial-content::-webkit-scrollbar-thumb { background: rgba(100,200,255,0.3); border-radius: 3px; }
+        .tutorial-content::-webkit-scrollbar-thumb { background: rgba(100,255,180,0.3); border-radius: 3px; }
         
         .step-content { display: none; }
         .step-content.active { display: block; }
@@ -111,7 +111,7 @@
         .section-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
-            color: rgba(150, 200, 255, 0.7);
+            color: rgba(100, 255, 180, 0.7);
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 10px;
@@ -127,8 +127,8 @@
         .tutorial-text strong { color: #6fc; font-weight: 500; }
         
         .concept-card {
-            background: rgba(0, 30, 50, 0.5);
-            border: 1px solid rgba(100, 180, 255, 0.2);
+            background: rgba(0, 40, 30, 0.5);
+            border: 1px solid rgba(100, 255, 180, 0.2);
             border-radius: 6px;
             padding: 12px;
             margin: 10px 0;
@@ -137,7 +137,7 @@
         .concept-card h4 {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
-            color: #4af;
+            color: #6fc;
             margin-bottom: 5px;
             font-weight: 400;
         }
@@ -145,8 +145,8 @@
         .concept-card p { font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.5; }
         
         .equation-box {
-            background: rgba(0, 20, 35, 0.8);
-            border: 1px solid rgba(100, 200, 255, 0.3);
+            background: rgba(0, 30, 25, 0.8);
+            border: 1px solid rgba(100, 255, 180, 0.3);
             border-radius: 6px;
             padding: 12px;
             margin: 12px 0;
@@ -156,7 +156,7 @@
         .equation-box .label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 9px;
-            color: rgba(100, 200, 255, 0.7);
+            color: rgba(100, 255, 180, 0.7);
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 5px;
@@ -165,19 +165,19 @@
         .equation-box .formula { font-size: 16px; color: #fff; font-style: italic; }
         
         .key-insight {
-            background: rgba(100, 255, 180, 0.08);
-            border-left: 3px solid rgba(100, 255, 180, 0.5);
+            background: rgba(100, 200, 255, 0.08);
+            border-left: 3px solid rgba(100, 200, 255, 0.5);
             border-radius: 0 6px 6px 0;
             padding: 12px;
             margin: 12px 0;
         }
         
         .key-insight::before {
-            content: '💡 KEY INSIGHT';
+            content: '🌀 CRR INSIGHT';
             display: block;
             font-family: 'JetBrains Mono', monospace;
             font-size: 9px;
-            color: #6c8;
+            color: #4af;
             letter-spacing: 1px;
             margin-bottom: 5px;
         }
@@ -185,19 +185,19 @@
         .key-insight p { font-size: 13px; color: rgba(255, 255, 255, 0.85); font-style: italic; line-height: 1.5; }
         
         .real-world-box {
-            background: rgba(150, 100, 255, 0.08);
-            border: 1px solid rgba(150, 100, 255, 0.25);
+            background: rgba(255, 180, 100, 0.08);
+            border: 1px solid rgba(255, 180, 100, 0.25);
             border-radius: 6px;
             padding: 12px;
             margin: 12px 0;
         }
         
         .real-world-box::before {
-            content: '🌍 REAL-WORLD CUES';
+            content: '🌍 PROCESS MAPPING';
             display: block;
             font-family: 'JetBrains Mono', monospace;
             font-size: 9px;
-            color: rgba(180, 150, 255, 0.8);
+            color: rgba(255, 180, 100, 0.8);
             letter-spacing: 1px;
             margin-bottom: 8px;
         }
@@ -235,7 +235,7 @@
         }
         
         .nav-btn:hover { background: rgba(255, 255, 255, 0.12); }
-        .nav-btn.primary { background: rgba(100, 200, 255, 0.2); border-color: rgba(100, 200, 255, 0.4); }
+        .nav-btn.primary { background: rgba(100, 255, 180, 0.2); border-color: rgba(100, 255, 180, 0.4); }
         .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
         
         /* Simulation Area */
@@ -271,7 +271,7 @@
         }
         
         .sim-btn:hover { background: rgba(255, 255, 255, 0.15); }
-        .sim-btn.active { background: rgba(100, 200, 255, 0.2); border-color: #4af; }
+        .sim-btn.active { background: rgba(100, 255, 180, 0.2); border-color: #6fc; }
         
         .control-panel {
             padding: 10px 16px;
@@ -292,7 +292,7 @@
             margin-bottom: 5px;
         }
         
-        .control-group label strong { color: #4af; }
+        .control-group label strong { color: #6fc; }
         
         .slider-row { display: flex; align-items: center; gap: 8px; }
         
@@ -300,7 +300,7 @@
             flex: 1;
             height: 3px;
             -webkit-appearance: none;
-            background: linear-gradient(90deg, rgba(150, 100, 255, 0.5), rgba(255, 180, 100, 0.5));
+            background: linear-gradient(90deg, rgba(100, 255, 180, 0.5), rgba(255, 180, 100, 0.5));
             border-radius: 2px;
         }
         
@@ -315,7 +315,7 @@
         .slider-value {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
-            color: #4af;
+            color: #6fc;
             min-width: 28px;
             text-align: right;
         }
@@ -356,8 +356,8 @@
         
         .data-panel {
             flex: 1;
-            background: rgba(0, 20, 35, 0.7);
-            border: 1px solid rgba(100, 180, 255, 0.15);
+            background: rgba(0, 30, 25, 0.7);
+            border: 1px solid rgba(100, 255, 180, 0.15);
             border-radius: 5px;
             padding: 10px;
         }
@@ -365,7 +365,7 @@
         .data-panel h5 {
             font-family: 'JetBrains Mono', monospace;
             font-size: 8px;
-            color: #4af;
+            color: #6fc;
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 8px;
@@ -381,7 +381,7 @@
             transition: all 0.3s;
         }
         
-        .belief-item.active { background: rgba(100, 200, 255, 0.12); box-shadow: inset 0 0 0 1px rgba(100, 200, 255, 0.3); }
+        .belief-item.active { background: rgba(100, 255, 180, 0.12); box-shadow: inset 0 0 0 1px rgba(100, 255, 180, 0.3); }
         
         .belief-item .loc { font-family: 'JetBrains Mono', monospace; font-size: 7px; color: rgba(255, 255, 255, 0.4); }
         .belief-item .prob { font-size: 13px; color: #fff; }
@@ -397,7 +397,7 @@
         .efe-row.selected { background: rgba(100, 255, 180, 0.1); border-radius: 3px; }
         
         .efe-row .name { font-family: 'JetBrains Mono', monospace; font-size: 9px; width: 45px; color: rgba(255, 255, 255, 0.6); }
-        .efe-row.selected .name { color: #6c8; }
+        .efe-row.selected .name { color: #6fc; }
         
         .efe-bar {
             flex: 1;
@@ -408,7 +408,7 @@
             display: flex;
         }
         
-        .efe-bar .e { background: rgba(150, 100, 255, 0.7); height: 100%; transition: width 0.3s; }
+        .efe-bar .e { background: rgba(100, 255, 180, 0.7); height: 100%; transition: width 0.3s; }
         .efe-bar .p { background: rgba(255, 180, 100, 0.7); height: 100%; transition: width 0.3s; }
         
         .stats-bar {
@@ -424,7 +424,7 @@
         
         .stats-bar .stat { display: flex; gap: 4px; }
         .stats-bar .stat-l { color: rgba(255, 255, 255, 0.3); }
-        .stats-bar .stat-v { color: #4af; }
+        .stats-bar .stat-v { color: #6fc; }
         
         /* ==================== TAB 2: PHASE SPACE ==================== */
         #tab2 {
@@ -450,12 +450,12 @@
         
         .phase-title { text-align: center; }
         .phase-title h2 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 4px; }
-        .phase-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(150, 200, 255, 0.7); letter-spacing: 1px; }
+        .phase-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(100, 255, 180, 0.7); letter-spacing: 1px; }
         
         .phase-canvas-wrap {
             flex: 1;
             background: rgba(0, 10, 20, 0.9);
-            border: 1px solid rgba(100, 180, 255, 0.2);
+            border: 1px solid rgba(100, 255, 180, 0.2);
             border-radius: 10px;
             overflow: hidden;
             min-height: 400px;
@@ -480,13 +480,13 @@
             border-radius: 50%;
         }
         
-        .legend-dot.epistemic { background: #b084ff; box-shadow: 0 0 8px #b084ff; }
-        .legend-dot.pragmatic { background: #ffb870; box-shadow: 0 0 8px #ffb870; }
+        .legend-dot.coherence { background: #6fc; box-shadow: 0 0 8px #6fc; }
+        .legend-dot.regeneration { background: #ffb870; box-shadow: 0 0 8px #ffb870; }
         .legend-dot.agent { background: #fff; box-shadow: 0 0 10px #fff; }
         
         .legend-line {
             width: 20px; height: 2px;
-            background: linear-gradient(90deg, rgba(150,100,255,0.5), rgba(255,180,100,0.5));
+            background: linear-gradient(90deg, rgba(100,255,180,0.5), rgba(255,180,100,0.5));
         }
         
         .phase-right {
@@ -496,8 +496,8 @@
         }
         
         .phase-controls {
-            background: rgba(0, 20, 35, 0.8);
-            border: 1px solid rgba(100, 180, 255, 0.2);
+            background: rgba(0, 30, 25, 0.8);
+            border: 1px solid rgba(100, 255, 180, 0.2);
             border-radius: 10px;
             padding: 18px;
         }
@@ -505,7 +505,7 @@
         .phase-controls h3 {
             font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
-            color: #4af;
+            color: #6fc;
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 14px;
@@ -522,7 +522,7 @@
             margin-bottom: 3px;
         }
         
-        .phase-control label strong { color: #4af; }
+        .phase-control label strong { color: #6fc; }
         
         .control-desc {
             font-size: 11px;
@@ -566,7 +566,7 @@
         .slider-val {
             font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
-            color: #4af;
+            color: #6fc;
             text-align: center;
             margin-top: 4px;
         }
@@ -574,8 +574,8 @@
         .phase-btn {
             width: 100%;
             padding: 10px;
-            background: rgba(100, 200, 255, 0.15);
-            border: 1px solid rgba(100, 200, 255, 0.3);
+            background: rgba(100, 255, 180, 0.15);
+            border: 1px solid rgba(100, 255, 180, 0.3);
             color: #fff;
             font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
@@ -584,11 +584,11 @@
             transition: all 0.2s;
         }
         
-        .phase-btn:hover { background: rgba(100, 200, 255, 0.25); }
+        .phase-btn:hover { background: rgba(100, 255, 180, 0.25); }
         
         .phase-readout {
-            background: rgba(0, 20, 35, 0.8);
-            border: 1px solid rgba(100, 180, 255, 0.2);
+            background: rgba(0, 30, 25, 0.8);
+            border: 1px solid rgba(100, 255, 180, 0.2);
             border-radius: 10px;
             padding: 18px;
         }
@@ -596,7 +596,7 @@
         .phase-readout h3 {
             font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
-            color: #4af;
+            color: #6fc;
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 12px;
@@ -632,9 +632,9 @@
             transition: width 0.3s;
         }
         
-        .readout-fill.epistemic { background: linear-gradient(90deg, #8060cc, #b084ff); }
-        .readout-fill.pragmatic { background: linear-gradient(90deg, #cc9050, #ffb870); }
-        .readout-fill.total { background: linear-gradient(90deg, #3080cc, #4af); }
+        .readout-fill.coherence { background: linear-gradient(90deg, #40a080, #6fc); }
+        .readout-fill.regeneration { background: linear-gradient(90deg, #cc9050, #ffb870); }
+        .readout-fill.total { background: linear-gradient(90deg, #3080a0, #4af); }
         
         .readout-val {
             font-family: 'JetBrains Mono', monospace;
@@ -645,8 +645,8 @@
         }
         
         .phase-insight {
-            background: rgba(100, 255, 180, 0.08);
-            border: 1px solid rgba(100, 255, 180, 0.2);
+            background: rgba(100, 200, 255, 0.08);
+            border: 1px solid rgba(100, 200, 255, 0.2);
             border-radius: 10px;
             padding: 14px;
             display: flex;
@@ -666,8 +666,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 16px 20px;
-            background: rgba(0, 20, 35, 0.6);
-            border: 1px solid rgba(100, 180, 255, 0.2);
+            background: rgba(0, 30, 25, 0.6);
+            border: 1px solid rgba(100, 255, 180, 0.2);
             border-radius: 8px;
             margin-left: 20px;
             margin-right: 20px;
@@ -698,81 +698,96 @@
             padding: 25px 35px 50px;
         }
         
-        .glossary-container { max-width: 1100px; margin: 0 auto; }
-        
+        .glossary-container { max-width: 1000px; margin: 0 auto; }
         .glossary-title { text-align: center; margin-bottom: 25px; }
-        .glossary-title h2 { font-size: 26px; font-weight: 300; color: #fff; margin-bottom: 5px; }
-        .glossary-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(150, 200, 255, 0.7); letter-spacing: 1px; }
+        .glossary-title h2 { font-size: 26px; font-weight: 300; color: #fff; margin-bottom: 4px; }
+        .glossary-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(100, 255, 180, 0.7); letter-spacing: 2px; }
         
-        .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+        .glossary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
         
         .glossary-card {
-            background: rgba(0, 20, 35, 0.8);
-            border: 1px solid rgba(100, 180, 255, 0.2);
+            background: rgba(0, 30, 25, 0.6);
+            border: 1px solid rgba(100, 255, 180, 0.15);
             border-radius: 8px;
-            padding: 16px;
-            transition: all 0.3s ease;
+            padding: 14px;
+            transition: all 0.3s;
         }
         
-        .glossary-card:hover {
-            border-color: rgba(100, 200, 255, 0.4);
-            box-shadow: 0 4px 16px rgba(0, 100, 150, 0.2);
-            transform: translateY(-2px);
-        }
+        .glossary-card:hover { border-color: rgba(100, 255, 180, 0.35); background: rgba(0, 40, 30, 0.7); }
         
         .glossary-card .term {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
+            font-size: 12px;
             color: #6fc;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid rgba(100, 255, 200, 0.2);
+            margin-bottom: 6px;
         }
         
-        .glossary-card .definition { font-size: 13px; color: rgba(255, 255, 255, 0.8); line-height: 1.5; }
-        
-        .glossary-card .definition em {
-            font-style: normal;
-            color: rgba(150, 220, 255, 0.95);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
+        .glossary-card .definition {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.5;
         }
+        
+        .glossary-card .definition em { color: #fff; font-style: italic; }
         
         .glossary-card .analogy {
             display: block;
-            margin-top: 8px;
-            padding: 8px 10px;
-            background: rgba(100, 200, 255, 0.08);
-            border-left: 3px solid rgba(100, 200, 255, 0.4);
-            border-radius: 0 4px 4px 0;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: rgba(180, 220, 255, 0.8);
-            line-height: 1.4;
+            margin-top: 6px;
+            font-size: 11px;
+            color: rgba(255, 180, 100, 0.7);
+            font-style: italic;
         }
         
-        /* Credit */
         .credit {
             position: fixed;
-            bottom: 4px; right: 8px;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 8px;
-            color: rgba(255, 255, 255, 0.2);
-            z-index: 9999;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.25);
+            z-index: 1000;
         }
-        
-        .credit a { color: rgba(150, 200, 255, 0.35); text-decoration: none; }
+        .credit a { color: rgba(100, 255, 180, 0.4); text-decoration: none; }
+        .credit a:hover { color: rgba(100, 255, 180, 0.7); }
     </style>
+
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
+</style>
 </head>
 <body>
-
-    <!-- Tab Navigation -->
-    <div class="tab-nav">
-        <button class="tab-btn active" data-tab="tab1">T-Maze Simulation</button>
-        <button class="tab-btn" data-tab="tab2">EFE Phase Space</button>
-        <button class="tab-btn" data-tab="tab3">Glossary</button>
-    </div>
+<a href="../pages/simulations.html" class="aii-floating-back">&#8592; Back to Catalog</a>
+    <nav class="tab-nav">
+        <button class="tab-btn active" data-tab="tab1">Simulation</button>
+        <button class="tab-btn" data-tab="tab2">Phase Space</button>
+        <button class="tab-btn" data-tab="tab3">CRR Glossary</button>
+    </nav>
     
     <!-- ==================== TAB 1: SIMULATION ==================== -->
     <div id="tab1" class="tab-content active">
@@ -781,105 +796,214 @@
                 <div class="step-progress" id="stepProgress"></div>
                 <div class="step-title" id="stepTitle">The T-Maze Problem</div>
             </div>
+            
             <div class="tutorial-content">
-                <!-- Step 0 -->
+                <!-- Step 0: Introduction -->
                 <div class="step-content active" data-step="0">
-                    <div class="section-label">Exploration vs Exploitation</div>
-                    <div class="tutorial-text">A <strong>rat in a T-maze</strong> faces a choice: one arm contains cheese (reward), the other a shock (punishment). A <strong>cue in the central arm</strong> reveals which side has the reward.</div>
-                    <div class="concept-card"><h4>Option 1: Go Directly (Exploit)</h4><p>Gamble on 50/50 odds—might get cheese, might get shocked.</p></div>
-                    <div class="concept-card"><h4>Option 2: Seek Information First (Explore)</h4><p>Visit the cue first, learn where the reward is, then go there.</p></div>
-                    <div class="key-insight"><p>"This choice speaks to the classical exploration-exploitation dilemma: a dilemma <strong>resolved under Active Inference</strong>."</p></div>
-                    <div class="citation">— Parr, Pezzulo & Friston (2022), Chapter 7, p.130</div>
+                    <div class="section-label">CRR Framework</div>
+                    <p class="tutorial-text">
+                        A rat faces a <strong>T-shaped maze</strong>. At the junction, it must choose: go left or go right? One side has cheese 🧀, the other an electric shock ⚡.
+                    </p>
+                    <p class="tutorial-text">
+                        But first it can visit a <strong>cue location</strong> that reveals which side is safe. This simple setup reveals the <strong>Coherence-Rupture-Regeneration</strong> dynamics of decision-making.
+                    </p>
+                    
+                    <div class="concept-card">
+                        <h4>C → δ → R</h4>
+                        <p>
+                            The rat <em>accumulates coherence</em> (builds certainty through observation), 
+                            experiences <em>rupture</em> (the decision moment), 
+                            and <em>regenerates</em> (selects action based on memory-weighted integration).
+                        </p>
+                    </div>
+                    
+                    <div class="key-insight">
+                        <p>
+                            CRR treats each decision as a scale-invariant process: the agent metabolizes its accumulated past into future action at the rupture point δ(now).
+                        </p>
+                    </div>
                 </div>
                 
-                <!-- Step 1 -->
+                <!-- Step 1: The Cue -->
                 <div class="step-content" data-step="1">
-                    <div class="section-label">Information-Gathering Actions</div>
-                    <div class="tutorial-text">The <strong>cue</strong> is any observation that <strong>resolves uncertainty</strong> before a consequential choice. It's an <em>epistemic action</em>—taken for information, not immediate reward.</div>
+                    <div class="section-label">Coherence Building</div>
+                    <p class="tutorial-text">
+                        The <strong>cue location</strong> is where <strong>coherence accumulates</strong>. Before visiting, the rat has low coherence about context — uncertainty about which side is safe.
+                    </p>
+                    <p class="tutorial-text">
+                        After visiting the cue, <strong>coherence is high</strong>: the rat now has integrated, consistent knowledge about its environment.
+                    </p>
+                    
+                    <div class="equation-box">
+                        <div class="label">Coherence Integral</div>
+                        <div class="formula">C(x,t) = ∫ L(x,τ) dτ</div>
+                    </div>
+                    
+                    <p class="tutorial-text">
+                        L represents the <strong>local coherence field</strong> — how consistent the agent's state is with its environment at each moment.
+                    </p>
+                    
                     <div class="real-world-box">
                         <ul>
-                            <li><strong>Checking a calendar</strong> before deciding which café</li>
-                            <li><strong>Reading reviews</strong> before purchasing</li>
-                            <li><strong>Asking a question</strong> before committing</li>
-                            <li><strong>Checking the weather</strong> before dressing</li>
+                            <li>Before cue: C ≈ 0.5 (uncertain, incoherent)</li>
+                            <li>After cue: C ≈ 0.98 (certain, coherent)</li>
+                            <li>Each observation integrates into the coherence field</li>
                         </ul>
                     </div>
-                    <div class="key-insight"><p>"If he does not know what day it is, he has to first select an action with <strong>epistemic value</strong>."</p></div>
-                    <div class="citation">— Parr, Pezzulo & Friston (2022), Chapter 2, p.34</div>
                 </div>
                 
-                <!-- Step 2 -->
+                <!-- Step 2: The Model -->
                 <div class="step-content" data-step="2">
-                    <div class="section-label">Building a POMDP</div>
-                    <div class="tutorial-text">The task is formalised as a <strong>Partially Observable Markov Decision Process</strong>:</div>
-                    <div class="concept-card"><h4>A-matrices (Likelihood)</h4><p>Map hidden states to observations. What will I see?</p></div>
-                    <div class="concept-card"><h4>B-matrices (Transitions)</h4><p>How states change given actions.</p></div>
-                    <div class="concept-card"><h4>C-vectors (Preferences)</h4><p>Cheese: +6, Shock: −6.</p></div>
-                    <div class="concept-card"><h4>D-vectors (Initial Beliefs)</h4><p>Both contexts equally likely (50/50).</p></div>
-                    <div class="citation">— Chapter 7, p.131-135</div>
+                    <div class="section-label">The Temporal Structure</div>
+                    <p class="tutorial-text">
+                        CRR uses a <strong>generative process</strong> with explicit temporal dynamics:
+                    </p>
+                    
+                    <div class="concept-card">
+                        <h4>Coherence Field</h4>
+                        <p>How certain the agent is about context. Observation builds coherence; uncertainty depletes it.</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4>Ω (Omega) — Boundary Parameter</h4>
+                        <p>Controls how memory is accessed. Low Ω = only recent high-coherence moments. High Ω = broad historical access.</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4>Memory Kernel exp(C/Ω)</h4>
+                        <p>Weights past states by coherence. High coherence moments dominate regeneration when Ω is small.</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4>Reward History</h4>
+                        <p>Past experiences of reward/punishment, weighted by coherence at time of experience.</p>
+                    </div>
                 </div>
                 
-                <!-- Step 3 -->
+                <!-- Step 3: Regeneration -->
                 <div class="step-content" data-step="3">
-                    <div class="section-label">Policy Selection</div>
-                    <div class="tutorial-text">Policies minimise <strong>expected free energy G(π)</strong>:</div>
-                    <div class="equation-box"><div class="label">Expected Free Energy</div><div class="formula">G(π) = −Epistemic − Pragmatic</div></div>
-                    <div class="concept-card"><h4>Epistemic Value</h4><p>How much will this <strong>reduce uncertainty</strong>?</p></div>
-                    <div class="concept-card"><h4>Pragmatic Value</h4><p>How likely to bring <strong>preferred outcomes</strong>?</p></div>
-                    <div class="key-insight"><p>"We <strong>do not need to balance</strong> exploration and exploitation. Both serve the same function."</p></div>
-                    <div class="citation">— Chapter 7, p.131</div>
+                    <div class="section-label">Regeneration Potential</div>
+                    <p class="tutorial-text">
+                        At each <strong>rupture point</strong> δ(now), the rat evaluates possible actions via <strong>Regeneration Potential (R)</strong>:
+                    </p>
+                    
+                    <div class="equation-box">
+                        <div class="label">Regeneration</div>
+                        <div class="formula">R = ∫ φ(x,τ) · exp(C/Ω) · Θ(...) dτ</div>
+                    </div>
+                    
+                    <p class="tutorial-text">
+                        This decomposes into two natural components:
+                    </p>
+                    
+                    <div class="concept-card">
+                        <h4>Coherence-Building Value</h4>
+                        <p>How much visiting a location will <em>increase</em> coherence. The cue has high coherence-building value when uncertainty is high.</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h4>Memory-Weighted Preference</h4>
+                        <p>Expected outcome weighted by exp(C/Ω). Higher coherence about reward location → stronger pull toward that action.</p>
+                    </div>
+                    
+                    <div class="key-insight">
+                        <p>
+                            CRR naturally balances "information seeking" and "reward seeking" through the exp(C/Ω) weighting — both serve coherent regeneration.
+                        </p>
+                    </div>
                 </div>
                 
-                <!-- Step 4 -->
+                <!-- Step 4: Omega -->
                 <div class="step-content" data-step="4">
-                    <div class="section-label">Controlling the Balance</div>
-                    <div class="tutorial-text"><strong>Precision (γ)</strong> controls how deterministic policy selection is:</div>
-                    <div class="equation-box"><div class="label">Policy Probability</div><div class="formula">P(π) = σ(−γ · G(π))</div></div>
-                    <div class="concept-card"><h4>Low Precision (γ → 0)</h4><p>More <strong>random/exploratory</strong>.</p></div>
-                    <div class="concept-card"><h4>High Precision (γ → ∞)</h4><p>More <strong>deterministic</strong>.</p></div>
-                    <div class="tutorial-text"><strong>Try the Precision slider!</strong></div>
-                    <div class="citation">— Chapter 4, p.72</div>
+                    <div class="section-label">The Ω Parameter</div>
+                    <p class="tutorial-text">
+                        <strong>Ω (omega)</strong> controls boundary flexibility — how the agent accesses its memory during regeneration:
+                    </p>
+                    
+                    <div class="equation-box">
+                        <div class="label">Policy Selection</div>
+                        <div class="formula">P(π) ∝ exp(R(π) / Ω)</div>
+                    </div>
+                    
+                    <p class="tutorial-text">
+                        <strong>Low Ω</strong>: Only highest-coherence memories accessible. Peaked, decisive action selection. The agent acts on its most certain knowledge.
+                    </p>
+                    <p class="tutorial-text">
+                        <strong>High Ω</strong>: Broad memory access. More exploratory, considers diverse possibilities. The agent remains open to alternatives.
+                    </p>
+                    
+                    <div class="real-world-box">
+                        <ul>
+                            <li>Low Ω → Habitual, pattern-reconstituting</li>
+                            <li>High Ω → Adaptive, exploratory</li>
+                            <li>Contemplatives train Ω control through practice</li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <!-- Step 5 -->
+                <!-- Step 5: Behaviour -->
                 <div class="step-content" data-step="5">
-                    <div class="section-label">Active Inference in Action</div>
-                    <div class="concept-card"><h4>Step 1: Go to Cue (Epistemic)</h4><p>Visit the <strong>informative cue</strong> first.</p></div>
-                    <div class="concept-card"><h4>Step 2: Go to Reward (Pragmatic)</h4><p>After seeing cue, go to correct arm.</p></div>
-                    <div class="key-insight"><p>"The rat chooses to sample the informative cue—the location with <strong>greatest epistemic value</strong>."</p></div>
-                    <div class="tutorial-text">Press <strong>"AUTO"</strong> to watch!</div>
-                    <div class="citation">— Chapter 7, p.135</div>
+                    <div class="section-label">Emergent Behaviour</div>
+                    <p class="tutorial-text">
+                        Watch the rat's behaviour emerge from CRR dynamics. With <strong>low initial coherence</strong>, the cue has high coherence-building value → the rat visits it first.
+                    </p>
+                    <p class="tutorial-text">
+                        After building coherence at the cue, the <strong>memory-weighted preference</strong> for the correct side dominates → the rat goes to the cheese.
+                    </p>
+                    
+                    <div class="key-insight">
+                        <p>
+                            "Exploration vs exploitation" dissolves in CRR: both are aspects of coherent regeneration. Information-seeking builds coherence; reward-seeking realizes it.
+                        </p>
+                    </div>
+                    
+                    <p class="tutorial-text">
+                        Adjust the sliders to see how <strong>coherence weight</strong>, <strong>preference weight</strong>, and <strong>Ω</strong> affect the rat's choices.
+                    </p>
+                    
+                    <div class="citation">
+                        CRR Framework — Sabine (2024-2025)<br>
+                        Coherence-Rupture-Regeneration dynamics
+                    </div>
                 </div>
             </div>
+            
             <div class="tutorial-nav">
-                <button class="nav-btn" id="prevBtn" disabled>← PREV</button>
+                <button class="nav-btn" id="prevBtn" disabled>← BACK</button>
                 <button class="nav-btn primary" id="nextBtn">NEXT →</button>
             </div>
         </div>
         
         <div class="sim-area">
             <div class="sim-header">
-                <div class="sim-title">T-Maze Environment</div>
+                <span class="sim-title">CRR T-Maze Simulation</span>
                 <div class="sim-controls">
                     <button class="sim-btn" id="stepBtn">STEP</button>
-                    <button class="sim-btn" id="runBtn">▶ AUTO</button>
-                    <button class="sim-btn" id="resetBtn">↺ RESET</button>
+                    <button class="sim-btn" id="autoBtn">AUTO</button>
+                    <button class="sim-btn" id="resetBtn">RESET</button>
                 </div>
             </div>
             
             <div class="control-panel">
                 <div class="control-group">
-                    <label><strong>Precision (γ)</strong> — Policy determinism</label>
+                    <label><strong>Ω</strong> — Boundary Flexibility</label>
                     <div class="slider-row">
-                        <input type="range" id="precSlider" min="0.5" max="8" step="0.25" value="4">
-                        <span class="slider-value" id="precVal">4.0</span>
+                        <input type="range" id="precSlider" min="0.5" max="8" step="0.5" value="4">
+                        <span class="slider-value" id="precValue">4.0</span>
                     </div>
                 </div>
                 <div class="control-group">
-                    <label><strong>Epistemic Weight</strong> — Value of information</label>
+                    <label><strong>Coherence Weight</strong> — Information value</label>
                     <div class="slider-row">
                         <input type="range" id="epiSlider" min="0" max="3" step="0.1" value="1.5">
-                        <span class="slider-value" id="epiVal">1.5</span>
+                        <span class="slider-value" id="epiValue">1.5</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label><strong>Preference</strong> — Reward: <span id="prefR">+6</span> | Shock: <span id="prefS">-6</span></label>
+                    <div class="slider-row">
+                        <input type="range" id="prefSlider" min="1" max="10" step="1" value="6">
+                        <span class="slider-value" id="prefValue">6</span>
                     </div>
                 </div>
             </div>
@@ -891,47 +1015,51 @@
             
             <div class="data-panels">
                 <div class="data-panel">
-                    <h5>Beliefs Q(s)</h5>
+                    <h5>Coherence Field (Context)</h5>
                     <div class="belief-grid">
-                        <div class="belief-item active" data-loc="center"><div class="loc">CENTRE</div><div class="prob" id="bC">100%</div></div>
-                        <div class="belief-item" data-loc="cue"><div class="loc">CUE</div><div class="prob" id="bQ">0%</div></div>
-                        <div class="belief-item" data-loc="left"><div class="loc">LEFT</div><div class="prob" id="bL">0%</div></div>
-                        <div class="belief-item" data-loc="right"><div class="loc">RIGHT</div><div class="prob" id="bR">0%</div></div>
+                        <div class="belief-item" id="belLeft">
+                            <div class="loc">LEFT</div>
+                            <div class="prob" id="belLeftVal">50%</div>
+                        </div>
+                        <div class="belief-item" id="belRight">
+                            <div class="loc">RIGHT</div>
+                            <div class="prob" id="belRightVal">50%</div>
+                        </div>
                     </div>
                 </div>
                 <div class="data-panel">
-                    <h5>Expected Free Energy G(π)</h5>
-                    <div class="efe-row" id="rCue"><span class="name">→ Cue</span><div class="efe-bar"><div class="e" id="eCue"></div><div class="p" id="pCue"></div></div></div>
-                    <div class="efe-row" id="rLeft"><span class="name">← Left</span><div class="efe-bar"><div class="e" id="eLeft"></div><div class="p" id="pLeft"></div></div></div>
-                    <div class="efe-row" id="rRight"><span class="name">→ Right</span><div class="efe-bar"><div class="e" id="eRight"></div><div class="p" id="pRight"></div></div></div>
-                </div>
-                <div class="data-panel">
-                    <h5>Prior Preferences C</h5>
-                    <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.8;">
-                        🧀 Attractive: <span style="color:#6c8">+6</span><br>
-                        ⚡ Aversive: <span style="color:#f66">−6</span><br>
-                        ○ Neutral: 0
+                    <h5>Regeneration Potential (R)</h5>
+                    <div class="efe-row" id="efeCue">
+                        <span class="name">CUE</span>
+                        <div class="efe-bar"><div class="e" id="efeCueC"></div><div class="p" id="efeCueP"></div></div>
+                    </div>
+                    <div class="efe-row" id="efeLeft">
+                        <span class="name">LEFT</span>
+                        <div class="efe-bar"><div class="e" id="efeLeftC"></div><div class="p" id="efeLeftP"></div></div>
+                    </div>
+                    <div class="efe-row" id="efeRight">
+                        <span class="name">RIGHT</span>
+                        <div class="efe-bar"><div class="e" id="efeRightC"></div><div class="p" id="efeRightP"></div></div>
                     </div>
                 </div>
             </div>
             
             <div class="stats-bar">
-                <div class="stat"><span class="stat-l">TRIAL</span><span class="stat-v" id="sTrial">1</span></div>
-                <div class="stat"><span class="stat-l">STEP</span><span class="stat-v" id="sStep">1</span></div>
-                <div class="stat"><span class="stat-l">CONTEXT</span><span class="stat-v" id="sCtx">Unknown</span></div>
-                <div class="stat"><span class="stat-l">🧀</span><span class="stat-v" id="sRew">0</span></div>
-                <div class="stat"><span class="stat-l">⚡</span><span class="stat-v" id="sShk">0</span></div>
+                <div class="stat"><span class="stat-l">REWARDS:</span><span class="stat-v" id="statRew">0</span></div>
+                <div class="stat"><span class="stat-l">SHOCKS:</span><span class="stat-v" id="statShk">0</span></div>
+                <div class="stat"><span class="stat-l">TRIALS:</span><span class="stat-v" id="statTri">1</span></div>
+                <div class="stat"><span class="stat-l">STEP:</span><span class="stat-v" id="statStep">1</span></div>
             </div>
         </div>
     </div>
     
-    <!-- ==================== TAB 2: PHASE SPACE VISUALIZATION ==================== -->
+    <!-- ==================== TAB 2: PHASE SPACE ==================== -->
     <div id="tab2" class="tab-content">
         <div class="phase-container">
             <div class="phase-left">
                 <div class="phase-title">
-                    <h2>EFE in Phase Space</h2>
-                    <div class="phase-subtitle">Watch an agent navigate epistemic & pragmatic landscapes</div>
+                    <h2>CRR Dynamics in Phase Space</h2>
+                    <div class="phase-subtitle">Coherence and Regeneration Attractors</div>
                 </div>
                 
                 <div class="phase-canvas-wrap">
@@ -939,107 +1067,93 @@
                 </div>
                 
                 <div class="phase-legend">
-                    <div class="legend-item"><span class="legend-dot epistemic"></span> Epistemic attractor (information)</div>
-                    <div class="legend-item"><span class="legend-dot pragmatic"></span> Pragmatic attractor (reward)</div>
-                    <div class="legend-item"><span class="legend-dot agent"></span> Agent minimising G(π)</div>
-                    <div class="legend-item"><span class="legend-line"></span> EFE gradient flow</div>
+                    <div class="legend-item"><div class="legend-dot coherence"></div><span>Coherence Attractor</span></div>
+                    <div class="legend-item"><div class="legend-dot regeneration"></div><span>Regeneration Attractor</span></div>
+                    <div class="legend-item"><div class="legend-dot agent"></div><span>Agent State</span></div>
+                    <div class="legend-item"><div class="legend-line"></div><span>Flow Field</span></div>
                 </div>
             </div>
             
             <div class="phase-right">
                 <div class="phase-controls">
-                    <h3>Parameters</h3>
+                    <h3>CRR Parameters</h3>
                     
                     <div class="phase-control">
-                        <label><strong>Belief about Reward Location</strong></label>
-                        <div class="control-desc">Where does the agent think the reward is?</div>
+                        <label><strong>Initial Coherence</strong></label>
+                        <div class="control-desc">Current certainty about context (0 = incoherent, 1 = fully coherent)</div>
                         <div class="slider-row">
-                            <span class="slider-end">🧀 LEFT</span>
-                            <input type="range" id="phaseUnc" min="0" max="1" step="0.01" value="0.5">
-                            <span class="slider-end">RIGHT 🧀</span>
+                            <span class="slider-end">LOW</span>
+                            <input type="range" id="phaseUnc" min="0" max="1" step="0.05" value="0.2">
+                            <span class="slider-end">HIGH</span>
                         </div>
-                        <div class="slider-val" id="phaseUncVal">50/50 (uncertain)</div>
+                        <div class="slider-val" id="phaseUncVal">20%</div>
                     </div>
                     
                     <div class="phase-control">
-                        <label><strong>Epistemic Weight</strong></label>
-                        <div class="control-desc">How much does the agent value information?</div>
+                        <label><strong>Coherence Weight</strong></label>
+                        <div class="control-desc">Importance of building coherence (information value)</div>
                         <div class="slider-row">
-                            <span class="slider-end">Ignore</span>
-                            <input type="range" id="phaseEpi" min="0" max="2" step="0.05" value="1">
-                            <span class="slider-end">Seek</span>
+                            <span class="slider-end">LOW</span>
+                            <input type="range" id="phaseEpi" min="0" max="2" step="0.1" value="1">
+                            <span class="slider-end">HIGH</span>
                         </div>
                         <div class="slider-val" id="phaseEpiVal">1.0</div>
                     </div>
                     
                     <div class="phase-control">
-                        <label><strong>Pragmatic Weight</strong></label>
-                        <div class="control-desc">How much does the agent value reward?</div>
+                        <label><strong>Preference Weight</strong></label>
+                        <div class="control-desc">Importance of memory-weighted reward (regeneration pull)</div>
                         <div class="slider-row">
-                            <span class="slider-end">Ignore</span>
-                            <input type="range" id="phasePrag" min="0" max="2" step="0.05" value="1">
-                            <span class="slider-end">Seek</span>
+                            <span class="slider-end">LOW</span>
+                            <input type="range" id="phasePrag" min="0" max="2" step="0.1" value="1">
+                            <span class="slider-end">HIGH</span>
                         </div>
                         <div class="slider-val" id="phasePragVal">1.0</div>
                     </div>
                     
                     <div class="phase-control">
-                        <label><strong>Precision (γ)</strong></label>
-                        <div class="control-desc">How deterministic is policy selection?</div>
+                        <label><strong>Ω (Omega)</strong></label>
+                        <div class="control-desc">Boundary flexibility: Low = peaked/decisive, High = broad/exploratory</div>
                         <div class="slider-row">
-                            <span class="slider-end">Random</span>
+                            <span class="slider-end">RIGID</span>
                             <input type="range" id="phasePrec" min="0.5" max="5" step="0.1" value="2">
-                            <span class="slider-end">Decisive</span>
+                            <span class="slider-end">FLEXIBLE</span>
                         </div>
-                        <div class="slider-val" id="phasePrecVal">2.0</div>
+                        <div class="slider-val" id="phasePrecVal">Ω = 2.0</div>
                     </div>
                     
-                    <button class="phase-btn" id="phaseReset">↺ Reset Agent</button>
+                    <button class="phase-btn" id="phaseReset">Reset Agent Position</button>
                 </div>
                 
                 <div class="phase-readout">
-                    <h3>Live EFE Values</h3>
+                    <h3>Live CRR Decomposition</h3>
                     <div class="readout-row">
-                        <span class="readout-label">Epistemic (INFO):</span>
-                        <div class="readout-bar"><div class="readout-fill epistemic" id="readoutE"></div></div>
+                        <span class="readout-label">Coherence pull:</span>
+                        <div class="readout-bar"><div class="readout-fill coherence" id="readoutE"></div></div>
                         <span class="readout-val" id="readoutEVal">0.00</span>
                     </div>
                     <div class="readout-row">
-                        <span class="readout-label">Pragmatic LEFT:</span>
-                        <div class="readout-bar"><div class="readout-fill pragmatic" id="readoutPL"></div></div>
-                        <span class="readout-val" id="readoutPLVal">0.00</span>
-                    </div>
-                    <div class="readout-row">
-                        <span class="readout-label">Pragmatic RIGHT:</span>
-                        <div class="readout-bar"><div class="readout-fill pragmatic" id="readoutPR"></div></div>
-                        <span class="readout-val" id="readoutPRVal">0.00</span>
+                        <span class="readout-label">Regen. pull:</span>
+                        <div class="readout-bar"><div class="readout-fill regeneration" id="readoutP"></div></div>
+                        <span class="readout-val" id="readoutPVal">0.00</span>
                     </div>
                     <div class="readout-row total">
-                        <span class="readout-label">Winner:</span>
+                        <span class="readout-label">Combined R:</span>
                         <div class="readout-bar"><div class="readout-fill total" id="readoutG"></div></div>
-                        <span class="readout-val" id="readoutWinner">INFO</span>
+                        <span class="readout-val" id="readoutGVal">0.00</span>
                     </div>
                 </div>
                 
                 <div class="phase-insight">
-                    <div class="insight-icon">💡</div>
-                    <p id="phaseInsight">High uncertainty → agent seeks information first (epistemic), then reward (pragmatic).</p>
+                    <div class="insight-icon">🌀</div>
+                    <p id="phaseInsight">Low coherence → agent seeks information first (coherence attractor dominates).</p>
                 </div>
-                
-                <div class="phase-outcome" id="phaseOutcome" style="
-                    text-align: center;
-                    padding: 10px;
-                    font-family: 'JetBrains Mono', monospace;
-                    font-size: 12px;
-                    opacity: 0.3;
-                    transition: all 0.3s;
-                ">Watching agent...</div>
             </div>
         </div>
         
         <div class="phase-quote">
-            <p>"The fact that utility and the value of information emerge as two components of expected free energy means we <em>do not need to worry about balancing exploration and exploitation</em>."</p>
-            <div class="source">— Parr, Pezzulo & Friston (2022), Chapter 7, p.131</div>
+            <p>"At rupture, the agent <em>metabolizes accumulated coherence into future action</em>. The exp(C/Ω) weighting ensures that high-coherence moments dominate regeneration — we act from what we know most clearly."</p>
+            <div class="source">— CRR Framework: Coherence-Rupture-Regeneration</div>
         </div>
     </div>
     
@@ -1047,88 +1161,88 @@
     <div id="tab3" class="tab-content">
         <div class="glossary-container">
             <div class="glossary-title">
-                <h2>Glossary of Terms</h2>
-                <div class="glossary-subtitle">Chapter 7 concepts in friendly language</div>
+                <h2>CRR Glossary</h2>
+                <div class="glossary-subtitle">Coherence-Rupture-Regeneration concepts</div>
             </div>
             
             <div class="glossary-grid">
                 <div class="glossary-card">
-                    <div class="term">Expected Free Energy (G)</div>
-                    <div class="definition">Expected surprise about <em>future</em> observations. Policies are selected to minimise G.
-                        <span class="analogy">"If I do this, how surprised will I be?"</span>
+                    <div class="term">Coherence C(x,t)</div>
+                    <div class="definition">Accumulated consistency between agent and environment. <em>C = ∫L(x,τ)dτ</em>.
+                        <span class="analogy">High coherence = clear, integrated knowledge.</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">Epistemic Value</div>
-                    <div class="definition">Expected <em>information gain</em>. High = action reduces uncertainty.
-                        <span class="analogy">Checking calendar has high epistemic value.</span>
+                    <div class="term">Rupture δ(now)</div>
+                    <div class="definition">Scale-invariant choice moment. The present instant where past becomes future.
+                        <span class="analogy">Every decision is a tiny "now" where you commit.</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">Pragmatic Value</div>
-                    <div class="definition">Expected <em>preference satisfaction</em>: <em>E[ln P(o|C)]</em>.
-                        <span class="analogy">Going to favourite restaurant = high pragmatic value.</span>
+                    <div class="term">Regeneration R</div>
+                    <div class="definition">Memory-weighted integration toward action: <em>R = ∫φ·exp(C/Ω)·Θ dτ</em>.
+                        <span class="analogy">You regenerate from your clearest memories.</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">POMDP</div>
-                    <div class="definition"><em>Partially Observable Markov Decision Process</em>. Decision-making with uncertain state.
-                        <span class="analogy">Life: you never see reality directly.</span>
+                    <div class="term">Ω (Omega)</div>
+                    <div class="definition">Boundary flexibility parameter. Controls memory access breadth in exp(C/Ω).
+                        <span class="analogy">Low Ω = peaked focus. High Ω = broad access.</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">Policy (π)</div>
-                    <div class="definition">A sequence of actions. Agents evaluate trajectories, not single actions.
-                        <span class="analogy">Not "turn left?" but the whole plan.</span>
+                    <div class="term">exp(C/Ω)</div>
+                    <div class="definition">Memory amplification kernel. Weights past states by coherence.
+                        <span class="analogy">Clear memories dominate; fuzzy ones fade.</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">Precision (γ)</div>
-                    <div class="definition">Policy selection determinism. <em>P(π) ∝ exp(−γG)</em>.
-                        <span class="analogy">High = decisive. Low = exploratory.</span>
+                    <div class="term">Coherence Building</div>
+                    <div class="definition">Actions that increase C — reduce uncertainty, integrate information.
+                        <span class="analogy">Checking the cue builds coherence about context.</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">A-Matrix</div>
-                    <div class="definition">Likelihood mapping: states → observations.
-                        <span class="analogy">Rain (state) → wet streets (observation).</span>
+                    <div class="term">Local Coherence L(x,τ)</div>
+                    <div class="definition">Instantaneous consistency at location x and time τ.
+                        <span class="analogy">How "right" does this moment feel?</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">B-Matrix</div>
-                    <div class="definition">Transition mapping: (state, action) → next state.
-                        <span class="analogy">Button press → floor changes.</span>
+                    <div class="term">Reconstruction φ(x,τ)</div>
+                    <div class="definition">Resources available for regeneration at each past moment.
+                        <span class="analogy">What can you build from each memory?</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">C-Vector</div>
-                    <div class="definition">Prior preferences. Not expectations, but <em>desires</em>.
-                        <span class="analogy">Your values encoded numerically.</span>
+                    <div class="term">Policy Selection</div>
+                    <div class="definition"><em>P(π) ∝ exp(R(π)/Ω)</em>. Actions selected by regeneration potential.
+                        <span class="analogy">Do what regenerates you best.</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">D-Vector</div>
-                    <div class="definition">Initial beliefs about state. Rat: 50/50 context uncertainty.
-                        <span class="analogy">Know location, not context.</span>
+                    <div class="term">Z₂ Symmetry</div>
+                    <div class="definition">Binary switching systems: Ω = 1/π, CV ≈ 0.159.
+                        <span class="analogy">On/off, left/right, yes/no.</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">Exploration-Exploitation</div>
-                    <div class="definition">Gather info vs act on knowledge. Active inference <em>dissolves</em> this dilemma.
-                        <span class="analogy">Both serve the same objective: minimise G.</span>
+                    <div class="term">SO(2) Symmetry</div>
+                    <div class="definition">Continuous rotation systems: Ω = 1/2π, CV ≈ 0.08.
+                        <span class="analogy">Cycles, rhythms, oscillations.</span>
                     </div>
                 </div>
                 <div class="glossary-card">
-                    <div class="term">Information Gain</div>
-                    <div class="definition">Uncertainty reduction after observation. Cue has high info gain.
-                        <span class="analogy">Window → weather knowledge.</span>
+                    <div class="term">Metabolization</div>
+                    <div class="definition">At δ(now), past coherence is transformed into future action.
+                        <span class="analogy">You digest experience into behavior.</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="credit">Temporal Grammar | Alexander Sabine | <a href="https://activeinference.institute">Active Inference Institute</a> | <a href="https://temporalgrammar.ai">temporalgrammar.ai</a></div>
+    <div class="credit">CRR Framework | Alexander Sabine | <a href="https://cohere.org.uk">cohere.org.uk</a> | <a href="https://temporalgrammar.ai">temporalgrammar.ai</a></div>
 
 <script>
 // ============================================================================
@@ -1169,11 +1283,11 @@ for (let i = 0; i < totalSteps; i++) {
 
 const stepTitles = [
     "The T-Maze Problem",
-    "What is the 'Cue'?",
-    "The Generative Model",
-    "Expected Free Energy",
-    "Precision",
-    "The Rat's Behaviour"
+    "Coherence Building",
+    "The Temporal Structure",
+    "Regeneration Potential",
+    "The Ω Parameter",
+    "Emergent Behaviour"
 ];
 
 function goToStep(i) {
@@ -1203,12 +1317,15 @@ $('prevBtn').onclick = () => { if (currentStep > 0) goToStep(currentStep - 1); }
 $('nextBtn').onclick = () => { goToStep(currentStep < totalSteps - 1 ? currentStep + 1 : 0); };
 
 // ============================================================================
-// RAT AGENT
+// RAT AGENT — CRR-BASED
 // ============================================================================
 class Rat {
     constructor() {
         this.locs = {center:{x:.5,y:.72}, cue:{x:.5,y:.35}, left:{x:.18,y:.35}, right:{x:.82,y:.35}};
-        this.prec = 4; this.epiW = 1.5; this.pref = {r:6, s:-6};
+        // CRR parameters: omega (boundary flexibility), coherence weight, preferences
+        this.omega = 0.25; // 1/precision — lower = more peaked selection
+        this.cohW = 1.5;   // coherence building weight
+        this.pref = {r:6, s:-6}; // reward/shock preferences
         this.rew = 0; this.shk = 0; this.tri = 0;
         this.reset();
     }
@@ -1220,28 +1337,45 @@ class Rat {
         this.ang = 0; this.mov = false; this.ph = 0; this.step = 1;
         this.cueObs = false; 
         this.ctx = Math.random() < .5 ? 'left' : 'right';
-        this.bel = {loc:{center:1,cue:0,left:0,right:0}, ctx:{left:.5,right:.5}};
+        // Coherence field for context: starts at 0.5 (uncertain)
+        this.coherence = {left: 0.5, right: 0.5};
         this.tri++;
     }
     
-    entropy() { 
-        const p = this.bel.ctx.left; 
-        if (p <= 0.01 || p >= 0.99) return 0; 
-        return -p * Math.log2(p) - (1-p) * Math.log2(1-p); 
+    // Coherence deficit: how far from certainty (high = need information)
+    coherenceDeficit() { 
+        const c = Math.max(this.coherence.left, this.coherence.right);
+        // Returns 0 when certain, 1 when maximally uncertain (c=0.5)
+        if (c >= 0.99) return 0;
+        return 1 - Math.abs(2 * c - 1); // peaks at c=0.5
     }
     
-    efe(pol) {
-        let e = 0, p = 0;
+    // CRR: Regeneration potential for each policy
+    // R(π) = coherence_building_value + memory_weighted_preference
+    regeneration(pol) {
+        let cohBuild = 0, memPref = 0;
+        
         if (pol === 'cue') { 
-            e = this.entropy() * this.epiW * 2; 
+            // Cue builds coherence — value proportional to current deficit
+            cohBuild = this.coherenceDeficit() * this.cohW * 2;
+            // Small memory-weighted preference (cue itself is neutral)
+            memPref = 0;
         } else if (pol === 'left') { 
-            e = 0.05 * this.epiW; 
-            p = this.bel.ctx.left * this.pref.r + this.bel.ctx.right * this.pref.s; 
-        } else { 
-            e = 0.05 * this.epiW; 
-            p = this.bel.ctx.right * this.pref.r + this.bel.ctx.left * this.pref.s; 
+            // Low coherence building (already have location info)
+            cohBuild = 0.05 * this.cohW;
+            // Memory-weighted preference: exp(C/Ω) weights by coherence
+            // If coherent about left=reward, strong positive pull
+            const expWeight = Math.exp(this.coherence.left / (this.omega + 0.1));
+            const normWeight = expWeight / (expWeight + Math.exp(this.coherence.right / (this.omega + 0.1)));
+            memPref = normWeight * this.pref.r + (1 - normWeight) * this.pref.s;
+        } else { // right
+            cohBuild = 0.05 * this.cohW;
+            const expWeight = Math.exp(this.coherence.right / (this.omega + 0.1));
+            const normWeight = expWeight / (expWeight + Math.exp(this.coherence.left / (this.omega + 0.1)));
+            memPref = normWeight * this.pref.r + (1 - normWeight) * this.pref.s;
         }
-        return {e, p, t: e + p};
+        
+        return {c: cohBuild, p: memPref, t: cohBuild + memPref};
     }
     
     validPolicies() { 
@@ -1250,30 +1384,42 @@ class Rat {
         return []; 
     }
     
+    // CRR policy selection: P(π) ∝ exp(R(π) / Ω)
     selectPolicy() {
         const ps = this.validPolicies();
         if (!ps.length) return null;
         
-        const efes = {};
-        let maxG = -Infinity;
-        ps.forEach(p => { efes[p] = this.efe(p); if (efes[p].t > maxG) maxG = efes[p].t; });
+        const regens = {};
+        let maxR = -Infinity;
+        ps.forEach(p => { 
+            regens[p] = this.regeneration(p); 
+            if (regens[p].t > maxR) maxR = regens[p].t; 
+        });
         
+        // Softmax with temperature Ω (note: 1/Ω gives precision-like behavior)
+        // Using 1/omega as effective precision for selection sharpness
+        const precision = 1 / (this.omega + 0.05);
         let sum = 0;
         const exp = {};
-        ps.forEach(p => { exp[p] = Math.exp(this.prec * (efes[p].t - maxG)); sum += exp[p]; });
+        ps.forEach(p => { 
+            exp[p] = Math.exp(precision * (regens[p].t - maxR)); 
+            sum += exp[p]; 
+        });
         
         const probs = {};
         ps.forEach(p => probs[p] = exp[p] / sum);
         
+        // Stochastic selection (rupture moment δ(now))
         const r = Math.random();
         let cumulative = 0;
         for (const p of ps) {
             cumulative += probs[p];
-            if (r < cumulative) return {pol: p, probs, efes};
+            if (r < cumulative) return {pol: p, probs, regens};
         }
-        return {pol: ps[0], probs, efes};
+        return {pol: ps[0], probs, regens};
     }
     
+    // Execute policy — this is the rupture moment δ(now)
     execute(pol) {
         this.loc = pol;
         const l = this.locs[pol];
@@ -1281,13 +1427,18 @@ class Rat {
         this.mov = true;
         this.step++;
         
-        Object.keys(this.bel.loc).forEach(k => this.bel.loc[k] = k === pol ? 1 : 0);
-        
+        // Update coherence field based on observation
         if (pol === 'cue' && !this.cueObs) {
             this.cueObs = true;
-            this.bel.ctx = this.ctx === 'left' ? {left: 0.98, right: 0.02} : {left: 0.02, right: 0.98};
+            // After observing cue, coherence becomes high for true context
+            if (this.ctx === 'left') {
+                this.coherence = {left: 0.98, right: 0.02};
+            } else {
+                this.coherence = {left: 0.02, right: 0.98};
+            }
         }
         
+        // Regeneration outcomes
         if (pol === 'left' || pol === 'right') {
             if (pol === this.ctx) this.rew++;
             else this.shk++;
@@ -1347,14 +1498,14 @@ class Render {
         for (let i = 0; i < h; i += 40) { ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(w, i); ctx.stroke(); }
         
         // Maze floor
-        ctx.fillStyle = 'rgba(60,100,140,0.08)';
+        ctx.fillStyle = 'rgba(60,140,100,0.08)';
         ctx.fillRect(w * 0.38, h * 0.25, w * 0.24, h * 0.55);
         ctx.fillRect(w * 0.08, h * 0.25, w * 0.84, h * 0.18);
         
         // Maze walls
-        ctx.shadowColor = '#4af';
+        ctx.shadowColor = '#6fc';
         ctx.shadowBlur = 8;
-        ctx.strokeStyle = 'rgba(100,180,255,0.25)';
+        ctx.strokeStyle = 'rgba(100,255,180,0.25)';
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(w * 0.08, h * 0.25);
@@ -1371,11 +1522,11 @@ class Render {
         
         // Location labels
         const drawLabel = (px, py, text, active) => {
-            ctx.fillStyle = active ? 'rgba(100,200,255,0.1)' : 'rgba(255,255,255,0.02)';
+            ctx.fillStyle = active ? 'rgba(100,255,180,0.1)' : 'rgba(255,255,255,0.02)';
             ctx.beginPath();
             ctx.arc(px, py - 8, 20, 0, Math.PI * 2);
             ctx.fill();
-            ctx.fillStyle = active ? '#4af' : 'rgba(255,255,255,0.2)';
+            ctx.fillStyle = active ? '#6fc' : 'rgba(255,255,255,0.2)';
             ctx.font = '8px JetBrains Mono, monospace';
             ctx.textAlign = 'center';
             ctx.fillText(text, px, py + 16);
@@ -1413,201 +1564,172 @@ class Render {
         drawStim(w * 0.82, h * 0.38, r.ctx === 'right');
         
         // Cue indicator
+        ctx.strokeStyle = r.cueObs ? 'rgba(100,255,180,0.8)' : 'rgba(100,200,255,0.4)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        const cueX = w * 0.5, cueY = h * 0.32;
         if (r.cueObs) {
-            const dir = r.ctx === 'left' ? -1 : 1;
-            const s = w * 0.015;
-            ctx.fillStyle = '#4af';
-            ctx.shadowColor = '#4af';
-            ctx.shadowBlur = 5;
-            ctx.beginPath();
-            ctx.moveTo(w * 0.5 + dir * s * 1.5, h * 0.38);
-            ctx.lineTo(w * 0.5 - dir * s * 0.5, h * 0.38 - s * 0.7);
-            ctx.lineTo(w * 0.5 - dir * s * 0.5, h * 0.38 + s * 0.7);
-            ctx.closePath();
-            ctx.fill();
-            ctx.shadowBlur = 0;
+            // Show which way cue pointed
+            const arrowDir = r.ctx === 'left' ? -1 : 1;
+            ctx.moveTo(cueX - 10 * arrowDir, cueY - 5);
+            ctx.lineTo(cueX + 10 * arrowDir, cueY);
+            ctx.lineTo(cueX - 10 * arrowDir, cueY + 5);
         } else {
-            ctx.fillStyle = 'rgba(180,130,255,0.6)';
-            ctx.font = `italic ${w * 0.025}px Cormorant Garamond, serif`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('?', w * 0.5, h * 0.38);
+            ctx.moveTo(cueX - 8, cueY);
+            ctx.lineTo(cueX + 8, cueY);
+            ctx.moveTo(cueX, cueY - 8);
+            ctx.lineTo(cueX, cueY + 8);
         }
-        
-        // Rat
-        const rx = r.x * w;
-        const ry = r.y * h;
-        const scale = Math.min(w, h) * 0.04;
-        
-        ctx.save();
-        ctx.translate(rx, ry);
-        ctx.rotate(r.ang - Math.PI / 2);
-        
-        const breath = 1 + Math.sin(r.ph) * 0.02;
-        
-        // Shadow
-        ctx.fillStyle = 'rgba(0,0,0,0.2)';
-        ctx.beginPath();
-        ctx.ellipse(2, 2, scale * 0.5, scale * 0.25, 0, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Tail
-        ctx.strokeStyle = '#e8b4b4';
-        ctx.lineWidth = scale * 0.04;
-        ctx.lineCap = 'round';
-        ctx.beginPath();
-        ctx.moveTo(0, scale * 0.3);
-        ctx.quadraticCurveTo(scale * 0.15 * Math.sin(r.ph * 2), scale * 0.7, 0, scale * 0.9);
         ctx.stroke();
         
+        // Draw rat
+        const rx = r.x * w, ry = r.y * h;
+        
+        // Body glow
+        ctx.fillStyle = 'rgba(200,220,255,0.08)';
+        ctx.beginPath();
+        ctx.arc(rx, ry, 25 + Math.sin(r.ph) * 2, 0, Math.PI * 2);
+        ctx.fill();
+        
         // Body
-        const bodyGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, scale);
-        bodyGrad.addColorStop(0, '#d4a574');
-        bodyGrad.addColorStop(0.7, '#b8956a');
-        bodyGrad.addColorStop(1, '#9a7b5a');
-        ctx.fillStyle = bodyGrad;
+        ctx.fillStyle = '#aab';
+        ctx.shadowColor = '#fff';
+        ctx.shadowBlur = 5;
         ctx.beginPath();
-        ctx.ellipse(0, scale * 0.06, scale * 0.32 * breath, scale * 0.4, 0, 0, Math.PI * 2);
+        ctx.ellipse(rx, ry, 12, 8, r.ang, 0, Math.PI * 2);
         ctx.fill();
+        ctx.shadowBlur = 0;
         
-        // Head
-        ctx.fillStyle = '#dbb896';
+        // Head direction
+        ctx.fillStyle = '#ccd';
         ctx.beginPath();
-        ctx.ellipse(0, -scale * 0.32, scale * 0.25 * breath, scale * 0.28, 0, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Snout
-        ctx.fillStyle = '#e8ceb8';
-        ctx.beginPath();
-        ctx.ellipse(0, -scale * 0.52, scale * 0.1, scale * 0.07, 0, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Nose
-        ctx.fillStyle = '#f99';
-        ctx.beginPath();
-        ctx.ellipse(0, -scale * 0.58, scale * 0.04, scale * 0.03, 0, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Ears
-        ctx.fillStyle = '#c4a27e';
-        ctx.beginPath();
-        ctx.ellipse(-scale * 0.16, -scale * 0.4, scale * 0.09, scale * 0.12, -0.3, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.ellipse(scale * 0.16, -scale * 0.4, scale * 0.09, scale * 0.12, 0.3, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Inner ears
-        ctx.fillStyle = '#ffb4b4';
-        ctx.beginPath();
-        ctx.ellipse(-scale * 0.16, -scale * 0.4, scale * 0.05, scale * 0.08, -0.3, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.ellipse(scale * 0.16, -scale * 0.4, scale * 0.05, scale * 0.08, 0.3, 0, Math.PI * 2);
+        ctx.arc(rx + Math.cos(r.ang) * 8, ry + Math.sin(r.ang) * 8, 5, 0, Math.PI * 2);
         ctx.fill();
         
         // Eyes
-        ctx.fillStyle = '#fff';
+        ctx.fillStyle = '#222';
+        const eyeOff = Math.PI / 3;
         ctx.beginPath();
-        ctx.arc(-scale * 0.07, -scale * 0.34, scale * 0.045, 0, Math.PI * 2);
-        ctx.arc(scale * 0.07, -scale * 0.34, scale * 0.045, 0, Math.PI * 2);
+        ctx.arc(rx + Math.cos(r.ang + eyeOff) * 10, ry + Math.sin(r.ang + eyeOff) * 10, 2, 0, Math.PI * 2);
+        ctx.arc(rx + Math.cos(r.ang - eyeOff) * 10, ry + Math.sin(r.ang - eyeOff) * 10, 2, 0, Math.PI * 2);
         ctx.fill();
-        
-        ctx.fillStyle = '#0d1825';
-        ctx.beginPath();
-        ctx.arc(-scale * 0.07, -scale * 0.36, scale * 0.025, 0, Math.PI * 2);
-        ctx.arc(scale * 0.07, -scale * 0.36, scale * 0.025, 0, Math.PI * 2);
-        ctx.fill();
-        
-        ctx.restore();
     }
 }
 
 // ============================================================================
-// SIMULATION
+// MAIN SIMULATION
 // ============================================================================
 const canvas = $('simCanvas');
 const rat = new Rat();
 const render = new Render(canvas, rat);
-let lastTime = 0;
+
 let autoRun = false;
+let lastTime = 0;
 
-$('precSlider').oninput = e => { rat.prec = parseFloat(e.target.value); $('precVal').textContent = rat.prec.toFixed(1); };
-$('epiSlider').oninput = e => { rat.epiW = parseFloat(e.target.value); $('epiVal').textContent = rat.epiW.toFixed(1); };
+// Slider handlers
+$('precSlider').oninput = e => {
+    // Convert precision slider to omega (inverse relationship)
+    // High slider value = low omega = more decisive
+    const prec = parseFloat(e.target.value);
+    rat.omega = 1 / prec;
+    $('precValue').textContent = prec.toFixed(1);
+};
 
-function showThought(result) {
-    const thought = $('thought');
-    let text = '';
-    if (result.pol === 'cue') text = "Let me check the cue...";
-    else if (result.pol === 'left') text = rat.cueObs && rat.bel.ctx.left > 0.5 ? "Cue says left!" : "Going left!";
-    else text = rat.cueObs && rat.bel.ctx.right > 0.5 ? "Cue says right!" : "Going right!";
-    
-    thought.textContent = text;
-    thought.style.left = `${rat.x * canvas.width - 70}px`;
-    thought.style.top = `${rat.y * canvas.height - 60}px`;
-    thought.classList.add('show');
-    setTimeout(() => thought.classList.remove('show'), 1500);
-}
+$('epiSlider').oninput = e => {
+    rat.cohW = parseFloat(e.target.value);
+    $('epiValue').textContent = rat.cohW.toFixed(1);
+};
+
+$('prefSlider').oninput = e => {
+    const v = parseInt(e.target.value);
+    rat.pref = {r: v, s: -v};
+    $('prefR').textContent = '+' + v;
+    $('prefS').textContent = '-' + v;
+    $('prefValue').textContent = v;
+};
 
 $('stepBtn').onclick = () => {
-    if (!rat.mov && rat.validPolicies().length) {
+    if (!rat.mov) {
         const result = rat.selectPolicy();
         if (result) {
             rat.execute(result.pol);
             showThought(result);
+        } else {
+            rat.reset();
         }
+        updateUI();
     }
 };
 
-$('runBtn').onclick = () => {
+$('autoBtn').onclick = () => {
     autoRun = !autoRun;
-    $('runBtn').textContent = autoRun ? '⏸ PAUSE' : '▶ AUTO';
-    $('runBtn').classList.toggle('active', autoRun);
+    $('autoBtn').classList.toggle('active', autoRun);
 };
 
 $('resetBtn').onclick = () => {
     rat.reset();
-    autoRun = false;
-    $('runBtn').textContent = '▶ AUTO';
-    $('runBtn').classList.remove('active');
     updateUI();
 };
 
-function updateUI() {
-    $('bC').textContent = Math.round(rat.bel.loc.center * 100) + '%';
-    $('bQ').textContent = Math.round(rat.bel.loc.cue * 100) + '%';
-    $('bL').textContent = Math.round(rat.bel.loc.left * 100) + '%';
-    $('bR').textContent = Math.round(rat.bel.loc.right * 100) + '%';
+function showThought(result) {
+    const thought = $('thought');
+    const rect = canvas.getBoundingClientRect();
+    const x = rat.x * canvas.width;
+    const y = rat.y * canvas.height;
     
-    document.querySelectorAll('.belief-item').forEach(b => {
-        b.classList.toggle('active', b.dataset.loc === rat.loc);
+    thought.style.left = (x + 30) + 'px';
+    thought.style.top = (y - 20) + 'px';
+    
+    // CRR-flavored thoughts
+    const regen = result.regens[result.pol];
+    if (result.pol === 'cue') {
+        thought.textContent = `Building coherence... (C: ${regen.c.toFixed(2)})`;
+    } else {
+        const dir = result.pol === 'left' ? '←' : '→';
+        thought.textContent = `Regenerating ${dir} (R: ${regen.t.toFixed(2)})`;
+    }
+    
+    thought.classList.add('show');
+    setTimeout(() => thought.classList.remove('show'), 1500);
+}
+
+function updateUI() {
+    // Coherence field display
+    $('belLeftVal').textContent = Math.round(rat.coherence.left * 100) + '%';
+    $('belRightVal').textContent = Math.round(rat.coherence.right * 100) + '%';
+    $('belLeft').classList.toggle('active', rat.coherence.left > 0.6);
+    $('belRight').classList.toggle('active', rat.coherence.right > 0.6);
+    
+    // Regeneration bars
+    const policies = rat.validPolicies();
+    const regens = {};
+    let maxT = 0.1;
+    policies.forEach(p => {
+        regens[p] = rat.regeneration(p);
+        maxT = Math.max(maxT, Math.abs(regens[p].t));
     });
     
-    const ec = rat.efe('cue'), el = rat.efe('left'), er = rat.efe('right');
-    const maxE = Math.max(ec.e, el.e, er.e, 0.1);
-    const maxP = Math.max(Math.abs(ec.p), Math.abs(el.p), Math.abs(er.p), 0.1);
+    const updateBar = (pol, cId, pId, rowId) => {
+        const r = regens[pol] || {c: 0, p: 0, t: 0};
+        const scale = 50 / maxT;
+        $(cId).style.width = Math.max(0, r.c * scale) + '%';
+        $(pId).style.width = Math.max(0, (r.p + 6) * scale / 2) + '%';
+        $(rowId).classList.toggle('selected', policies.includes(pol) && r.t === Math.max(...policies.map(p => regens[p]?.t || 0)));
+    };
     
-    $('eCue').style.width = (ec.e / maxE) * 45 + '%';
-    $('eLeft').style.width = (el.e / maxE) * 45 + '%';
-    $('eRight').style.width = (er.e / maxE) * 45 + '%';
-    $('pCue').style.width = Math.max(0, ec.p / maxP) * 45 + '%';
-    $('pLeft').style.width = Math.max(0, el.p / maxP) * 45 + '%';
-    $('pRight').style.width = Math.max(0, er.p / maxP) * 45 + '%';
+    updateBar('cue', 'efeCueC', 'efeCueP', 'efeCue');
+    updateBar('left', 'efeLeftC', 'efeLeftP', 'efeLeft');
+    updateBar('right', 'efeRightC', 'efeRightP', 'efeRight');
     
-    const sel = rat.selectPolicy();
-    $('rCue').classList.toggle('selected', sel?.pol === 'cue');
-    $('rLeft').classList.toggle('selected', sel?.pol === 'left');
-    $('rRight').classList.toggle('selected', sel?.pol === 'right');
-    
-    $('sTrial').textContent = rat.tri;
-    $('sStep').textContent = rat.step;
-    $('sRew').textContent = rat.rew;
-    $('sShk').textContent = rat.shk;
-    $('sCtx').textContent = rat.cueObs ? (rat.ctx === 'left' ? '← 🧀' : '🧀 →') : '50/50';
+    // Stats
+    $('statRew').textContent = rat.rew;
+    $('statShk').textContent = rat.shk;
+    $('statTri').textContent = rat.tri;
+    $('statStep').textContent = rat.step;
 }
 
 function loop(time) {
-    const dt = Math.min(0.1, (time - lastTime) / 1000);
+    const dt = Math.min((time - lastTime) / 1000, 0.1);
     lastTime = time;
     
     rat.update(dt);
@@ -1635,127 +1757,110 @@ function loop(time) {
 }
 
 // ============================================================================
-// TAB 2: PHASE SPACE VISUALIZATION
+// TAB 2: PHASE SPACE VISUALIZATION — CRR VERSION
 // ============================================================================
 const phaseCanvas = $('phaseCanvas');
 let phaseCtx = null;
 
 const phase = {
-    uncertainty: 0.5,   // 0 = believes left, 0.5 = uncertain, 1 = believes right
-    epiWeight: 1.0,
-    pragWeight: 1.0,
-    precision: 2.0,
+    coherence: 0.2,      // current coherence level (0-1)
+    cohWeight: 1.0,      // coherence building weight
+    prefWeight: 1.0,     // preference/regeneration weight  
+    omega: 0.5,          // boundary flexibility
     agent: { x: 0.5, y: 0.85, vx: 0, vy: 0, trail: [] },
     time: 0
 };
 
 // Attractor positions with rgba colors for gradients
 const attractors = {
-    epistemic: { x: 0.5, y: 0.25, label: 'INFO', color: '#b084ff', rgba: 'rgba(176,132,255,' },
-    pragLeft: { x: 0.15, y: 0.25, label: 'LEFT', color: '#66ffcc', rgba: 'rgba(102,255,204,' },
-    pragRight: { x: 0.85, y: 0.25, label: 'RIGHT', color: '#ffb870', rgba: 'rgba(255,184,112,' }
+    coherence: { x: 0.5, y: 0.25, label: 'COHERENCE', color: '#6fc', rgba: 'rgba(100,255,180,' },
+    regenLeft: { x: 0.15, y: 0.25, label: 'LEFT 🧀', color: '#66ffcc', rgba: 'rgba(102,255,204,' },
+    regenRight: { x: 0.85, y: 0.25, label: 'RIGHT', color: '#ffb870', rgba: 'rgba(255,184,112,' }
 };
 
-function calcPhaseEFE() {
-    const u = phase.uncertainty;  // 0 = knows left, 0.5 = max uncertain, 1 = knows right
-    const eW = phase.epiWeight;
-    const pW = phase.pragWeight;
+function calcCRR() {
+    const c = phase.coherence;
+    const cW = phase.cohWeight;
+    const pW = phase.prefWeight;
     
-    // Belief distribution based on slider position
-    // u=0: pLeft=1.0 (certain LEFT has reward)
-    // u=0.5: pLeft=0.5 (completely uncertain - 50/50)
-    // u=1: pLeft=0.0 (certain RIGHT has reward)
-    const pLeft = 1.0 - u;
-    const pRight = u;
+    // Coherence deficit: peaks when uncertain (c ≈ 0.5)
+    const deficit = 1 - Math.abs(2 * c - 1);
     
-    // Entropy peaks at u=0.5 (max uncertainty)
-    let entropy = 0;
-    if (pLeft > 0.01 && pLeft < 0.99) {
-        entropy = -pLeft * Math.log2(pLeft) - pRight * Math.log2(pRight);
-    }
+    // Coherence building value (like epistemic value)
+    const cohValue = deficit * cW * 2;
     
-    // Epistemic value of INFO (high when uncertain)
-    const epistemic = entropy * eW * 2;
+    // Memory-weighted regeneration toward each side
+    // Assume left is "correct" for visualization; coherence c represents P(left correct)
+    const expLeft = Math.exp(c / (phase.omega + 0.1));
+    const expRight = Math.exp((1-c) / (phase.omega + 0.1));
+    const normLeft = expLeft / (expLeft + expRight);
+    const normRight = 1 - normLeft;
     
-    // Pragmatic values: expected utility given beliefs
-    // Reward = +6, Shock = -6
-    const pragLeft = (pLeft - pRight) * pW;   // positive when believe left, negative when believe right
-    const pragRight = (pRight - pLeft) * pW;  // positive when believe right, negative when believe left
+    // Regeneration pull (memory-weighted preference)
+    const regenLeft = (normLeft * 6 + normRight * -6) * pW / 6;
+    const regenRight = (normRight * 6 + normLeft * -6) * pW / 6;
     
-    return { epistemic, pragLeft, pragRight };
+    return { cohValue, regenLeft, regenRight };
 }
 
 function getForces() {
-    const efe = calcPhaseEFE();
+    const crr = calcCRR();
     const ax = phase.agent.x;
     const ay = phase.agent.y;
     
     let fx = 0, fy = 0;
     
-    // Epistemic attractor pull (always positive or zero)
-    const eDx = attractors.epistemic.x - ax;
-    const eDy = attractors.epistemic.y - ay;
-    const eDist = Math.sqrt(eDx*eDx + eDy*eDy) + 0.01;
-    const eForce = Math.max(0, efe.epistemic) * 0.8;
-    fx += (eDx / eDist) * eForce;
-    fy += (eDy / eDist) * eForce;
+    // Coherence attractor pull (information seeking)
+    const cDx = attractors.coherence.x - ax;
+    const cDy = attractors.coherence.y - ay;
+    const cDist = Math.sqrt(cDx*cDx + cDy*cDy) + 0.01;
+    const cForce = Math.max(0, crr.cohValue) * 0.8;
+    fx += (cDx / cDist) * cForce;
+    fy += (cDy / cDist) * cForce;
     
-    // Pragmatic LEFT: positive = attract, negative = repel
-    const lDx = attractors.pragLeft.x - ax;
-    const lDy = attractors.pragLeft.y - ay;
+    // Regeneration left attractor
+    const lDx = attractors.regenLeft.x - ax;
+    const lDy = attractors.regenLeft.y - ay;
     const lDist = Math.sqrt(lDx*lDx + lDy*lDy) + 0.01;
-    const lForce = efe.pragLeft * 0.6;  // Can be negative (repulsion)
+    const lForce = Math.max(0, crr.regenLeft) * 0.6;
     fx += (lDx / lDist) * lForce;
     fy += (lDy / lDist) * lForce;
     
-    // Pragmatic RIGHT: positive = attract, negative = repel
-    const rDx = attractors.pragRight.x - ax;
-    const rDy = attractors.pragRight.y - ay;
+    // Regeneration right attractor
+    const rDx = attractors.regenRight.x - ax;
+    const rDy = attractors.regenRight.y - ay;
     const rDist = Math.sqrt(rDx*rDx + rDy*rDy) + 0.01;
-    const rForce = efe.pragRight * 0.6;  // Can be negative (repulsion)
+    const rForce = Math.max(0, crr.regenRight) * 0.6;
     fx += (rDx / rDist) * rForce;
     fy += (rDy / rDist) * rForce;
     
-    // Normalize and scale by precision
+    // Normalize and scale by 1/omega (lower omega = more decisive movement)
     const fMag = Math.sqrt(fx*fx + fy*fy) + 0.001;
-    const scale = Math.min(fMag, 1.5) * phase.precision * 0.0008;
+    const scale = Math.min(fMag, 1) * (1 / (phase.omega + 0.2)) * 0.0008;
     
     return { 
         fx: (fx / fMag) * scale, 
         fy: (fy / fMag) * scale,
-        epistemic: efe.epistemic,
-        pragLeft: efe.pragLeft,
-        pragRight: efe.pragRight
+        cohValue: crr.cohValue,
+        regenLeft: crr.regenLeft,
+        regenRight: crr.regenRight
     };
 }
 
 function updateInsight() {
-    const u = phase.uncertainty;
-    const eW = phase.epiWeight;
-    const pW = phase.pragWeight;
+    const crr = calcCRR();
     let text = '';
     
-    // Special case: both weights low = aimless wandering
-    if (eW < 0.3 && pW < 0.3) {
-        text = '⚠️ LOW EPISTEMIC + LOW PRAGMATIC → Agent wanders aimlessly! May stumble into danger.';
-    } else if (u < 0.15) {
-        text = 'Believes LEFT 🧀 → attracted to LEFT, repelled from RIGHT ⚡. No need for INFO (already certain).';
-    } else if (u > 0.85) {
-        text = 'Believes RIGHT 🧀 → attracted to RIGHT, repelled from LEFT ⚡. No need for INFO (already certain).';
-    } else if (u > 0.4 && u < 0.6) {
-        if (eW < 0.3) {
-            text = 'Uncertain but LOW epistemic weight → ignores INFO, gambles randomly! Risky behavior.';
-        } else {
-            text = 'Maximum uncertainty (50/50) → neither side attractive. INFO has highest value!';
-        }
-    } else if (eW < 0.3) {
-        text = 'Low epistemic weight → ignores INFO, goes with gut feeling despite uncertainty.';
-    } else if (pW < 0.3) {
-        text = 'Low pragmatic weight → doesn\'t care about reward/danger, mainly seeks information.';
-    } else if (u < 0.5) {
-        text = 'Leaning LEFT but uncertain → mild attraction to LEFT, mild repulsion from RIGHT, INFO still valuable.';
+    if (phase.coherence < 0.3) {
+        text = 'Low coherence → agent seeks information first (coherence attractor dominates).';
+    } else if (phase.coherence > 0.7) {
+        text = 'High coherence → agent knows reward location, regenerates directly (memory-weighted preference dominates).';
+    } else if (phase.cohWeight < 0.3) {
+        text = 'Low coherence weight → agent ignores information, gambles on reward.';
+    } else if (phase.prefWeight < 0.3) {
+        text = 'Low preference weight → agent wanders, not driven by regeneration toward reward.';
     } else {
-        text = 'Leaning RIGHT but uncertain → mild attraction to RIGHT, mild repulsion from LEFT, INFO still valuable.';
+        text = 'Balanced weights → agent integrates coherence-building and memory-weighted preference.';
     }
     
     $('phaseInsight').textContent = text;
@@ -1780,7 +1885,7 @@ function drawPhaseSpace() {
     ctx.fillRect(0, 0, w, h);
     
     // Grid
-    ctx.strokeStyle = 'rgba(100, 180, 255, 0.04)';
+    ctx.strokeStyle = 'rgba(100, 255, 180, 0.04)';
     ctx.lineWidth = 1;
     for (let i = 0; i < w; i += 40) { ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, h); ctx.stroke(); }
     for (let i = 0; i < h; i += 40) { ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(w, i); ctx.stroke(); }
@@ -1788,7 +1893,7 @@ function drawPhaseSpace() {
     const forces = getForces();
     
     // Draw flow field
-    ctx.strokeStyle = 'rgba(150, 100, 255, 0.08)';
+    ctx.strokeStyle = 'rgba(100, 255, 180, 0.08)';
     ctx.lineWidth = 1;
     for (let gx = 0.1; gx < 1; gx += 0.08) {
         for (let gy = 0.15; gy < 0.95; gy += 0.08) {
@@ -1813,77 +1918,49 @@ function drawPhaseSpace() {
         }
     }
     
-    // Draw attractors (positive = attractive, negative = repulsive)
-    const drawAttractor = (att, strength, type) => {
+    // Draw attractors
+    const drawAttractor = (att, strength, isCoherence) => {
         const px = att.x * w;
         const py = att.y * h;
-        const isRepulsive = strength < -0.1;
-        const absStrength = Math.abs(strength);
-        const safeStrength = Math.min(absStrength, 2); // Cap for visual sizing
         const baseR = 25;
-        const r = baseR + safeStrength * 25;
+        const clampedStrength = Math.max(0, strength);
+        const r = baseR + clampedStrength * 30;
         
-        // Choose colors based on attractive vs repulsive
-        const baseColor = isRepulsive ? 'rgba(255,80,80,' : att.rgba;
-        const coreColor = isRepulsive ? '#ff4444' : att.color;
-        
-        // Glow
-        const grad = ctx.createRadialGradient(px, py, 0, px, py, Math.max(1, r * 1.5));
-        grad.addColorStop(0, baseColor + '0.3)');
-        grad.addColorStop(0.5, baseColor + '0.1)');
+        // Glow using rgba colors
+        const grad = ctx.createRadialGradient(px, py, 0, px, py, r * 1.5);
+        grad.addColorStop(0, att.rgba + '0.25)');
+        grad.addColorStop(0.5, att.rgba + '0.08)');
         grad.addColorStop(1, 'transparent');
         ctx.fillStyle = grad;
         ctx.beginPath();
-        ctx.arc(px, py, Math.max(1, r * 1.5), 0, Math.PI * 2);
+        ctx.arc(px, py, r * 1.5, 0, Math.PI * 2);
         ctx.fill();
         
-        // Core
-        ctx.fillStyle = coreColor;
-        ctx.shadowColor = coreColor;
-        ctx.shadowBlur = 15 + safeStrength * 10;
+        // Core - ensure radius never goes negative
+        const coreRadius = Math.max(4, 8 + clampedStrength * 12);
+        ctx.fillStyle = att.color;
+        ctx.shadowColor = att.color;
+        ctx.shadowBlur = Math.max(5, 15 + clampedStrength * 10);
         ctx.beginPath();
-        ctx.arc(px, py, Math.max(4, 8 + safeStrength * 10), 0, Math.PI * 2);
+        ctx.arc(px, py, coreRadius, 0, Math.PI * 2);
         ctx.fill();
         ctx.shadowBlur = 0;
         
-        // Repulsion indicator (X pattern)
-        if (isRepulsive) {
-            ctx.strokeStyle = 'rgba(255,255,255,0.6)';
-            ctx.lineWidth = 2;
-            const s = 6;
-            ctx.beginPath();
-            ctx.moveTo(px - s, py - s); ctx.lineTo(px + s, py + s);
-            ctx.moveTo(px + s, py - s); ctx.lineTo(px - s, py + s);
-            ctx.stroke();
-        }
-        
-        // Dynamic label with cheese/danger indicator
-        let label = att.label;
-        if (type === 'left') {
-            if (phase.uncertainty < 0.3) label = 'LEFT 🧀';
-            else if (phase.uncertainty > 0.7) label = 'LEFT ⚡';
-        } else if (type === 'right') {
-            if (phase.uncertainty > 0.7) label = 'RIGHT 🧀';
-            else if (phase.uncertainty < 0.3) label = 'RIGHT ⚡';
-        } else if (type === 'info' && phase.uncertainty > 0.3 && phase.uncertainty < 0.7) {
-            label = 'INFO ❓';
-        }
-        
-        ctx.fillStyle = isRepulsive ? '#ff8888' : '#fff';
+        // Label
+        ctx.fillStyle = '#fff';
         ctx.font = '10px JetBrains Mono';
         ctx.textAlign = 'center';
-        ctx.fillText(label, px, py + r + 18);
+        ctx.fillText(att.label, px, py + r + 18);
         
-        // Strength value (show + or - clearly)
+        // Strength value
         ctx.fillStyle = 'rgba(255,255,255,0.5)';
         ctx.font = '9px JetBrains Mono';
-        const sign = strength >= 0 ? '+' : '';
-        ctx.fillText(sign + strength.toFixed(2), px, py + r + 30);
+        ctx.fillText(strength.toFixed(2), px, py + r + 30);
     };
     
-    drawAttractor(attractors.epistemic, forces.epistemic, 'info');
-    drawAttractor(attractors.pragLeft, forces.pragLeft, 'left');
-    drawAttractor(attractors.pragRight, forces.pragRight, 'right');
+    drawAttractor(attractors.coherence, forces.cohValue, true);
+    drawAttractor(attractors.regenLeft, forces.regenLeft, false);
+    drawAttractor(attractors.regenRight, forces.regenRight, false);
     
     // Draw agent trail
     if (phase.agent.trail.length > 1) {
@@ -1933,56 +2010,23 @@ function drawPhaseSpace() {
         ctx.stroke();
     }
     
-    // Update readouts - show all three values and determine winner
-    const eVal = forces.epistemic;
-    const lVal = forces.pragLeft;
-    const rVal = forces.pragRight;
-    
-    // Determine winner (highest positive value)
-    let winner = 'INFO';
-    let maxVal = eVal;
-    if (lVal > maxVal) { winner = 'LEFT 🧀'; maxVal = lVal; }
-    if (rVal > maxVal) { winner = 'RIGHT 🧀'; maxVal = rVal; }
-    
-    // Update bars (handle negative values with different styling)
-    $('readoutE').style.width = Math.min(100, Math.max(0, eVal) * 50) + '%';
-    $('readoutPL').style.width = Math.min(100, Math.max(0, lVal + 1) * 50) + '%';
-    $('readoutPL').style.background = lVal < 0 ? 'linear-gradient(90deg, #cc4444, #ff6666)' : 'linear-gradient(90deg, #cc9050, #ffb870)';
-    $('readoutPR').style.width = Math.min(100, Math.max(0, rVal + 1) * 50) + '%';
-    $('readoutPR').style.background = rVal < 0 ? 'linear-gradient(90deg, #cc4444, #ff6666)' : 'linear-gradient(90deg, #cc9050, #ffb870)';
-    $('readoutG').style.width = Math.min(100, Math.max(0, maxVal + 1) * 50) + '%';
-    
-    // Update values with +/- signs
-    $('readoutEVal').textContent = '+' + eVal.toFixed(2);
-    $('readoutPLVal').textContent = (lVal >= 0 ? '+' : '') + lVal.toFixed(2);
-    $('readoutPRVal').textContent = (rVal >= 0 ? '+' : '') + rVal.toFixed(2);
-    $('readoutWinner').textContent = winner;
+    // Update readouts
+    $('readoutE').style.width = Math.min(100, Math.max(0, forces.cohValue) * 50) + '%';
+    $('readoutP').style.width = Math.min(100, Math.max(0, forces.regenLeft + 1) * 50) + '%';
+    $('readoutG').style.width = Math.min(100, Math.max(0, forces.cohValue + forces.regenLeft + 1) * 35) + '%';
+    $('readoutEVal').textContent = forces.cohValue.toFixed(2);
+    $('readoutPVal').textContent = forces.regenLeft.toFixed(2);
+    $('readoutGVal').textContent = (forces.cohValue + forces.regenLeft).toFixed(2);
 }
 
 function updatePhaseAgent() {
     const forces = getForces();
     
-    // Calculate total force magnitude
-    const forceMag = Math.sqrt(forces.fx*forces.fx + forces.fy*forces.fy);
+    // Add some noise based on omega (higher omega = more noise/exploration)
+    const noise = phase.omega * 0.0003;
     
-    // Check if both weights are low (aimless agent)
-    const bothWeightsLow = phase.epiWeight < 0.4 && phase.pragWeight < 0.4;
-    
-    // Base noise increases when forces are weak (aimless wandering)
-    // Also scales inversely with precision (lower precision = more random)
-    // Much higher noise when both weights are low
-    const baseNoise = bothWeightsLow ? 0.003 : 0.0008;
-    const forceWeakness = Math.max(0, 1 - forceMag * 1000); // 0-1, higher when forces weak
-    const noise = baseNoise * (1 + forceWeakness * 3) / Math.sqrt(phase.precision);
-    
-    // Apply forces + noise
     phase.agent.vx += forces.fx + (Math.random() - 0.5) * noise;
     phase.agent.vy += forces.fy + (Math.random() - 0.5) * noise;
-    
-    // When aimless, add a slight upward drift so agent eventually reaches arms
-    if (bothWeightsLow && phase.uncertainty > 0.3 && phase.uncertainty < 0.7) {
-        phase.agent.vy -= 0.0001; // Slight upward bias
-    }
     
     // Damping
     phase.agent.vx *= 0.96;
@@ -1999,49 +2043,6 @@ function updatePhaseAgent() {
     // Trail
     phase.agent.trail.push({ x: phase.agent.x, y: phase.agent.y });
     if (phase.agent.trail.length > 100) phase.agent.trail.shift();
-    
-    // Check if agent reached an attractor (for feedback)
-    const distToLeft = Math.sqrt((phase.agent.x - 0.15)**2 + (phase.agent.y - 0.25)**2);
-    const distToRight = Math.sqrt((phase.agent.x - 0.85)**2 + (phase.agent.y - 0.25)**2);
-    const distToInfo = Math.sqrt((phase.agent.x - 0.5)**2 + (phase.agent.y - 0.25)**2);
-    
-    // Update outcome indicator
-    const outcomeEl = $('phaseOutcome');
-    if (outcomeEl) {
-        const u = phase.uncertainty;
-        if (distToLeft < 0.08) {
-            if (u < 0.3) {
-                outcomeEl.textContent = '🧀 Found cheese on LEFT! (Correct belief)';
-                outcomeEl.style.color = '#6c8';
-            } else if (u > 0.7) {
-                outcomeEl.textContent = '⚡ SHOCK on LEFT! (Believed RIGHT had cheese)';
-                outcomeEl.style.color = '#f66';
-            } else {
-                outcomeEl.textContent = '🎲 Reached LEFT while uncertain — 50% chance of shock!';
-                outcomeEl.style.color = '#fa0';
-            }
-            outcomeEl.style.opacity = '1';
-        } else if (distToRight < 0.08) {
-            if (u > 0.7) {
-                outcomeEl.textContent = '🧀 Found cheese on RIGHT! (Correct belief)';
-                outcomeEl.style.color = '#6c8';
-            } else if (u < 0.3) {
-                outcomeEl.textContent = '⚡ SHOCK on RIGHT! (Believed LEFT had cheese)';
-                outcomeEl.style.color = '#f66';
-            } else {
-                outcomeEl.textContent = '🎲 Reached RIGHT while uncertain — 50% chance of shock!';
-                outcomeEl.style.color = '#fa0';
-            }
-            outcomeEl.style.opacity = '1';
-        } else if (distToInfo < 0.08) {
-            outcomeEl.textContent = '❓ Gathered information — now knows where cheese is!';
-            outcomeEl.style.color = '#b084ff';
-            outcomeEl.style.opacity = '1';
-        } else {
-            outcomeEl.style.opacity = '0.3';
-            outcomeEl.textContent = 'Watching agent...';
-        }
-    }
 }
 
 function phaseLoop() {
@@ -2053,35 +2054,28 @@ function phaseLoop() {
     requestAnimationFrame(phaseLoop);
 }
 
-// Slider handlers
+// Slider handlers for phase space
 $('phaseUnc').oninput = e => {
-    phase.uncertainty = parseFloat(e.target.value);
-    const u = phase.uncertainty;
-    let txt;
-    if (u < 0.2) txt = 'Believes LEFT 🧀';
-    else if (u < 0.4) txt = 'Leans LEFT';
-    else if (u <= 0.6) txt = '50/50 (uncertain)';
-    else if (u < 0.8) txt = 'Leans RIGHT';
-    else txt = 'Believes RIGHT 🧀';
-    $('phaseUncVal').textContent = txt;
+    phase.coherence = parseFloat(e.target.value);
+    $('phaseUncVal').textContent = Math.round(phase.coherence * 100) + '%';
     updateInsight();
 };
 
 $('phaseEpi').oninput = e => {
-    phase.epiWeight = parseFloat(e.target.value);
-    $('phaseEpiVal').textContent = phase.epiWeight.toFixed(1);
+    phase.cohWeight = parseFloat(e.target.value);
+    $('phaseEpiVal').textContent = phase.cohWeight.toFixed(1);
     updateInsight();
 };
 
 $('phasePrag').oninput = e => {
-    phase.pragWeight = parseFloat(e.target.value);
-    $('phasePragVal').textContent = phase.pragWeight.toFixed(1);
+    phase.prefWeight = parseFloat(e.target.value);
+    $('phasePragVal').textContent = phase.prefWeight.toFixed(1);
     updateInsight();
 };
 
 $('phasePrec').oninput = e => {
-    phase.precision = parseFloat(e.target.value);
-    $('phasePrecVal').textContent = phase.precision.toFixed(1);
+    phase.omega = parseFloat(e.target.value);
+    $('phasePrecVal').textContent = 'Ω = ' + phase.omega.toFixed(1);
 };
 
 $('phaseReset').onclick = () => {

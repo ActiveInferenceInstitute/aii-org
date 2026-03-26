@@ -35,7 +35,7 @@ canvas{display:block;width:100%;height:100%}
 .ctrl-val{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(35,28,15,.60);font-weight:400}
 
 /* ── Info button ── */
-#info-btn{position:fixed;top:18px;left:50%;transform:translateX(calc(-50% - 70px));font-family:'Cormorant Garamond',serif;font-size:clamp(13px,1.4vw,16px);font-weight:500;letter-spacing:.08em;color:rgba(35,28,15,.70);background:rgba(244,241,235,.88);border:1px solid rgba(120,100,70,.20);padding:9px 24px;border-radius:0;cursor:pointer;z-index:20;transition:all .3s;backdrop-filter:blur(10px)}
+#info-btn{position:fixed;top:18px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(13px,1.4vw,16px);font-weight:500;letter-spacing:.08em;color:rgba(35,28,15,.70);background:rgba(244,241,235,.88);border:1px solid rgba(120,100,70,.20);padding:9px 24px;border-radius:0;cursor:pointer;z-index:20;transition:all .3s;backdrop-filter:blur(10px)}
 #info-btn:hover{color:rgba(35,28,15,.90);border-color:rgba(120,100,70,.40);background:rgba(248,245,238,.95)}
 
 /* ── Explainer panel ── */
@@ -58,46 +58,39 @@ canvas{display:block;width:100%;height:100%}
 #explainer .glossary-item{margin-bottom:18px}
 #explainer .glossary-term{font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(35,25,10,.62);letter-spacing:.06em;font-weight:400}
 #explainer .glossary-def{font-family:'Cormorant Garamond',serif;font-size:16px;color:rgba(30,22,8,.58);line-height:1.75;margin-top:4px;padding-left:14px;border-left:1px solid rgba(120,100,70,.10)}
+</style>
 
-/* ── Quiz overlay ── */
-#quiz-btn{position:fixed;top:18px;left:50%;transform:translateX(calc(-50% + 130px));font-family:'Cormorant Garamond',serif;font-size:clamp(13px,1.4vw,16px);font-weight:500;letter-spacing:.08em;color:rgba(35,28,15,.70);background:rgba(244,241,235,.88);border:1px solid rgba(120,100,70,.20);padding:9px 24px;border-radius:0;cursor:pointer;z-index:20;transition:all .3s;backdrop-filter:blur(10px)}
-#quiz-btn:hover{color:rgba(35,28,15,.90);border-color:rgba(120,100,70,.40);background:rgba(248,245,238,.95)}
-
-#quiz-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(248,245,238,.97);z-index:50;display:none;overflow-y:auto;backdrop-filter:blur(20px)}
-#quiz-overlay.open{display:flex;align-items:center;justify-content:center}
-#quiz-container{max-width:680px;width:90%;padding:40px 0}
-#quiz-container h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,3.2vw,34px);letter-spacing:.12em;color:rgba(35,25,10,.72);margin-bottom:12px;text-align:center}
-#quiz-container .quiz-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,1.5vw,17px);color:rgba(50,38,18,.45);text-align:center;margin-bottom:36px;font-style:italic}
-.diff-select{display:flex;gap:16px;justify-content:center;margin-bottom:40px}
-.diff-btn{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;padding:14px 32px;border:1px solid rgba(120,100,70,.18);background:rgba(244,241,235,.6);color:rgba(35,28,15,.65);cursor:pointer;transition:all .3s;text-transform:uppercase}
-.diff-btn:hover{border-color:rgba(120,100,70,.40);color:rgba(35,28,15,.85);background:rgba(244,241,235,.9)}
-.diff-btn.active{border-color:rgba(80,100,50,.45);color:rgba(30,50,15,.85);background:rgba(220,230,200,.5)}
-
-#quiz-progress{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(50,38,18,.45);text-align:center;margin-bottom:24px;letter-spacing:.05em}
-#quiz-question{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.2vw,24px);font-weight:400;color:rgba(30,22,8,.72);line-height:1.7;margin-bottom:28px;text-align:center}
-.quiz-options{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
-.quiz-opt{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,1.6vw,18px);color:rgba(30,22,8,.62);padding:16px 22px;border:1px solid rgba(120,100,70,.14);background:rgba(255,253,248,.5);cursor:pointer;transition:all .25s;line-height:1.6;text-align:left}
-.quiz-opt:hover{border-color:rgba(120,100,70,.35);background:rgba(244,241,235,.8);color:rgba(30,22,8,.78)}
-.quiz-opt.correct{border-color:rgba(60,120,50,.5);background:rgba(200,230,190,.35);color:rgba(25,50,10,.8)}
-.quiz-opt.wrong{border-color:rgba(160,80,60,.4);background:rgba(240,210,200,.3);color:rgba(80,30,20,.7)}
-.quiz-opt.disabled{pointer-events:none}
-.quiz-opt.reveal{border-color:rgba(60,120,50,.3);background:rgba(210,235,200,.2)}
-
-#quiz-feedback{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,1.5vw,17px);color:rgba(30,22,8,.58);line-height:1.75;text-align:center;margin-bottom:24px;min-height:60px;font-style:italic}
-#quiz-next{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;padding:12px 36px;border:1px solid rgba(120,100,70,.20);background:rgba(244,241,235,.7);color:rgba(35,28,15,.65);cursor:pointer;transition:all .3s;text-transform:uppercase;display:none;margin:0 auto}
-#quiz-next:hover{border-color:rgba(120,100,70,.40);color:rgba(35,28,15,.85)}
-
-#quiz-score{text-align:center;display:none}
-#quiz-score h3{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.5vw,28px);font-weight:400;color:rgba(35,25,10,.70);margin-bottom:12px;letter-spacing:.1em}
-#quiz-score .score-num{font-family:'JetBrains Mono',monospace;font-size:clamp(36px,5vw,56px);color:rgba(30,50,15,.65);margin:16px 0}
-#quiz-score .score-msg{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,1.8vw,20px);color:rgba(50,38,18,.50);font-style:italic;margin-bottom:28px}
-.quiz-end-btns{display:flex;gap:14px;justify-content:center}
-
-#quiz-close{position:absolute;top:20px;right:24px;font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(40,30,15,.45);cursor:pointer;background:none;border:none;padding:4px 10px;transition:color .2s;z-index:51}
-#quiz-close:hover{color:rgba(35,25,10,.7)}
+<style>
+  .aii-floating-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 0.3px;
+  }
+  .aii-floating-back:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  }
 </style>
 </head>
 <body>
+<a href="../pages/simulations.html" class="aii-floating-back">&#8592; Back to Catalog</a>
 <canvas id="cv"></canvas>
 
 <div id="eq">F = E<sub>Q</sub>[ln Q(μ) − ln P(o, μ)]</div>
@@ -127,42 +120,6 @@ canvas{display:block;width:100%;height:100%}
 </div>
 
 <button id="info-btn" onclick="document.getElementById('explainer').classList.toggle('open')">✦ what is this tree?</button>
-<button id="quiz-btn" onclick="openQuiz()">✦ test yourself</button>
-
-<div id="quiz-overlay">
-<button id="quiz-close" onclick="closeQuiz()">✕</button>
-<div id="quiz-container">
-  <h2>TEST YOUR UNDERSTANDING</h2>
-  <p class="quiz-subtitle">How well do you understand Active Inference?</p>
-
-  <div id="quiz-select">
-    <div class="diff-select">
-      <button class="diff-btn" onclick="startQuiz('easy')">Easy</button>
-      <button class="diff-btn" onclick="startQuiz('medium')">Medium</button>
-      <button class="diff-btn" onclick="startQuiz('hard')">Difficult</button>
-    </div>
-    <p class="quiz-subtitle" style="font-size:14px;margin-top:0">Easy — core definitions · Medium — applying concepts · Difficult — formal relationships</p>
-  </div>
-
-  <div id="quiz-active" style="display:none">
-    <div id="quiz-progress"></div>
-    <div id="quiz-question"></div>
-    <div class="quiz-options" id="quiz-options"></div>
-    <div id="quiz-feedback"></div>
-    <button id="quiz-next" onclick="nextQuestion()">NEXT →</button>
-  </div>
-
-  <div id="quiz-score">
-    <h3>RESULTS</h3>
-    <div class="score-num" id="score-display"></div>
-    <div class="score-msg" id="score-msg"></div>
-    <div class="quiz-end-btns">
-      <button class="diff-btn" onclick="showSelect()">TRY AGAIN</button>
-      <button class="diff-btn" onclick="closeQuiz()">BACK TO TREE</button>
-    </div>
-  </div>
-</div>
-</div>
 
 <div id="explainer">
 <button id="ex-close" onclick="this.parentElement.classList.remove('open')">✕</button>
@@ -846,203 +803,7 @@ requestAnimationFrame(frame);
 
 let clickT = 0;
 cv.addEventListener('click', e => { const now = performance.now(); if (now - clickT < 350) { seed(); narIdx = 0; } clickT = now; });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('explainer').classList.remove('open'); closeQuiz(); } });
-
-// ═══════════════════════════════════════════════════════════════
-// QUIZ SYSTEM
-// All questions grounded in Parr, Pezzulo & Friston (2022)
-// ═══════════════════════════════════════════════════════════════
-
-const quizData = {
-  easy: [
-    { q: "What does a generative model do?",
-      opts: ["Generates electricity for the brain", "Describes how observations are generated from hidden causes", "Creates new sensory organs", "Stores memories permanently"],
-      ans: 1, explain: "A generative model is a probabilistic description of how observations are generated from hidden causes. It is the core construct of Active Inference (Ch. 4)." },
-    { q: "What are the two ways an Active Inference agent can reduce prediction error?",
-      opts: ["Sleeping and eating", "Perception and action", "Learning and forgetting", "Growth and decay"],
-      ans: 1, explain: "Perception updates beliefs to fit the world; action changes the world to fit beliefs. Both serve the same objective: minimising free energy (Ch. 2)." },
-    { q: "What is a Markov blanket?",
-      opts: ["A physical membrane around a cell", "A statistical boundary separating internal from external states", "A type of neural network", "A blanket used in Markov chain experiments"],
-      ans: 1, explain: "A Markov blanket comprises sensory and active states that statistically separate an organism's internal states from external states (Ch. 3)." },
-    { q: "What does 'self-evidencing' mean?",
-      opts: ["Proving a mathematical theorem", "An organism gathering evidence for its own existence by acting on the world", "A type of scientific experiment", "Consciousness reflecting on itself"],
-      ans: 1, explain: "Self-evidencing (Hohwy, 2016) means acting to gather sensory data consistent with an internal model, thereby maximising model evidence (Ch. 3)." },
-    { q: "In this simulation, what does the sun represent?",
-      opts: ["A random light source", "The source of preferred observations for branches — encoded in the C-vector", "A distraction from the real simulation", "The system's free energy"],
-      ans: 1, explain: "The sun represents the environmental feature that the tree's prior preferences (C-vector) are aligned with. Branches prefer to observe light (Ch. 4, 7)." },
-    { q: "What is precision in Active Inference?",
-      opts: ["How accurately a clock measures time", "The inverse variance of a probability distribution — confidence in predictions", "The number of decimal places in a calculation", "The speed of neural processing"],
-      ans: 1, explain: "Precision (Π = 1/σ²) measures the confidence or reliability assigned to predictions. It weights prediction errors: high-precision errors drive stronger updates (Ch. 4, 5)." },
-    { q: "What does variational free energy bound from above?",
-      opts: ["Temperature", "Surprise — or negative log model evidence", "The speed of light", "The number of possible actions"],
-      ans: 1, explain: "Variational free energy F is an upper bound on surprise: F ≥ −ln P(o). Minimising F therefore minimises surprise (Ch. 2)." },
-    { q: "In the tree, what does a branching event represent in Active Inference terms?",
-      opts: ["A random mutation", "A belief update and policy selection — choosing between future trajectories", "The tree dying and regrowing", "Nothing — it is purely decorative"],
-      ans: 1, explain: "Each branching point is a belief update: prediction error has accumulated to a threshold, and the agent selects between competing growth policies (Ch. 7)." },
-  ],
-  medium: [
-    { q: "Free energy decomposes into complexity minus accuracy. What does the complexity term penalise?",
-      opts: ["Having too many neurons", "The divergence between posterior beliefs and prior beliefs — how much you had to change your mind", "Using too much memory", "Taking too long to respond"],
-      ans: 1, explain: "Complexity = D_KL[Q(x)||P(x)]: the KL divergence between the approximate posterior and the prior. It scores how much beliefs must change to accommodate data (Ch. 2)." },
-    { q: "Why does the tree grow finer structure only where you zoom in?",
-      opts: ["It is a rendering bug", "It demonstrates precision-weighted resource allocation — like the brain devoting more computation to attended stimuli", "The simulation runs faster when zoomed in", "It is saving battery"],
-      ans: 1, explain: "This is variational inference in action: limited computational resources are allocated where precision of observation is highest, analogous to attentional gain modulation (Ch. 2, 10)." },
-    { q: "Expected Free Energy (G) decomposes into two terms. What are they?",
-      opts: ["Energy and entropy", "Epistemic value (information gain) and pragmatic value (preferred observations)", "Complexity and accuracy", "Perception and action"],
-      ans: 1, explain: "G = epistemic value + pragmatic value. Epistemic value drives exploration (reducing uncertainty); pragmatic value drives exploitation (achieving preferences). Ch. 7." },
-    { q: "What does the explore–exploit trade-off correspond to in the Precision slider?",
-      opts: ["High precision = explore, low precision = exploit", "High precision = exploit (rigid, committed), low precision = explore (flexible, uncertain)", "Precision has nothing to do with explore–exploit", "The slider only affects colour"],
-      ans: 1, explain: "High precision sharpens policy selection toward exploitation of current beliefs. Low precision broadens it toward exploration of alternatives (Ch. 7)." },
-    { q: "Why is off-screen pruning in the simulation analogous to complexity minimisation?",
-      opts: ["Because deleted branches use less electricity", "Because maintaining beliefs about unobserved regions is pure complexity cost with zero accuracy benefit", "Because pruning makes the tree look nicer", "It is not analogous — they are unrelated"],
-      ans: 1, explain: "F = complexity − accuracy. Beliefs about regions providing no observations add complexity without improving accuracy. A good variational agent discards them (Ch. 2, 10)." },
-    { q: "In what sense is the ground line a Markov blanket?",
-      opts: ["It physically separates the tree", "It statistically separates two inference domains — branches (light) and roots (moisture) — with different sensory worlds and generative models", "It is just a decorative line", "It prevents roots from growing upward"],
-      ans: 1, explain: "The ground line separates two systems with distinct internal states, sensory states, and prior preferences — exactly the role of a Markov blanket (Ch. 3)." },
-    { q: "What is 'bounded rationality' in the context of Active Inference?",
-      opts: ["Rationality that only works in enclosed spaces", "The recognition that real agents have finite computational resources, so optimal behaviour trades accuracy against complexity cost", "A theory that humans are irrational", "Using boundaries to constrain neural networks"],
-      ans: 1, explain: "The free energy theory of bounded rationality shows that accuracy improves with more computation, but computation has a complexity cost. The optimum is the best approximation achievable (Ch. 10)." },
-    { q: "How does hierarchical (deep) Active Inference manifest in the tree?",
-      opts: ["All branches are the same depth", "The trunk provides slow-timescale context that constrains faster-timescale branches — like sentences constraining words", "Higher branches have more leaves", "It doesn't — the tree is flat"],
-      ans: 1, explain: "Hierarchical models include variables evolving at different timescales. The trunk is slow context; branches are fast inference within that context (Ch. 6)." },
-  ],
-  hard: [
-    { q: "Variational free energy can be written as F = D_KL[Q(x)||P(x|y)] − ln P(y). What does this decomposition tell us?",
-      opts: ["Free energy equals complexity minus accuracy", "Free energy equals the approximation gap (how far Q is from the true posterior) plus surprise — so minimising F both improves Q and reduces surprise", "Free energy is always negative", "The two terms are independent and can be minimised separately"],
-      ans: 1, explain: "This shows F has two components: D_KL (how poor the approximation is) and −ln P(y) (surprise). Perception reduces the first; action reduces the second (Ch. 2)." },
-    { q: "Why does Active Inference use variational inference rather than exact Bayesian inference?",
-      opts: ["Variational inference is always more accurate", "Because the exact posterior P(x|y) and model evidence P(y) are computationally intractable for complex models — marginalising over all hidden states grows exponentially", "Friston preferred the name 'variational'", "Exact inference requires quantum computers"],
-      ans: 1, explain: "For complex models, computing P(x|y) requires marginalising over all hidden states — exponentially intractable. Variational inference substitutes a tractable approximate posterior Q (Ch. 2, 4)." },
-    { q: "In the POMDP formulation, beliefs about policies are updated as π = σ(−G − F). What does σ denote?",
-      opts: ["Standard deviation", "A softmax (normalised exponential) function — ensuring policy probabilities sum to one", "The sigmoid function", "Variance"],
-      ans: 1, explain: "The softmax function σ converts negative expected free energies into a proper probability distribution over policies (Eq. 4.14, Ch. 4)." },
-    { q: "The simulation has an 8,000 segment cap. In formal terms, this is most analogous to which aspect of variational inference?",
-      opts: ["The choice of prior distribution", "The limited expressiveness of the variational family Q — the set of approximate posteriors the system can represent", "The learning rate", "The number of observations"],
-      ans: 1, explain: "The segment cap constrains the space of representable tree structures, just as the choice of variational family Q constrains which posteriors can be approximated (Ch. 4)." },
-    { q: "What distinguishes systems that only minimise variational free energy from those that also minimise expected free energy?",
-      opts: ["Nothing — they are identical", "Expected free energy minimisers have temporal depth: they can plan, selecting among alternative futures rather than just dealing with the sensed present", "Expected free energy is always lower", "Only biological systems minimise expected free energy"],
-      ans: 1, explain: "Variational F handles the present; expected G handles the future. Temporal depth enables planning and a primitive form of agency (Ch. 3)." },
-    { q: "The textbook states that perception and action can be seen as minimising different components of the same free energy. Which components?",
-      opts: ["Energy and entropy", "Perception minimises D_KL[Q||P(x|y)] (improving the approximation); action minimises −ln P(y) (reducing surprise by changing sensory data)", "Perception minimises complexity; action minimises accuracy", "They minimise the same component in the same way"],
-      ans: 1, explain: "From F = D_KL + (−ln P(y)): perception optimises Q to close the approximation gap; action changes data y to increase model evidence. Complementary routes to the same objective (Ch. 2)." },
-    { q: "Friston, Levin et al. (2015) proposed that morphogenesis can be understood through the FEP. What is the key insight?",
-      opts: ["Cells grow randomly until they find the right shape", "Developing tissues maintain organisation by minimising variational free energy — cell fate decisions are belief updates under a generative model of target morphology", "Morphogenesis requires a central controller", "The FEP only applies to neural systems, not to morphogenesis"],
-      ans: 1, explain: "Friston & Levin showed that cells can be modelled as Active Inference agents whose generative models encode target morphology — differentiation is belief updating, and tissue maintenance is self-evidencing." },
-    { q: "In what precise sense is the complexity cost in free energy related to bounded rationality?",
-      opts: ["Complexity is measured in dollars", "Decreasing the entropy of beliefs before a choice (gaining precision) is computationally costly — so a bounded agent must find a compromise between accuracy and the cost of deliberation, which is exactly F = accuracy − complexity", "Bounded rationality ignores complexity entirely", "Complexity only matters for artificial systems"],
-      ans: 1, explain: "The 'free energy theory of bounded rationality' (Ortega & Braun, 2013; Ch. 10) formalises the trade-off: more precise beliefs yield higher accuracy but incur greater complexity cost. F minimisation is the optimal compromise." },
-  ]
-};
-
-let quizState = { difficulty: null, questions: [], current: 0, score: 0, answered: false };
-
-function openQuiz() {
-  document.getElementById('quiz-overlay').classList.add('open');
-  showSelect();
-}
-function closeQuiz() {
-  document.getElementById('quiz-overlay').classList.remove('open');
-}
-function showSelect() {
-  document.getElementById('quiz-select').style.display = 'block';
-  document.getElementById('quiz-active').style.display = 'none';
-  document.getElementById('quiz-score').style.display = 'none';
-  document.querySelector('.quiz-subtitle').textContent = 'How well do you understand Active Inference?';
-}
-
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-  return a;
-}
-
-function startQuiz(diff) {
-  quizState.difficulty = diff;
-  quizState.questions = shuffle(quizData[diff]).slice(0, 8);
-  quizState.current = 0;
-  quizState.score = 0;
-  document.getElementById('quiz-select').style.display = 'none';
-  document.getElementById('quiz-active').style.display = 'block';
-  document.getElementById('quiz-score').style.display = 'none';
-  const label = diff === 'easy' ? 'Easy' : diff === 'medium' ? 'Medium' : 'Difficult';
-  document.querySelector('.quiz-subtitle').textContent = label + ' — ' + quizState.questions.length + ' questions';
-  showQuestion();
-}
-
-function showQuestion() {
-  const q = quizState.questions[quizState.current];
-  quizState.answered = false;
-  document.getElementById('quiz-progress').textContent = `QUESTION ${quizState.current + 1} OF ${quizState.questions.length}  ·  SCORE ${quizState.score}`;
-  document.getElementById('quiz-question').textContent = q.q;
-  document.getElementById('quiz-feedback').textContent = '';
-  document.getElementById('quiz-next').style.display = 'none';
-
-  const optContainer = document.getElementById('quiz-options');
-  optContainer.innerHTML = '';
-
-  // Shuffle option indices but track which is correct
-  const indices = q.opts.map((_, i) => i);
-  const shuffled = shuffle(indices);
-
-  shuffled.forEach(origIdx => {
-    const btn = document.createElement('button');
-    btn.className = 'quiz-opt';
-    btn.textContent = q.opts[origIdx];
-    btn.onclick = () => selectAnswer(origIdx, q, btn);
-    optContainer.appendChild(btn);
-  });
-}
-
-function selectAnswer(chosen, q, btn) {
-  if (quizState.answered) return;
-  quizState.answered = true;
-
-  const allBtns = document.querySelectorAll('.quiz-opt');
-  allBtns.forEach(b => {
-    b.classList.add('disabled');
-    // Find which original index this button corresponds to
-    const origIdx = q.opts.indexOf(b.textContent);
-    if (origIdx === q.ans) b.classList.add('reveal');
-  });
-
-  if (chosen === q.ans) {
-    btn.classList.add('correct');
-    quizState.score++;
-    document.getElementById('quiz-feedback').innerHTML = '<strong>Correct.</strong> ' + q.explain;
-  } else {
-    btn.classList.add('wrong');
-    document.getElementById('quiz-feedback').innerHTML = '<strong>Not quite.</strong> ' + q.explain;
-  }
-
-  document.getElementById('quiz-progress').textContent = `QUESTION ${quizState.current + 1} OF ${quizState.questions.length}  ·  SCORE ${quizState.score}`;
-  document.getElementById('quiz-next').style.display = 'block';
-  document.getElementById('quiz-next').textContent = quizState.current < quizState.questions.length - 1 ? 'NEXT →' : 'SEE RESULTS';
-}
-
-function nextQuestion() {
-  quizState.current++;
-  if (quizState.current >= quizState.questions.length) {
-    showResults();
-  } else {
-    showQuestion();
-  }
-}
-
-function showResults() {
-  document.getElementById('quiz-active').style.display = 'none';
-  document.getElementById('quiz-score').style.display = 'block';
-  const pct = Math.round((quizState.score / quizState.questions.length) * 100);
-  document.getElementById('score-display').textContent = quizState.score + ' / ' + quizState.questions.length;
-  const msgs = [
-    [90, "Outstanding. You could write the next chapter."],
-    [70, "Strong grasp of the core principles. The tree would self-evidence with pride."],
-    [50, "A solid foundation — revisit the explainer panel to deepen your understanding."],
-    [25, "A beginning. Open the '✦ what is this tree?' panel and explore the concepts."],
-    [0,  "The tree has much to teach you. Start with the explainer and try again."]
-  ];
-  const msg = msgs.find(m => pct >= m[0])[1];
-  document.getElementById('score-msg').textContent = msg;
-}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('explainer').classList.remove('open'); });
 </script>
 </body>
 </html>

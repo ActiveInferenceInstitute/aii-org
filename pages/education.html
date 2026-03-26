@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education &amp; Study - Active Inference Institute</title>
+    <link rel="stylesheet" href="../site.css">
+    <style>
+        .edu-hero { text-align: center; padding: 120px 40px 48px; background: var(--black); }
+        .edu-hero .section-label { color: var(--accent-light); }
+        .edu-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 400; color: var(--white); margin-bottom: 16px; }
+        .edu-hero p { color: rgba(255,255,255,0.55); max-width: 620px; margin: 0 auto; line-height: 1.8; font-size: 1.05rem; }
+        .hero-fade { height: 60px; background: linear-gradient(to bottom, var(--black) 0%, var(--white) 100%); }
+
+        .edu-section { padding: 60px 40px; max-width: 900px; margin: 0 auto; }
+        .edu-section h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.6rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 24px; border-bottom: 1px solid var(--grey-border); padding-bottom: 12px; }
+        .edu-section p, .edu-section li { font-size: 1rem; color: var(--grey-mid); line-height: 1.85; }
+        .edu-section a { color: var(--accent); text-decoration: none; }
+        .edu-section a:hover { text-decoration: underline; }
+
+        .course-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; }
+        .course-card { border: 1px solid var(--grey-border); padding: 28px; background: #fff; }
+        .course-card h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 10px; }
+        .course-card p { font-size: 0.95rem; }
+        .course-card .course-link { display: inline-block; margin-top: 12px; font-size: 0.9rem; color: var(--accent); text-decoration: none; }
+        .course-card .course-link:hover { text-decoration: underline; }
+
+        .textbook-row { display: flex; gap: 48px; align-items: flex-start; margin-bottom: 48px; }
+        .textbook-cover { flex: 0 0 200px; }
+        .textbook-cover img { width: 100%; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+        .textbook-info { flex: 1; }
+        .textbook-info h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 8px; }
+        .textbook-info .meta { font-size: 0.9rem; color: var(--accent); margin-bottom: 14px; }
+
+        .intern-section { text-align: center; padding: 60px 40px; background: #f8f8f7; border-top: 1px solid var(--grey-border); }
+        .intern-section h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.6rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 14px; }
+        .intern-section p { font-size: 1.05rem; color: var(--grey-mid); max-width: 700px; margin: 0 auto; line-height: 1.8; }
+        .intern-section a { color: var(--accent); text-decoration: none; }
+        .intern-section a:hover { text-decoration: underline; }
+        .intern-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 28px auto 0; text-align: left; }
+        .intern-card { border: 1px solid var(--grey-border); padding: 28px; background: #fff; }
+        .intern-card h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.1rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 10px; }
+        .intern-card p { font-size: 0.95rem; color: var(--grey-mid); line-height: 1.8; }
+        .intern-card a { display: inline-block; margin-top: 10px; font-size: 0.9rem; color: var(--accent); text-decoration: none; }
+
+        .cta-bar { text-align: center; padding: 60px 40px; border-top: 1px solid var(--grey-border); }
+        .cta-bar .btn { display: inline-block; padding: 14px 32px; background: var(--accent); color: var(--white); text-decoration: none; font-family: Georgia, 'Times New Roman', serif; font-size: 14px; letter-spacing: 0.5px; transition: all 0.3s ease; }
+        .cta-bar .btn:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(197,74,42,0.3); }
+
+        @media (max-width: 768px) {
+            .edu-hero { padding: 100px 20px 32px; }
+            .edu-section { padding: 40px 20px; }
+            .course-grid, .intern-grid { grid-template-columns: 1fr; }
+            .textbook-row { flex-direction: column; gap: 24px; }
+            .textbook-cover { flex: none; text-align: center; }
+            .textbook-cover img { max-width: 200px; }
+            .intern-section { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="edu-hero">
+    <p class="section-label">Learn &amp; Connect</p>
+    <h1>Education Programmes</h1>
+    <p>The Institute offers scaffolded courses, collaborative textbook groups, and hands-on internship and fellowship programmes designed for all backgrounds, time zones, and levels of familiarity.</p>
+</section>
+<div class="hero-fade"></div>
+
+<!-- Courses -->
+<section id="courses" class="edu-section">
+    <h2>Courses</h2>
+    <p>Structured learning programmes developed and facilitated by the Institute. Recorded iterations are available asynchronously for self-paced learning.</p>
+    <div class="course-grid">
+        <div class="course-card">
+            <h3>Active Inference for the Social Sciences</h3>
+            <p>A twelve-session syllabus introducing the framework's relevance to societal structures — how cognitive agents construct shared world-models through perceptions, epistemic actions, and cultural norms.</p>
+            <a class="course-link" href="https://coda.io/@active-inference-institute/active-inference-social-science-aii-2023" target="_blank" rel="noopener">View syllabus →</a>
+        </div>
+        <div class="course-card">
+            <h3>Physics as Information Processing</h3>
+            <p>An accessible pathway linking the thermodynamic fundamentals of the Free Energy Principle to computational structures and predictive processing.</p>
+            <a class="course-link" href="https://coda.io/@active-inference-institute/fields-physics-2023" target="_blank" rel="noopener">View syllabus →</a>
+        </div>
+    </div>
+    <p style="margin-top: 24px; text-align: center; font-size: 0.95rem;">See all courses at <a href="https://www.activeinference.institute/courses" target="_blank" rel="noopener">activeinference.institute/courses</a>.</p>
+</section>
+
+<!-- Textbook Groups -->
+<section id="textbook" class="edu-section" style="background: #f8f8f7; max-width: none; padding-left: 0; padding-right: 0;">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 40px;">
+    <h2>Textbook Groups</h2>
+    <p>The Institute organises recurring, collaborative reading groups around the two core textbooks. Over 7 cohorts have completed the cycle. <a href="https://textbook-group.activeinference.institute/" target="_blank" rel="noopener">Register for the next cohort →</a></p>
+
+    <div class="textbook-row" style="margin-top: 32px;">
+        <div class="textbook-cover">
+            <a href="https://mitpress.mit.edu/9780262045353/active-inference/" target="_blank" rel="noopener">
+                <img src="../assets/textbook-cover.jpg" alt="Active Inference textbook cover">
+            </a>
+        </div>
+        <div class="textbook-info">
+            <h3>Active Inference: The Free Energy Principle in Mind, Brain, and Behavior</h3>
+            <div class="meta">Thomas Parr, Giovanni Pezzulo &amp; Karl Friston · MIT Press, 2022</div>
+            <p>The foundational textbook presenting the mathematical and conceptual framework for Active Inference. Participants engage in peer-to-peer discussion, unpack complex mathematical formulae, and contextualise biological case studies.</p>
+            <a href="https://mitpress.mit.edu/9780262045353/active-inference/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 10px; font-size: 0.9rem;">MIT Press →</a>
+        </div>
+    </div>
+
+    <div class="textbook-row">
+        <div class="textbook-cover">
+            <a href="https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/" target="_blank" rel="noopener">
+                <img src="../assets/fundamentals-26.jpg" alt="Fundamentals of Active Inference textbook cover">
+            </a>
+        </div>
+        <div class="textbook-info">
+            <h3>Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers</h3>
+            <div class="meta">Sanjeev V. Namjoshi · MIT Press, 2025 · ISBN 9780262050951</div>
+            <p>An engineering-focused companion developed in collaboration with the Institute since 2023, endorsed by Karl Friston. The 12 <a href="simulations.html">interactive simulations</a> in this website accompany this textbook, providing hands-on exploration of core concepts.</p>
+            <a href="https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 10px; font-size: 0.9rem;">MIT Press →</a>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- Internship & Fellowship -->
+<section class="intern-section">
+    <h2>Internships &amp; Fellowships</h2>
+    <p>Hands-on involvement for participants at all career stages — from students to established researchers.</p>
+    <div class="intern-grid">
+        <div class="intern-card">
+            <h3>Internship Programme</h3>
+            <p>Open to all backgrounds — philosophers, developers, educators, and organisers. Interns gain direct mentorship, access to digital infrastructure, and the opportunity to co-author ecosystem resources.</p>
+            <a href="https://www.activeinference.institute/internship" target="_blank" rel="noopener">Learn more →</a>
+        </div>
+        <div class="intern-card">
+            <h3>Research Fellowships</h3>
+            <p>Self-directed projects with facilities, resources, mentorship, and open-science support. Launched in 2024 for researchers exploring Active Inference across disciplines.</p>
+            <a href="https://fellows.activeinference.institute" target="_blank" rel="noopener">Apply →</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bar">
+    <a href="https://textbook-group.activeinference.institute/" class="btn" target="_blank" rel="noopener">Join the Next Textbook Cohort</a>
+</section>
+
+<div id="site-footer"></div>
+<script src="../site-components.js"></script>
+</body>
+</html>

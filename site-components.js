@@ -14,7 +14,8 @@
 
   // ═══ CONFIGURATION ═══
   // Adjust basePath if your pages are in subdirectories
-  const basePath = '';
+  const isSub = window.location.pathname.match(/\/(pages|simulations)\//);
+  const basePath = isSub ? '../' : '';
 
   // ═══ HEADER HTML ═══
   const headerHTML = `
@@ -31,23 +32,23 @@
             <div class="mega-menu-col">
               <h4>Our Story</h4>
               <ul>
-                <li><a href="${basePath}history.html" role="menuitem">History<span class="menu-desc">From founding to present day</span></a></li>
-                <li><a href="${basePath}vision-mission.html" role="menuitem">Vision, Mission &amp; Objectives<span class="menu-desc">What drives us forward</span></a></li>
+                <li><a href="${basePath}pages/history.html" role="menuitem">History<span class="menu-desc">From founding to present day</span></a></li>
+                <li><a href="${basePath}pages/vision-mission.html" role="menuitem">Vision, Mission &amp; Objectives<span class="menu-desc">What drives us forward</span></a></li>
               </ul>
             </div>
             <div class="mega-menu-col">
               <h4>Our People</h4>
               <ul>
-                <li><a href="${basePath}sab.html" role="menuitem">Scientific Advisory Board<span class="menu-desc">Research &amp; rigour</span></a></li>
-                <li><a href="${basePath}bod.html" role="menuitem">Board of Directors<span class="menu-desc">Governance and leadership</span></a></li>
+                <li><a href="${basePath}pages/sab.html" role="menuitem">Scientific Advisory Board<span class="menu-desc">Research &amp; rigour</span></a></li>
+                <li><a href="${basePath}pages/bod.html" role="menuitem">Board of Directors<span class="menu-desc">Governance and leadership</span></a></li>
               </ul>
             </div>
             <div class="mega-menu-col">
               <h4>Our Work</h4>
               <ul>
-                <li><a href="${basePath}index.html#research" role="menuitem">Past Projects<span class="menu-desc">Completed research programmes</span></a></li>
-                <li><a href="${basePath}index.html#research" role="menuitem">Current Projects<span class="menu-desc">Ongoing research and initiatives</span></a></li>
-                <li><a href="${basePath}index.html#research" role="menuitem">Future Aspirations<span class="menu-desc">Where we are headed</span></a></li>
+                <li><a href="${basePath}pages/research.html#past" role="menuitem">Past Projects<span class="menu-desc">Completed research programmes</span></a></li>
+                <li><a href="${basePath}pages/research.html#current" role="menuitem">Current Projects<span class="menu-desc">Ongoing research and initiatives</span></a></li>
+                <li><a href="${basePath}pages/research.html#future" role="menuitem">Future Aspirations<span class="menu-desc">Where we are headed</span></a></li>
               </ul>
             </div>
           </div>
@@ -60,29 +61,29 @@
             <div class="mega-menu-col">
               <h4>Study</h4>
               <ul>
-                <li><a href="${basePath}index.html#education" role="menuitem">Courses &amp; Dates<span class="menu-desc">Upcoming cohorts and enrolment</span></a></li>
-                <li><a href="${basePath}index.html#education" role="menuitem">Textbook Group<span class="menu-desc">Peer-led study of the foundational text</span></a></li>
-                <li><a href="${basePath}index.html#education" role="menuitem">Internship Programme<span class="menu-desc">Mentored research curriculum</span></a></li>
+                <li><a href="${basePath}pages/education.html#courses" role="menuitem">Courses &amp; Dates<span class="menu-desc">Upcoming cohorts and enrolment</span></a></li>
+                <li><a href="${basePath}pages/education.html#textbook" role="menuitem">Textbook Group<span class="menu-desc">Peer-led study of the foundational text</span></a></li>
+                <li><a href="${basePath}pages/education.html#internship" role="menuitem">Internship Programme<span class="menu-desc">Mentored research curriculum</span></a></li>
               </ul>
             </div>
             <div class="mega-menu-col">
               <h4>Explore</h4>
               <ul>
                 <li><a href="https://www.youtube.com/c/ActiveInference" target="_blank" role="menuitem">Livestreams &amp; Lectures<span class="menu-desc">Weekly presentations on YouTube</span></a></li>
-                <li><a href="${basePath}simulations.html" role="menuitem">Interactive Simulations<span class="menu-desc">Hands-on FEP and Active Inference demos</span></a></li>
+                <li><a href="${basePath}pages/simulations.html" role="menuitem">Interactive Simulations<span class="menu-desc">Hands-on FEP and Active Inference demos</span></a></li>
               </ul>
             </div>
             <div class="mega-menu-col">
               <h4>Tools</h4>
               <ul>
-                <li><a href="${basePath}index.html#education" role="menuitem">RxInfer.jl<span class="menu-desc">Probabilistic graphical inference</span></a></li>
+                <li><a href="${basePath}pages/tools.html#rxinfer" role="menuitem">RxInfer.jl<span class="menu-desc">Probabilistic graphical inference</span></a></li>
                 <li><a href="https://github.com/ActiveInferenceInstitute" target="_blank" role="menuitem">Open-Source Code<span class="menu-desc">GitHub repositories and libraries</span></a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <div class="nav-item"><a href="${basePath}index.html#research">Research</a></div>
+      <div class="nav-item"><a href="${basePath}pages/research.html">Research</a></div>
       <div class="nav-item"><a href="${basePath}index.html#community">Community</a></div>
       <div class="nav-cta-wrap"><a href="#" class="nav-cta">Get Involved</a></div>
     </nav>
@@ -95,29 +96,29 @@
     <button class="mobile-nav-toggle" data-target="mobile-about">About <span class="mobile-chevron"></span></button>
     <div class="mobile-subnav" id="mobile-about">
       <div class="mobile-subnav-label">Our Story</div>
-      <a href="${basePath}history.html">History</a>
-      <a href="${basePath}vision-mission.html">Vision, Mission &amp; Objectives</a>
+      <a href="${basePath}pages/history.html">History</a>
+      <a href="${basePath}pages/vision-mission.html">Vision, Mission &amp; Objectives</a>
       <div class="mobile-subnav-label">Our People</div>
-      <a href="${basePath}sab.html">Scientific Advisory Board</a>
-      <a href="${basePath}bod.html">Board of Directors</a>
+      <a href="${basePath}pages/sab.html">Scientific Advisory Board</a>
+      <a href="${basePath}pages/bod.html">Board of Directors</a>
       <div class="mobile-subnav-label">Our Work</div>
-      <a href="${basePath}index.html#research">Past Projects</a>
-      <a href="${basePath}index.html#research">Current Projects</a>
-      <a href="${basePath}index.html#research">Future Aspirations</a>
+      <a href="${basePath}pages/research.html#past">Past Projects</a>
+      <a href="${basePath}pages/research.html#current">Current Projects</a>
+      <a href="${basePath}pages/research.html#future">Future Aspirations</a>
     </div>
   </div>
   <div class="mobile-nav-section">
     <button class="mobile-nav-toggle" data-target="mobile-learn">Learn <span class="mobile-chevron"></span></button>
     <div class="mobile-subnav" id="mobile-learn">
       <div class="mobile-subnav-label">Study</div>
-      <a href="${basePath}index.html#education">Courses &amp; Dates</a>
-      <a href="${basePath}index.html#education">Textbook Group</a>
+      <a href="${basePath}pages/education.html#courses">Courses &amp; Dates</a>
+      <a href="${basePath}pages/education.html#textbook">Textbook Group</a>
       <div class="mobile-subnav-label">Explore</div>
       <a href="https://www.youtube.com/c/ActiveInference" target="_blank">Livestreams &amp; Lectures</a>
-      <a href="${basePath}simulations.html">Interactive Simulations</a>
+      <a href="${basePath}pages/simulations.html">Interactive Simulations</a>
     </div>
   </div>
-  <div class="mobile-nav-section"><a href="${basePath}index.html#research">Research</a></div>
+  <div class="mobile-nav-section"><a href="${basePath}pages/research.html">Research</a></div>
   <div class="mobile-nav-section"><a href="${basePath}index.html#community">Community</a></div>
   <a href="#" class="mobile-nav-cta">Get Involved</a>
 </nav>`;
@@ -134,17 +135,17 @@
       <div class="footer-col">
         <h4>About</h4>
         <ul>
-          <li><a href="${basePath}vision-mission.html">Vision &amp; Mission</a></li>
-          <li><a href="${basePath}bod.html">Our People</a></li>
-          <li><a href="${basePath}history.html">History</a></li>
+          <li><a href="${basePath}pages/vision-mission.html">Vision &amp; Mission</a></li>
+          <li><a href="${basePath}pages/bod.html">Our People</a></li>
+          <li><a href="${basePath}pages/history.html">History</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Learn</h4>
         <ul>
-          <li><a href="${basePath}simulations.html">Tutorials</a></li>
-          <li><a href="${basePath}index.html#education">Courses</a></li>
-          <li><a href="${basePath}index.html#education">Textbook Group</a></li>
+          <li><a href="${basePath}pages/simulations.html">Tutorials</a></li>
+          <li><a href="${basePath}pages/education.html#courses">Courses</a></li>
+          <li><a href="${basePath}pages/education.html#textbook">Textbook Group</a></li>
         </ul>
       </div>
       <div class="footer-col">
