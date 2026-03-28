@@ -136,7 +136,7 @@ canvas#network{width:100%;height:auto;display:block;border-radius:3px}
   <div class="eq-row"><div class="eq-label">Agent</div><div class="eq-formula">A<sub>agent</sub> = 1/n</div><div class="eq-val teal" id="eqInd">1.000</div></div>
   <div class="eq-row"><div class="eq-label">Collective</div><div class="eq-formula">A<sub>coll</sub> = (n−1)/n</div><div class="eq-val purple" id="eqGrp">0.000</div></div>
   <div class="eq-row"><div class="eq-label">Synchrony</div><div class="eq-formula">Φ = |1/n · Σ exp(iθⱼ)|</div><div class="eq-val gold" id="eqPhi">1.000</div></div>
-  <div class="eq-row"><div class="eq-label">Coupling</div><div class="eq-formula">kick = ε · σ²<sub>blanket</sub> per blanket update</div><div class="eq-val gold" id="eqE2">0.000</div></div>
+  <div class="eq-row"><div class="eq-label">Coupling</div><div class="eq-formula">kick = ε · σ² · (1 + 3p²) per update</div><div class="eq-val gold" id="eqE2">0.000</div></div>
   <div class="eq-row"><div class="eq-label">Euler χ</div><div class="eq-formula">χ = n − n(n−1)/2</div><div class="eq-val red" id="eqChi">1</div></div>
 </div>
 
@@ -200,15 +200,18 @@ canvas#network{width:100%;height:auto;display:block;border-radius:3px}
 
   <h2>Blanket-mediated coupling</h2>
   <p>With ε = 0, agents accumulate evidence independently. Raise the coupling
-    slider and each blanket update delivers a prediction error of
-    <span class="m">ε · σ²<sub>blanket</sub></span> to both connected agents.
-    The coupling strength is proportional to the blanket's own variance:
-    more uncertain boundaries transmit stronger signals. Agents near their
-    update threshold get pushed over, triggering cascades. Over many cycles,
-    Φ climbs toward 1.</p>
-  <p>This is generalised synchrony via active inference. No conductor. No shared
-    clock. Just Markov blankets transmitting prediction errors, nudging agents
-    through their own belief updates.</p>
+    slider and each update — whether blanket or agent — delivers a prediction
+    error of <span class="m">ε · σ²</span> to connected agents.
+    Crucially, agents near their update threshold are more <em>susceptible</em>:
+    the kick is amplified by <span class="m">(1 + 3p²)</span>, where p is how far
+    through the cycle the receiving agent is. An agent at 90% receives nearly 3.5×
+    the kick of one at the start. This is critical slowing down: the closer a system
+    is to transition, the more sensitive it becomes to perturbation.</p>
+  <p>The result is cascades. One agent updates, kicking its neighbours. Those nearest
+    their own thresholds get pushed over, triggering their updates, which kick
+    <em>their</em> neighbours. At high ε, watch for waves of red sweeping through the
+    network. This is generalised synchrony: no conductor, no shared clock, just
+    Markov blankets transmitting prediction errors with susceptibility-weighted gain.</p>
 
   <h2>Computational method</h2>
   <p>The evidence thresholds, variance parameters, autonomy formulae, and
@@ -262,13 +265,14 @@ canvas#network{width:100%;height:auto;display:block;border-radius:3px}
 
   <h2>Phase transitions through coupling</h2>
   <p>With ε > 0 at large n, watch for <strong>synchronisation cascades</strong>.
-    A single blanket update delivers <span class="m">ε · σ²<sub>blanket</sub></span>
-    to both connected agents. At K₁₅₀, each agent has 149 blankets. If a fraction
-    of those blankets update in quick succession, the cumulative prediction error
-    can push the agent past its own threshold. This triggers an agent update, which
-    propagates outward through all 149 of <em>its</em> blankets, which perturb
-    other agents, and so on. The cascade appears as a wave of red sweeping
-    across the network.</p>
+    Each update — blanket or agent — delivers a prediction error to connected agents,
+    amplified by the receiver's <em>susceptibility</em>: agents near their own threshold
+    receive up to 3.5× the base kick. At K₁₅₀, each agent has 149 blankets.
+    When several blankets update in quick succession, the cumulative prediction error
+    — amplified by susceptibility — pushes the agent past threshold. Its belief update
+    propagates outward through all 149 of <em>its</em> blankets, perturbing
+    other agents near their thresholds, and so on. The cascade appears as a wave of
+    red sweeping across the network.</p>
   <p>This is a <em>phase transition</em> in the Kuramoto sense: below a critical
     coupling, agents drift independently. Above it, the network locks into collective
     oscillation. The critical coupling decreases with n; larger ensembles synchronise
@@ -604,6 +608,18 @@ function updateDynamics(dt){
           }
         }
       }
+      // Agent update perturbs neighbours through blankets
+      if(coupling>0){
+        const agentKick=coupling*OMEGA_SO2;
+        for(const edge of edges){
+          if(edge.a===node.index||edge.b===node.index){
+            const nb=nodes[edge.a===node.index?edge.b:edge.a];
+            // Susceptibility: near-threshold agents amplify the kick
+            const s=1+3*pow(nb.C/CSTAR_SO2,2);
+            nb.C=min(nb.C+agentKick*s,CSTAR_SO2);
+          }
+        }
+      }
     }
     if(node.updating>0)node.updating-=sDt*2;
   }
@@ -622,11 +638,14 @@ function updateDynamics(dt){
         predErrors.push({from:edge.a,to:edge.b,progress:0,speed:.8+rnd()*.4,col:COL.purple});
         predErrors.push({from:edge.b,to:edge.a,progress:0,speed:.8+rnd()*.4,col:COL.purple});
       }
-      // Blanket-mediated coupling
+      // Blanket-mediated coupling with susceptibility
       if(coupling>0){
-        const kick=coupling*OMEGA_Z2;
-        na.C=min(na.C+kick,CSTAR_SO2);
-        nb.C=min(nb.C+kick,CSTAR_SO2);
+        const baseKick=coupling*OMEGA_Z2;
+        // Susceptibility: agents near threshold amplify the signal
+        const sA=1+3*pow(na.C/CSTAR_SO2,2);
+        const sB=1+3*pow(nb.C/CSTAR_SO2,2);
+        na.C=min(na.C+baseKick*sA,CSTAR_SO2);
+        nb.C=min(nb.C+baseKick*sB,CSTAR_SO2);
       }
     }
     if(edge.updating>0)edge.updating-=sDt*2;
