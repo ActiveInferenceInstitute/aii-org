@@ -465,18 +465,22 @@ function detachLLM(idx){const host=nodes[idx];if(!host.hasLLM)return;host.hasLLM
   const li=llmNodes.findIndex(l=>l.hostIndex===idx);
   if(li>=0){llmEdges=llmEdges.filter(e=>e.llmIdx!==li);llmNodes.splice(li,1);for(const e of llmEdges)if(e.llmIdx>li)e.llmIdx--;}
   host.E=rnd()*THRESH_P;host.rate=max(.3,1+VAR_P*randn());host.lastKick='self';host.llmTaint=0;host.kicksReceived=0;host.llmKicksReceived=0;host.hSelfE=0;host.hHumanE=0;host.hLlmE=0;
-  host.word=pickHumanWord();host.wordSource='self';
+  // Word is NOT reset: the agent keeps whatever word it was carrying.
+  // The LLM is gone but its linguistic residue remains.
   resetMetricsAndAccumulators();updateReadouts();updateHint();}
 function toggleLLM(idx){nodes[idx].hasLLM?detachLLM(idx):attachLLM(idx);}
 // Reset both global metrics AND per-agent hidden cause accumulators
 // so bars reflect current LLM topology, not historical accumulation
 function resetMetricsAndAccumulators(){
   resetMetrics();
-  for(const nd of nodes){nd.llmTaint=0;nd.kicksReceived=0;nd.llmKicksReceived=0;nd.hSelfE=0;nd.hHumanE=0;nd.hLlmE=0;nd.lastKick='self';
-    if(!nd.hasLLM){nd.word=pickHumanWord();nd.wordSource='self';}}
+  for(const nd of nodes){nd.llmTaint=0;nd.kicksReceived=0;nd.llmKicksReceived=0;nd.hSelfE=0;nd.hHumanE=0;nd.hLlmE=0;nd.lastKick='self';}
+  // Words are NOT reset here: linguistic state persists independently
+  // of the precision/evidence accumulators.
 }
 function attachAll(){for(let i=0;i<n;i++)attachLLM(i);trustPopup.style.display='none';activePopupNode=-1;}
-function detachAll(){for(let i=0;i<n;i++){nodes[i].hasLLM=false;nodes[i].E=rnd()*THRESH_P;nodes[i].rate=max(.3,1+VAR_P*randn());nodes[i].word=pickHumanWord();nodes[i].wordSource='self';}
+function detachAll(){for(let i=0;i<n;i++){nodes[i].hasLLM=false;nodes[i].E=rnd()*THRESH_P;nodes[i].rate=max(.3,1+VAR_P*randn());}
+  // Words are NOT reset: the network keeps its linguistic state.
+  // LLM sources removed but their words persist in the population.
   llmNodes=[];llmEdges=[];for(const e of edges){e.E=rnd()*THRESH_S;e.rate=max(.3,1+VAR_S*randn());}
   traceData.llm=[];traceData.llmUpds=[];resetMetricsAndAccumulators();updateReadouts();updateHint();
   trustPopup.style.display='none';activePopupNode=-1;}
