@@ -1,7 +1,7 @@
 # Active Inference Institute — Organizational Website
 
-[![GitHub Pages](https://img.shields.io/badge/deployed-GitHub%20Pages-blue)](https://activeinferenceinstitute.github.io/aii-org/)
-[![501(c)(3)](https://img.shields.io/badge/status-501(c)(3)%20Nonprofit-green)](https://www.activeinference.institute)
+[![GitHub Pages](https://img.shields.io/badge/deployed-GitHub%20Pages-blue)](https://activeinference.org/)
+[![501(c)(3)](https://img.shields.io/badge/status-501(c)(3)%20Nonprofit-green)](https://activeinference.org/)
 
 The **Active Inference Institute** is a volunteer-led **501(c)(3) nonprofit** dedicated to improving the accessibility, rigor, and applicability of the **Free Energy Principle** and **Active Inference** through open-science principles. Founded in 2021 and co-founded by **Daniel Friedman**, the Institute supports a global community of researchers, students, engineers, and enthusiasts across education, research, and tool development.
 
@@ -19,7 +19,7 @@ This repository contains the Institute's public-facing organizational website, b
 
 | Resource | Link |
 |----------|------|
-| **Website** | [activeinference.institute](https://www.activeinference.institute) |
+| **Website** | [activeinference.org](https://activeinference.org/) |
 | **YouTube** | [youtube.com/c/ActiveInference](https://www.youtube.com/c/ActiveInference) |
 | **Discord** | [discord.com/invite/FSUvYD2p9S](https://discord.com/invite/FSUvYD2p9S) |
 | **GitHub** | [github.com/ActiveInferenceInstitute](https://github.com/ActiveInferenceInstitute) |
@@ -122,7 +122,7 @@ Then open [http://localhost:8000](http://localhost:8000) in your browser. All na
 
 ### Deployment
 
-Push to `main` branch — GitHub Pages deploys automatically. No build step required, and the published site resolves to `https://www.activeinference.institute/`.
+Push to `main` branch — GitHub Pages deploys automatically. No build step required, and the published site resolves to `https://activeinference.org/`.
 
 ---
 
