@@ -2,11 +2,11 @@
 
 ## Purpose
 
-Static media assets for the Active Inference Institute website. Contains simulation thumbnails (displayed on `pages/simulations.html`), the textbook cover, reference PDF, and headshot subdirectories.
+Static media assets for the Active Inference Institute website. Contains the simulation thumbnails displayed on `pages/simulations.html`, two cover images used across the site, a reference PDF, and headshot subdirectories.
 
 ## Structure
 
-- **Root** — Simulation thumbnails (`sim-*.png`), textbook cover (`textbook-cover.jpg`), PDF (`ActiveInfText.pdf`)
+- **Root** — 11 simulation thumbnails (`sim-*.png`), cover images (`textbook-cover.jpg`, `fundamentals-26.jpg`), PDF (`ActiveInfText.pdf`)
 - **`bod/`** — Board of Directors headshot photos (10 members)
 - **`sab/`** — Scientific Advisory Board headshot photos (29 members)
 

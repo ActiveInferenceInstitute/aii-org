@@ -15,6 +15,7 @@ Used on `pages/simulations.html`.
 | `sim-beliefs-action.png` | From Beliefs to Action | Intermediate |
 | `sim-tree.png` | The Self-Evidencing Tree | Intermediate |
 | `sim-ants.png` | The Colony as Inference | Intermediate |
+| `sim-network.png` | Active Inference Network | Intermediate |
 | `sim-tmaze.png` | T-Maze – Expected Free Energy | Advanced |
 | `sim-blankets.png` | Hierarchical Markov Blankets | Advanced |
 | `sim-dopamine.png` | The Dopamine Dial | Advanced |
@@ -23,6 +24,7 @@ Used on `pages/simulations.html`.
 | File | Description |
 |------|-------------|
 | `textbook-cover.jpg` | Cover of *Active Inference* (MIT Press 2022) |
+| `fundamentals-26.jpg` | Cover of *Fundamentals of Active Inference* (MIT Press 2025) |
 | `ActiveInfText.pdf` | Textbook reference |
 
 ### Subdirectories

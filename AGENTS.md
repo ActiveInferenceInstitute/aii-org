@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository is the **public-facing organizational website** for the Active Inference Institute, deployed as a static GitHub Pages site. It contains core informational pages (mission, history, governance, research, education, tools) and 12 interactive educational simulations demonstrating Active Inference concepts.
+This repository is the **public-facing organizational website** for the Active Inference Institute, deployed as a static GitHub Pages site. It contains core informational pages (mission, history, governance, research, education, tools) and 12 catalogued interactive educational simulations demonstrating Active Inference concepts.
 
 ## Architecture & Modular Structure
 
@@ -10,8 +10,8 @@ The codebase is organized into strict functional modules:
 
 - **`root/`** — `index.html` entry, shared `site.css` (design tokens), and `site-components.js`. No build system or bundler.
 - **`pages/`** — The core site UI. These files depend on root CSS/JS using dynamic `basePath` resolution. Header/footer are injected into `<div id="site-header"></div>` and `<div id="site-footer"></div>`.
-- **`simulations/`** — 12 standalone Canvas-based interactive demos. These are self-contained HTML files (inline CSS/JS) with no external dependencies and no reliance on root components.
-- **`assets/`** — Static media (simulation thumbnails, textbook cover, BOD/SAB headshot subdirectories, and root PDF payload).
+- **`simulations/`** — 12 catalogued standalone Canvas-based interactive demos. These are self-contained HTML files (inline CSS/JS) with no root-component dependency; the folder also contains a couple of unlinked experimental files.
+- **`assets/`** — Static media (11 simulation thumbnails, 2 cover images, BOD/SAB headshot subdirectories, and a PDF payload).
 
 ## Key Conventions
 
@@ -19,7 +19,7 @@ The codebase is organized into strict functional modules:
 2. **UK spelling** — `site-components.js` automatically localises text for `en-GB` users (e.g., "behaviour", "organisation", "programme").
 3. **Canvas logos** — The π-symbol logo is drawn via Canvas API in both header and footer (no image file).
 4. **Design tokens** — Defined in `:root` of `site.css` (`--accent: #c54a2a`, `--black`, `--white`, Georgia serif, breakpoints at 1200px/1024px/900px/768px/480px).
-5. **No external dependencies** — No CDN, npm, or loaded JS libraries. Google Fonts are used in some simulations (`Cormorant Garamond`, `JetBrains Mono`).
+5. **No external dependencies in the core site** — No CDN, npm, or loaded JS libraries. Some standalone simulations load Google Fonts for typography (`Cormorant Garamond`, `JetBrains Mono`).
 
 ## File Inventory
 
@@ -29,7 +29,7 @@ The codebase is organized into strict functional modules:
 | Shared logic | 2 | `/` | `site.css`, `site-components.js` |
 | Site Pages | 8 | `/pages/` | history, vision-mission, bod, sab, simulations, research, education, tools |
 | Simulations | 12 | `/simulations/` | Self-contained HTML demos |
-| Base Media | 11 | `/assets/` | Thumbnails + textbook cover |
+| Base Media | 14 | `/assets/` | 11 simulation thumbnails, 2 cover images, 1 PDF |
 | BOD headshots| 10 | `/assets/bod/` | |
 | SAB headshots| 29 | `/assets/sab/` | |
 
