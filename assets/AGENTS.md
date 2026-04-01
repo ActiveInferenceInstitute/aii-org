@@ -6,7 +6,7 @@ Static media assets for the Active Inference Institute website. Contains the sim
 
 ## Structure
 
-- **Root** — 11 simulation thumbnails (`sim-*.png`), cover images (`textbook-cover.jpg`, `fundamentals-26.jpg`), PDF (`ActiveInfText.pdf`)
+- **Root** — 11 simulation thumbnails (`sim-*.png`), cover images (`textbook-cover.jpg`, `fundamentals-26.jpg`), PDF (`2022_ActiveInference_Textbook.pdf`)
 - **`bod/`** — Board of Directors headshot photos (10 members)
 - **`sab/`** — Scientific Advisory Board headshot photos (29 members)
 

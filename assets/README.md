@@ -25,7 +25,7 @@ Used on `pages/simulations.html`.
 |------|-------------|
 | `textbook-cover.jpg` | Cover of *Active Inference* (MIT Press 2022) |
 | `fundamentals-26.jpg` | Cover of *Fundamentals of Active Inference* (MIT Press 2025) |
-| `ActiveInfText.pdf` | Textbook reference |
+| `2022_ActiveInference_Textbook.pdf` | Textbook reference |
 
 ### Subdirectories
 | Directory | Contents | Count |
