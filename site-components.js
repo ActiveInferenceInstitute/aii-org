@@ -85,7 +85,7 @@
       </div>
       <div class="nav-item"><a href="${basePath}pages/research.html">Research</a></div>
       <div class="nav-item"><a href="${basePath}index.html#community">Community</a></div>
-      <div class="nav-cta-wrap"><a href="#" class="nav-cta">Get Involved</a></div>
+      <div class="nav-cta-wrap"><a href="https://discord.com/invite/FSUvYD2p9S" target="_blank" rel="noopener" class="nav-cta">Get Involved</a></div>
     </nav>
     <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
@@ -120,7 +120,7 @@
   </div>
   <div class="mobile-nav-section"><a href="${basePath}pages/research.html">Research</a></div>
   <div class="mobile-nav-section"><a href="${basePath}index.html#community">Community</a></div>
-  <a href="#" class="mobile-nav-cta">Get Involved</a>
+  <a href="https://discord.com/invite/FSUvYD2p9S" target="_blank" rel="noopener" class="mobile-nav-cta">Get Involved</a>
 </nav>`;
 
   // ═══ FOOTER HTML ═══

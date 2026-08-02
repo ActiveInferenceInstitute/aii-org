@@ -5,7 +5,7 @@
 
 The **Active Inference Institute** is a volunteer-led **501(c)(3) nonprofit** dedicated to improving the accessibility, rigor, and applicability of the **Free Energy Principle** and **Active Inference** through open-science principles. Founded in 2021 and co-founded by **Daniel Friedman**, the Institute supports a global community of researchers, students, engineers, and enthusiasts across education, research, and tool development.
 
-This repository contains the Institute's public-facing organizational website, built as a static GitHub Pages site with no build step or bundler. The standalone simulations are self-contained HTML files, and a few load Google Fonts for typography.
+This repository contains the Institute's public-facing organizational website, built as a static GitHub Pages site with no build step or bundler. The standalone simulations are self-contained HTML files; most load Google Fonts for typography.
 
 ---
 
@@ -69,7 +69,7 @@ aii-org/
 │   ├── Ink.html                    ← 100% independent HTML/JS applications
 │   ├── Apple-Frog.html
 │   ├── fep_surprise.html
-│   ├── ...
+│   ├── ...                           ← 12 catalogued demos plus experimental files
 ├── assets/                         ← Static payload (images, PDF)
 │   ├── bod/                        ← BOD headshots
 │   └── sab/                        ← SAB headshots
@@ -91,41 +91,26 @@ aii-org/
 
 12 companion demos for the foundational textbooks, covering concepts from Bayesian inference to hierarchical Markov blankets. Each is a self-contained HTML file with no dependencies. See [`simulations/README.md`](simulations/README.md) for a complete conceptual breakdown by difficulty level.
 
+## Documentation
+
+This repository keeps documentation close to the files it describes:
+
+- [`pages/README.md`](pages/README.md) — core site pages and shared-component requirements.
+- [`simulations/README.md`](simulations/README.md) — public simulation catalogue and experimental files.
+- [`assets/README.md`](assets/README.md) — site media, documents, and asset subdirectories.
+- [`assets/bod/README.md`](assets/bod/README.md) — Board of Directors headshots.
+- [`assets/sab/README.md`](assets/sab/README.md) — Scientific Advisory Board headshots.
+- [`AGENTS.md`](AGENTS.md) and directory-level `AGENTS.md` files — repository conventions for maintainers and automated agents.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution, local preview, and pull-request guidance.
+- [`TO-DO.md`](TO-DO.md) — the current documentation review record and open work.
+
 ---
 
-## Contributing
-
-This site is maintained by the Active Inference Institute. Contributions, corrections, and ideas for new simulations are welcome.
-
-1. Fork the repository
-2. Create a feature branch
-3. For site pages, edit `pages/` (these use `site.css` + `site-components.js`)
-4. For demos, edit `simulations/` (these are self-contained)
-5. Open a pull request
-
-### Adding a New Site Page
-
-1. Create an HTML file in `pages/`
-2. Include `<link rel="stylesheet" href="../site.css">` in the `<head>`
-3. Add `<div id="site-header"></div>` before content and `<div id="site-footer"></div>` after
-4. Include `<script src="../site-components.js"></script>` before `</body>`
-
-### Local Development
-
-No build step is required. Serve the repository root with any static HTTP server:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then open [http://localhost:8000](http://localhost:8000) in your browser. All navigation, asset paths, and `basePath` logic work correctly under this setup.
-
-### Deployment
-
-Push to `main` branch — GitHub Pages deploys automatically. No build step required, and the published site resolves to `https://activeinference.org/`.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the complete contribution and local-development guide.
 
 ---
 
 ## License
 
-© 2026 The Active Inference Institute. All rights reserved.
+This repository is licensed under the [Creative Commons Attribution 4.0
+International licence (CC BY 4.0)](LICENSE). See `LICENSE` for the legal terms.

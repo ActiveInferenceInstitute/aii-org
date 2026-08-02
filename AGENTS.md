@@ -10,7 +10,7 @@ The codebase is organized into strict functional modules:
 
 - **`root/`** — `index.html` entry, shared `site.css` (design tokens), and `site-components.js`. No build system or bundler.
 - **`pages/`** — The core site UI. These files depend on root CSS/JS using dynamic `basePath` resolution. Header/footer are injected into `<div id="site-header"></div>` and `<div id="site-footer"></div>`.
-- **`simulations/`** — 12 catalogued standalone Canvas-based interactive demos. These are self-contained HTML files (inline CSS/JS) with no root-component dependency; the folder also contains a couple of unlinked experimental files.
+- `simulations/` — 12 catalogued standalone Canvas-based interactive demos demonstrating Active Inference concepts. These are self-contained HTML files (inline CSS/JS) with no root-component dependency; the folder also contains four intentionally unlinked experimental or legacy files: `cochlea.html`, `human_eye.html`, `t_maze_crr.html`, and `human_ai_fep(experiment_only_for_discussion_AICACP).html`.
 - **`assets/`** — Static media (11 simulation thumbnails, 2 cover images, BOD/SAB headshot subdirectories, and a PDF payload).
 
 ## Key Conventions

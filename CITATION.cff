@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use the Active Inference Institute organizational website or its educational simulations, please cite this repository."
+title: "Active Inference Institute organizational website"
+type: software
+repository-code: "https://github.com/ActiveInferenceInstitute/aii-org"
+url: "https://activeinference.org/"
+license: "CC-BY-4.0"
+abstract: "Public-facing organizational website and standalone educational simulations for the Active Inference Institute."
+authors:
+  - name: "Active Inference Institute"
