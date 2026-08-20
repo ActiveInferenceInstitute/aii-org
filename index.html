@@ -3,6 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Active Inference Institute — an open-science institute for adaptive systems across minds, machines, and complex systems, advancing the Free Energy Principle and Active Inference.">
+  <meta name="author" content="The Active Inference Institute">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Active Inference Institute">
+  <meta property="og:title" content="The Active Inference Institute">
+  <meta property="og:description" content="The Active Inference Institute — an open-science institute for adaptive systems across minds, machines, and complex systems, advancing the Free Energy Principle and Active Inference.">
+  <meta property="og:url" content="https://activeinference.org/">
+  <meta property="og:image" content="https://activeinference.org/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Active Inference Institute">
+  <meta name="twitter:description" content="The Active Inference Institute — an open-science institute for adaptive systems across minds, machines, and complex systems, advancing the Free Energy Principle and Active Inference.">
+  <meta name="twitter:image" content="https://activeinference.org/assets/og-image.png">
+  <link rel="canonical" href="https://activeinference.org/">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <title>The Active Inference Institute</title>
   <link rel="stylesheet" href="site.css">
   <style>
@@ -32,18 +50,6 @@
     }
     .hero .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
     
-    .btn {
-      padding: 15px 34px; font-size: 14px; text-decoration: none;
-      transition: all 0.3s ease; display: inline-block;
-      font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.5px; position: relative;
-    }
-    .btn-primary { background: var(--accent); color: var(--white); }
-    .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(197,74,42,0.3); }
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.3); color: var(--white);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.5); }
 
     /* ═══ STATS ═══ */
     .stats-section { background: var(--white); padding: 80px 40px; border-bottom: 1px solid var(--grey-border); position: relative; }
@@ -53,13 +59,8 @@
     .stat-item h3 { font-size: 3rem; font-weight: 400; color: var(--accent); margin-bottom: 10px; letter-spacing: -1px; }
     .stat-item p { color: var(--grey-mid); font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-family: Georgia, 'Times New Roman', serif; }
 
-    /* ═══ SECTIONS ═══ */
-    .section { padding: 100px 40px; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-header { margin-bottom: 60px; text-align: center; }
-    .section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent-deep); margin-bottom: 18px; font-family: Georgia, 'Times New Roman', serif; }
-    .section-header h2 { font-size: 2.5rem; font-weight: 400; color: var(--grey-dark); }
 
+    /* ═══ SECTIONS ═══ (shared rules in site.css) */
     /* Mission */
     .mission-section { background: var(--white); }
     .mission-content { max-width: 750px; margin: 0 auto; text-align: center; }
@@ -186,33 +187,11 @@
     .cta-section .btn { background: var(--white); color: var(--accent); padding: 16px 40px; font-size: 15px; }
     .cta-section .btn:hover { background: var(--grey-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
 
-    /* Footer */
-    .footer { background: linear-gradient(to bottom, var(--charcoal) 0%, var(--black) 100%); color: var(--white); padding: 60px 40px 30px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
-    .footer-brand p { color: rgba(255,255,255,0.5); margin-top: 20px; font-size: 13px; line-height: 1.8; }
-    .footer-col h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; color: var(--white); font-family: Georgia, 'Times New Roman', serif; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 10px; }
-    .footer-col a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--white); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 12px; font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.3px; }
-    .social-links { display: flex; gap: 20px; align-items: center; }
-    .social-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; transition: all 0.2s; font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.3px; display: flex; align-items: center; gap: 6px; }
-    .social-links a:hover { color: var(--white); }
-    .social-links a:hover svg { opacity: 1; }
-    .social-links svg { width: 16px; height: 16px; opacity: 0.5; transition: opacity 0.2s; }
-
     /* ═══ RESPONSIVE ═══ */
-    @media (max-width: 1200px) {
-      
-      
-      
-    }
     @media (max-width: 1024px) {
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .pillars-grid { grid-template-columns: 1fr; }
+    }
       
       
       
@@ -249,9 +228,7 @@
       blockquote { font-size: 1.3rem; }
       .cta-section { padding: 60px 20px; }
       .cta-section h2 { font-size: 1.6rem; }
-      .footer { padding: 40px 20px 24px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      /* footer responsive rules live in site.css */
       
       
       
@@ -273,14 +250,16 @@
 <div id="site-header"></div>
 
 <!-- Hero -->
+<main id="main-content">
 <section class="hero">
   <canvas id="hero-canvas" class="hero-canvas"></canvas>
   <div class="hero-content">
-    <div class="hero-logo-area"><canvas id="hero-logo"></canvas></div>
+    <div class="hero-logo-area"><canvas id="hero-logo" role="img" aria-label="Active Inference Institute logo"></canvas></div>
     <h1>An open-science institute for adaptive systems across minds, machines, and complex systems</h1>
-    <p class="hero-tagline">Advancing the Free Energy Principle and Active Inference - a mathematically principled framework for understanding adaptive behavior in natural and artificial systems.</p>
+    <p class="hero-tagline">Advancing the Free Energy Principle and Active Inference - a mathematically principled framework for understanding adaptive behaviour in natural and artificial systems.</p>
     <div class="hero-cta">
-      <a href="https://www.youtube.com/c/ActiveInference" target="_blank" class="btn btn-primary">Watch Introduction</a>
+      <a href="https://www.youtube.com/c/ActiveInference" target="_blank" rel="noopener" class="btn btn-primary">Watch Introduction</a>
+      <a href="#community" class="btn btn-outline">Join the Community</a>
     </div>
   </div>
 </section>
@@ -293,6 +272,7 @@
     <div class="stat-item"><h3>700+</h3><p>Livestreams</p></div>
     <div class="stat-item"><h3>501(c)(3)</h3><p>Nonprofit</p></div>
   </div>
+  <p style="text-align:center; margin-top: 24px; font-size: 11px; color: var(--grey-light); letter-spacing: 0.5px;">Figures as of August 2026</p>
 </section>
 
 <!-- Mission -->
@@ -321,7 +301,7 @@
         <p>Reducing barriers through standardized educational resources, open-source tools like RxInfer.jl, and the Active Inference Ontology - creating clear pathways from novice to expert.</p>
       </div>
       <div class="pillar-card">
-        <h3>Rigor</h3>
+        <h3>Rigour</h3>
         <p>Moving beyond demonstration to falsifiable empirical testing. Benchmarking against alternative frameworks, adversarial collaboration, and honest engagement with the theory's scope and limitations.</p>
       </div>
       <div class="pillar-card">
@@ -336,7 +316,7 @@
 <section class="quote-section">
   <div class="quote-inner">
     <blockquote>"The brain is fundamentally an inference machine, trying to predict its sensory inputs."</blockquote>
-    <p class="quote-author"><strong>Karl Friston FRS</strong><br>Scientific Director, Wellcome Centre for Human Neuroimaging</p>
+    <p class="quote-author"><strong>Karl Friston FRS</strong><br>Scientific Director, Wellcome Centre for Human Neuroimaging<br>Member, <a href="pages/sab.html" style="color: inherit;">Scientific Advisory Board</a></p>
   </div>
 </section>
 
@@ -350,6 +330,8 @@
 </section>
 
 <!-- Footer -->
+
+</main>
 
 <div id="site-footer"></div>
 
@@ -369,18 +351,27 @@ const heroCanvas = document.getElementById('hero-canvas');
 const heroCtx = heroCanvas.getContext('2d');
 const heroSection = document.querySelector('.hero');
 
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let heroVisible = true;
+
 function resizeHeroCanvas() {
-  const D = devicePixelRatio || 1;
+  const D = Math.min(devicePixelRatio || 1, 2);
   const W = heroSection.offsetWidth;
   const H = heroSection.offsetHeight;
   heroCanvas.width = W * D;
   heroCanvas.height = H * D;
   heroCanvas.style.width = W + 'px';
   heroCanvas.style.height = H + 'px';
+  heroCtx.setTransform(1, 0, 0, 1, 0, 0);
   heroCtx.scale(D, D);
 }
 resizeHeroCanvas();
 window.addEventListener('resize', resizeHeroCanvas);
+
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(es => { heroVisible = es[0].isIntersecting; },
+    { threshold: 0.05 }).observe(heroSection);
+}
 
 // Subtle gradient waves - breath rhythm
 function drawBreathWaves(ctx, t, W, H) {
@@ -403,8 +394,10 @@ function drawBreathWaves(ctx, t, W, H) {
 }
 
 let heroT = 0;
+let heroBgRunning = false;
 
 function animateHeroBackground() {
+  if (document.hidden || !heroVisible) { heroBgRunning = false; return; }
   const W = heroSection.offsetWidth;
   const H = heroSection.offsetHeight;
   
@@ -420,7 +413,15 @@ function animateHeroBackground() {
   requestAnimationFrame(animateHeroBackground);
 }
 
-animateHeroBackground();
+function startHeroBg() {
+  if (heroBgRunning) return;
+  heroBgRunning = true;
+  requestAnimationFrame(animateHeroBackground);
+}
+
+startHeroBg();
+document.addEventListener('visibilitychange', startHeroBg);
+if ('IntersectionObserver' in window) {} // heroVisible observer above gates the loop
 
 // ═══ HERO LOGO ═══
 const heroLogoCanvas = document.getElementById('hero-logo');
@@ -471,7 +472,7 @@ function resizeHeroLogo() {
 }
 
 resizeHeroLogo();
-window.addEventListener('resize', resizeHeroLogo);
+window.addEventListener('resize', () => { resizeHeroLogo(); if (REDUCED) drawHeroLogoStatic(); });
 
 // ═══ DIEGETIC AUDIO SYSTEM ═══
 // Sonifies the visual events: prism flash, spectral dispersion, breath
@@ -617,8 +618,11 @@ heroLogoCanvas.style.cursor = 'pointer';
 heroLogoCanvas.title = 'Triple-click to replay with sound';
 
 let logoT = 0;
+let logoRunning = false;
+let logoSettled = false; // true once intro (flash + wave) is complete
 
 function drawHeroLogo() {
+  if (document.hidden || !heroVisible) { logoRunning = false; return; }
   hlCtx.clearRect(0, 0, HLW, HLH);
   logoT += 0.016;
   
@@ -736,7 +740,83 @@ function drawHeroLogo() {
     hlCtx.fillText('-', TX+195, WY);
   }
   
+  // Intro complete: prism flash finished (~T1) and spectral wave fully passed (~1.2+T2+1)
+  if (logoT > 1.2 + T2 + 1.2) {
+    logoSettled = true;
+    return; // stop the loop; final frame is already drawn
+  }
+  
   requestAnimationFrame(drawHeroLogo);
+}
+
+function startHeroLogo() {
+  if (logoRunning || logoSettled || REDUCED) return;
+  logoRunning = true;
+  requestAnimationFrame(drawHeroLogo);
+}
+
+// Reduced motion: draw one static frame (no animation, no audio triggers)
+function drawHeroLogoStatic() {
+  // Single render with intro phases expired: plain white text, no prism/wave
+  hlCtx.clearRect(0, 0, HLW, HLH);
+  const mobile = isMobile();
+  hlCtx.fillStyle = '#fff';
+  drawPiPath(hlCtx, CX, CY, sc);
+  hlCtx.fill();
+  const miniScale = mobile ? 0.14 : 0.16;
+  drawMiniPi(hlCtx, CX - 8, CY - sc*0.44 - 8, miniScale, -0.3);
+  drawMiniPi(hlCtx, CX + 10, CY - sc*0.44 - 8, miniScale, 0.35);
+  hlCtx.textBaseline = 'middle';
+  if (mobile) {
+    const textCenterX = HLW / 2;
+    const textStartY = CY + sc * 0.7 + 20;
+    hlCtx.font = `600 ${FONT_MAIN}px Georgia, "Times New Roman", Times, serif`;
+    hlCtx.textAlign = 'center';
+    hlCtx.fillStyle = '#fff';
+    hlCtx.fillText('Active Inference', textCenterX, textStartY);
+    hlCtx.fillText('Institute', textCenterX, textStartY + 36);
+    hlCtx.font = `italic ${FONT_EST}px Georgia, "Times New Roman", Times, serif`;
+    hlCtx.fillStyle = 'rgba(201,162,39,0.85)';
+    hlCtx.fillText('Est. 2020', textCenterX, textStartY + 72);
+    const WY = HLH - 25;
+    hlCtx.font = `600 ${FONT_ASI}px Georgia, "Times New Roman", Times, serif`;
+    hlCtx.fillStyle = 'rgba(255,255,255,0.9)';
+    hlCtx.fillText('Act', textCenterX - 70, WY);
+    hlCtx.fillText('Serve', textCenterX, WY);
+    hlCtx.fillText('Infer', textCenterX + 70, WY);
+    hlCtx.font = `400 ${FONT_ASI - 2}px Georgia`;
+    hlCtx.fillStyle = 'rgba(255,255,255,0.5)';
+    hlCtx.fillText('-', textCenterX - 35, WY);
+    hlCtx.fillText('-', textCenterX + 35, WY);
+  } else {
+    const TX = CX + 55;
+    hlCtx.font = `600 ${FONT_MAIN}px Georgia, "Times New Roman", Times, serif`;
+    hlCtx.textAlign = 'left';
+    hlCtx.fillStyle = '#fff';
+    hlCtx.fillText('Active Inference', TX, CY-20);
+    hlCtx.fillText('Institute', TX, CY+25);
+    hlCtx.font = `italic ${FONT_EST}px Georgia, "Times New Roman", Times, serif`;
+    hlCtx.fillStyle = 'rgba(201,162,39,0.85)';
+    hlCtx.fillText('Est. 2020', TX + 175, CY + 26);
+    const WY = HLH - 30;
+    hlCtx.font = `600 ${FONT_ASI}px Georgia, "Times New Roman", Times, serif`;
+    hlCtx.fillStyle = 'rgba(255,255,255,0.9)';
+    hlCtx.fillText('Act', TX+50, WY);
+    hlCtx.fillText('Serve', TX+145, WY);
+    hlCtx.fillText('Infer', TX+245, WY);
+    hlCtx.font = '400 14px Georgia';
+    hlCtx.fillStyle = 'rgba(255,255,255,0.5)';
+    hlCtx.textAlign = 'center';
+    hlCtx.fillText('-', TX+97, WY);
+    hlCtx.fillText('-', TX+195, WY);
+  }
+}
+
+if (REDUCED) {
+  drawHeroLogoStatic();
+} else {
+  startHeroLogo();
+  document.addEventListener('visibilitychange', startHeroLogo);
 }
 
 // ═══ SPECTRAL TEXT - Chromatic dispersion wave ═══
@@ -918,7 +998,6 @@ function drawMiniPi(ctx, x, y, scale, tilt) {
   ctx.restore();
 }
 
-drawHeroLogo();
 
 
 </script>

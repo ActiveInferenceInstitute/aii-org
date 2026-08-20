@@ -19,10 +19,11 @@
 
   // ═══ HEADER HTML ═══
   const headerHTML = `
+<a class="skip-link" href="#main-content">Skip to content</a>
 <header class="header">
   <div class="header-inner">
     <div class="logo-container">
-      <a href="${basePath}index.html"><canvas id="header-logo" width="280" height="40"></canvas></a>
+      <a href="${basePath}index.html" aria-label="Active Inference Institute — home"><canvas id="header-logo" width="280" height="40" role="img" aria-label="Active Inference Institute"></canvas></a>
     </div>
     <nav class="nav-links">
       <div class="nav-item" data-menu="about">
@@ -113,9 +114,13 @@
       <div class="mobile-subnav-label">Study</div>
       <a href="${basePath}pages/education.html#courses">Courses &amp; Dates</a>
       <a href="${basePath}pages/education.html#textbook">Textbook Group</a>
+      <a href="${basePath}pages/education.html#internship">Internship Programme</a>
       <div class="mobile-subnav-label">Explore</div>
       <a href="https://www.youtube.com/c/ActiveInference" target="_blank">Livestreams &amp; Lectures</a>
       <a href="${basePath}pages/simulations.html">Interactive Simulations</a>
+      <div class="mobile-subnav-label">Tools</div>
+      <a href="${basePath}pages/tools.html#rxinfer">RxInfer.jl</a>
+      <a href="https://github.com/ActiveInferenceInstitute" target="_blank">Open-Source Code</a>
     </div>
   </div>
   <div class="mobile-nav-section"><a href="${basePath}pages/research.html">Research</a></div>
@@ -129,8 +134,8 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <canvas id="footer-logo" width="220" height="35"></canvas>
-        <p>The Active Inference Institute is a volunteer-led 501(c)(3) nonprofit dedicated to the accessibility, rigor, and applicability of the Free Energy Principle and Active Inference, following open science principles.</p>
+        <canvas id="footer-logo" width="220" height="35" role="img" aria-label="Active Inference Institute"></canvas>
+        <p>The Active Inference Institute is a volunteer-led 501(c)(3) nonprofit dedicated to the accessibility, rigour, and applicability of the Free Energy Principle and Active Inference, following open science principles.</p>
       </div>
       <div class="footer-col">
         <h4>About</h4>
@@ -143,7 +148,7 @@
       <div class="footer-col">
         <h4>Learn</h4>
         <ul>
-          <li><a href="${basePath}pages/simulations.html">Tutorials</a></li>
+          <li><a href="${basePath}pages/simulations.html">Interactive Simulations</a></li>
           <li><a href="${basePath}pages/education.html#courses">Courses</a></li>
           <li><a href="${basePath}pages/education.html#textbook">Textbook Group</a></li>
         </ul>
@@ -158,7 +163,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>2026 The Active Inference Institute</p>
+      <p>${new Date().getFullYear()} The Active Inference Institute</p>
       <div class="social-links">
         <a href="https://www.youtube.com/c/ActiveInference" target="_blank" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
         <a href="https://discord.com/invite/FSUvYD2p9S" target="_blank" title="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.36-.698.772-1.362 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.12-.094.246-.194.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>Discord</a>
@@ -244,6 +249,11 @@
     if (trigger) trigger.addEventListener('click', e => { e.stopPropagation(); item.classList.contains('active') ? closeAll() : openMenu(item); });
     item.addEventListener('mouseenter', () => { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } openMenu(item); });
     item.addEventListener('mouseleave', () => { closeTimer = setTimeout(closeAll, 250); });
+    // Keyboard: open on trigger focus, close when focus leaves the whole item+menu
+    item.addEventListener('focusin', () => openMenu(item));
+    item.addEventListener('focusout', () => { closeTimer = setTimeout(() => {
+      if (!item.contains(document.activeElement)) closeAll(); else if (closeTimer) clearTimeout(closeTimer);
+    }, 150); });
     if (menu) {
       menu.addEventListener('mouseenter', () => { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } });
       menu.addEventListener('mouseleave', () => { closeTimer = setTimeout(closeAll, 250); });
@@ -272,15 +282,6 @@
     mobileNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => { mobileNav.classList.remove('active'); menuBtn.classList.remove('active'); });
     });
-  }
-
-  // ═══ UK SPELLING LOCALISATION ═══
-  const isUK = navigator.language === 'en-GB' || navigator.language.startsWith('en-GB') || navigator.languages?.some(l => l === 'en-GB');
-  if (isUK) {
-    const R = [['minimizing','minimising'],['Minimization','Minimisation'],['minimization','minimisation'],['minimize','minimise'],['Minimize','Minimise'],['characterizes','characterises'],['characterized','characterised'],['characterize','characterise'],['visualized','visualised'],['visualization','visualisation'],['visualize','visualise'],['standardized','standardised'],['standardize','standardise'],['personalized','personalised'],['personalize','personalise'],['Normalized','Normalised'],['normalized','normalised'],['normalize','normalise'],['optimized','optimised'],['optimization','optimisation'],['optimize','optimise'],['recognized','recognised'],['recognize','recognise'],['organized','organised'],['organize','organise'],['behavior','behaviour'],['Behavior','Behaviour'],['favor','favour'],['Programs','Programmes'],['programs','programmes'],['Program','Programme'],['program','programme'],['organizations','organisations'],['organization','organisation'],['Organization','Organisation'],['rigor','rigour'],['Rigor','Rigour'],['modeling','modelling'],['Modeling','Modelling'],['labeled','labelled'],['traveled','travelled'],['catalog','catalogue']];
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-    const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
-    nodes.forEach(n => { let t = n.nodeValue; R.forEach(([us,uk]) => { t = t.replace(new RegExp('\\b'+us+'\\b','g'), uk); }); n.nodeValue = t; });
   }
 
 })();
