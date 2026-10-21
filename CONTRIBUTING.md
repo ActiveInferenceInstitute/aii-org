@@ -24,6 +24,7 @@ Core pages live in `pages/` and use the shared root components. A new page shoul
 
 - include `<link rel="stylesheet" href="../site.css">` in its `<head>`;
 - include `<div id="site-header"></div>` before the page content;
+- wrap the page content in `<main id="main-content" tabindex="-1">` so the shared skip link has a focusable target;
 - include `<div id="site-footer"></div>` after the page content; and
 - load `<script src="../site-components.js"></script>` before `</body>`.
 
@@ -37,14 +38,27 @@ If you add a catalogue simulation, add its HTML file, thumbnail (when appropriat
 
 ## Documentation and validation
 
-Update the nearest README when structure or behaviour changes. Check local links and anchors before opening a pull request. For a static-site change, a useful minimum check is:
+Update the nearest README when structure or behaviour changes. Check local links and anchors before opening a pull request.
+
+Keep [`TO-DO.md`](TO-DO.md) limited to outstanding, actionable work. Classify open items as minor (typos, links, formatting), medium (section rewrites or missing guides), or major (cross-cutting changes). Remove completed items after verification; retain source evidence in the relevant documentation rather than in the task list.
+
+From the repository root, run:
 
 ```bash
 git diff --check
+bun scripts/check-site.mjs
 python3 -m http.server 8000
 ```
 
-The server command is for local preview; stop it after testing. There is no repository test suite or build pipeline in this repository.
+The link check uses Bun's built-in HTML parser and requires no package installation. It checks HTML and inline Markdown links, local assets, HTML fragment targets, same-domain absolute URLs, and links injected by the shared header/footer. An optional directory argument checks a copy: `bun scripts/check-site.mjs /path/to/site-copy`. It exits nonzero on missing targets. It does not check external services, Markdown heading fragments, CSS URLs, or links generated inside simulation scripts.
+
+The server command is for local preview; stop it after testing. Check the changed page at desktop and mobile widths, exercise its navigation with a keyboard, and inspect browser errors. Also preview under an `/aii-org/` mount when changing relative paths. There is no build pipeline or simulation test suite.
+
+## Research and scholarly links
+
+Use a direct DOI, publisher article, or repository record for each work. Verify the destination's title, author order, year, venue, and publication type; a working HTTP response alone does not establish that it is the right paper. Distinguish journal articles, proceedings, preprints, posters, and transcripts. Retain original publication titles even when the surrounding site uses UK spelling.
+
+Record primary sources, access dates, corrections, and unresolved entries in [`docs/research-sources.md`](docs/research-sources.md). Do not infer Institute affiliation from a topic alone, or label a selection as a complete bibliography. Recheck external links when editing; prefer a verified current programme page over an old route such as `/research` or `/fellowships`.
 
 ## Pull requests
 

@@ -88,13 +88,13 @@
       <div class="nav-item"><a href="${basePath}index.html#community">Community</a></div>
       <div class="nav-cta-wrap"><a href="https://discord.com/invite/FSUvYD2p9S" target="_blank" rel="noopener" class="nav-cta">Get Involved</a></div>
     </nav>
-    <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 <div class="mega-menu-overlay" id="mega-overlay"></div>
 <nav class="mobile-nav" id="mobile-nav">
   <div class="mobile-nav-section">
-    <button class="mobile-nav-toggle" data-target="mobile-about">About <span class="mobile-chevron"></span></button>
+    <button class="mobile-nav-toggle" data-target="mobile-about" aria-controls="mobile-about" aria-expanded="false">About <span class="mobile-chevron"></span></button>
     <div class="mobile-subnav" id="mobile-about">
       <div class="mobile-subnav-label">Our Story</div>
       <a href="${basePath}pages/history.html">History</a>
@@ -109,7 +109,7 @@
     </div>
   </div>
   <div class="mobile-nav-section">
-    <button class="mobile-nav-toggle" data-target="mobile-learn">Learn <span class="mobile-chevron"></span></button>
+    <button class="mobile-nav-toggle" data-target="mobile-learn" aria-controls="mobile-learn" aria-expanded="false">Learn <span class="mobile-chevron"></span></button>
     <div class="mobile-subnav" id="mobile-learn">
       <div class="mobile-subnav-label">Study</div>
       <a href="${basePath}pages/education.html#courses">Courses &amp; Dates</a>
@@ -269,18 +269,36 @@
   const mobileNav = document.getElementById('mobile-nav');
 
   if (menuBtn && mobileNav) {
+    function closeMobileMenu() {
+      mobileNav.classList.remove('active');
+      menuBtn.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
     menuBtn.addEventListener('click', function() {
-      mobileNav.classList.toggle('active');
-      menuBtn.classList.toggle('active');
+      const expanded = mobileNav.classList.toggle('active');
+      menuBtn.classList.toggle('active', expanded);
+      menuBtn.setAttribute('aria-expanded', String(expanded));
     });
     document.querySelectorAll('.mobile-nav-toggle').forEach(toggle => {
       toggle.addEventListener('click', function() {
         const subnav = document.getElementById(this.dataset.target);
-        this.classList.toggle('open'); subnav.classList.toggle('open');
+        const expanded = subnav.classList.toggle('open');
+        this.classList.toggle('open', expanded);
+        this.setAttribute('aria-expanded', String(expanded));
       });
     });
     mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => { mobileNav.classList.remove('active'); menuBtn.classList.remove('active'); });
+      link.addEventListener('click', closeMobileMenu);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && mobileNav.classList.contains('active')) {
+        closeMobileMenu();
+        menuBtn.focus();
+      }
+    });
+    window.matchMedia('(min-width: 901px)').addEventListener('change', event => {
+      if (event.matches) closeMobileMenu();
     });
   }
 

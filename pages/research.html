@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Past, current, and future research programmes of the Active Inference Institute: from foundational tooling to grand-challenge applications in AI safety, psychiatry, and ecology.">
+    <meta name="description" content="Explore Active Inference Institute research programmes, selected publications with direct scholarly sources, open-source tools, and ways to contribute.">
   <meta name="author" content="The Active Inference Institute">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Active Inference Institute">
   <meta property="og:title" content="Our Work & Research — Active Inference Institute">
-  <meta property="og:description" content="Past, current, and future research programmes of the Active Inference Institute: from foundational tooling to grand-challenge applications in AI safety, psychiatry, and ecology.">
+  <meta property="og:description" content="Explore Active Inference Institute research programmes, selected publications with direct scholarly sources, open-source tools, and ways to contribute.">
   <meta property="og:url" content="https://activeinference.org/pages/research.html">
   <meta property="og:image" content="https://activeinference.org/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Our Work & Research — Active Inference Institute">
-  <meta name="twitter:description" content="Past, current, and future research programmes of the Active Inference Institute: from foundational tooling to grand-challenge applications in AI safety, psychiatry, and ecology.">
+  <meta name="twitter:description" content="Explore Active Inference Institute research programmes, selected publications with direct scholarly sources, open-source tools, and ways to contribute.">
   <meta name="twitter:image" content="https://activeinference.org/assets/og-image.png">
   <link rel="canonical" href="https://activeinference.org/pages/research.html">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
@@ -27,25 +27,34 @@
         .research-hero { text-align: center; padding: 120px 40px 48px; background: var(--black); }
         .research-hero .section-label { color: var(--accent-light); }
         .research-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 400; color: var(--white); margin-bottom: 16px; }
-        .research-hero p { color: rgba(255,255,255,0.55); max-width: 620px; margin: 0 auto; line-height: 1.8; font-size: 1.05rem; }
+        .research-hero p { color: rgba(255,255,255,0.7); max-width: 620px; margin: 0 auto; line-height: 1.8; font-size: 1.05rem; }
+        .research-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 24px; margin-top: 28px; }
+        .research-nav a { color: var(--white); font-size: 0.9rem; text-underline-offset: 4px; }
         .hero-fade { height: 60px; background: linear-gradient(to bottom, var(--black) 0%, var(--white) 100%); }
 
         .research-section { padding: 60px 40px; max-width: 900px; margin: 0 auto; }
+        .research-inset { max-width: 900px; margin: 0 auto; padding: 0 40px; }
         .research-section h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.6rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 24px; border-bottom: 1px solid var(--grey-border); padding-bottom: 12px; }
         .research-section p, .research-section li { font-size: 1rem; color: var(--grey-mid); line-height: 1.85; }
-        .research-section a { color: var(--accent-deep); text-decoration: none; }
+        .research-section a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
         .research-section a:hover { text-decoration: underline; }
         .research-section ul { padding-left: 20px; }
         .research-section li { margin-bottom: 14px; }
         .research-section li strong { color: var(--grey-dark); font-weight: 400; }
 
-        .paper-year { font-family: Georgia, 'Times New Roman', serif; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-top: 32px; margin-bottom: 12px; }
+        .paper-year { font-family: Georgia, 'Times New Roman', serif; font-size: 1.1rem; font-weight: 400; color: var(--grey-dark); margin-top: 32px; margin-bottom: 12px; }
+        .research-section .publication-list { list-style: none; padding: 0; }
+        .publication-list li { padding: 20px 0; margin: 0; border-bottom: 1px solid var(--grey-border); }
+        .publication-list strong { display: block; }
+        .publication-meta { display: block; margin-top: 6px; font-size: 0.9rem; }
+        .publication-type { display: inline-block; font-size: 0.8rem; padding: 1px 8px; margin-right: 8px; background: var(--grey-pale); color: var(--grey-dark); }
+        .research-section .source-note { font-size: 0.9rem; margin-top: 20px; }
 
         .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; }
         .r-card { border: 1px solid var(--grey-border); padding: 28px; background: #fff; }
         .r-card h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; font-weight: 400; color: var(--grey-dark); margin-bottom: 10px; }
         .r-card p { font-size: 0.95rem; }
-        .r-card a { display: inline-block; margin-top: 10px; font-size: 0.9rem; color: var(--accent-deep); text-decoration: none; }
+        .r-card > a { display: inline-block; margin-top: 10px; font-size: 0.9rem; color: var(--accent-deep); text-decoration: none; }
         .r-card a:hover { text-decoration: underline; }
 
         .cta-bar { text-align: center; padding: 60px 40px; background: #f8f8f7; border-top: 1px solid var(--grey-border); }
@@ -57,6 +66,7 @@
         @media (max-width: 768px) {
             .research-hero { padding: 100px 20px 32px; }
             .research-section { padding: 40px 20px; }
+            .research-inset { padding: 0 20px; }
             .card-grid { grid-template-columns: 1fr; }
             .cta-bar { padding: 40px 20px; }
         }
@@ -65,11 +75,18 @@
 <body>
 
 <div id="site-header"></div>
+<main id="main-content" tabindex="-1">
 
 <section class="research-hero">
     <p class="section-label">Research &amp; Open Science</p>
     <h1>Our Work</h1>
     <p>The Active Inference Institute conducts and supports open-science research on the theoretical advancement, cognitive modelling, and practical applications of the Free Energy Principle and Active Inference.</p>
+    <nav class="research-nav" aria-label="On this page">
+        <a href="#current">Programmes</a>
+        <a href="#publications">Publications</a>
+        <a href="#software">Open-source tools</a>
+        <a href="#future">Research community</a>
+    </nav>
 </section>
 <div class="hero-fade"></div>
 
@@ -79,8 +96,8 @@
     <div class="card-grid">
         <div class="r-card">
             <h3>Research Fellowships</h3>
-            <p>Self-directed projects for researchers at all career stages, with mentorship, resources, and open-science infrastructure.</p>
-            <a href="https://activeinference.org/fellowships" target="_blank" rel="noopener">Apply →</a>
+            <p>A pathway for experienced contributors developing research, software, or educational resources, with a defined project and regular public progress reports.</p>
+            <a href="https://activeinference.institute/programs/fellowship/" target="_blank" rel="noopener">Fellowship details &amp; application →</a>
         </div>
         <div class="r-card">
             <h3>RxInfer.jl &amp; BIASlab Partnership</h3>
@@ -89,57 +106,119 @@
         </div>
         <div class="r-card">
             <h3>Active Inference Ontology</h3>
-            <p>A knowledge engineering effort building a formal ontology for Active Inference concepts, supporting interoperability across research domains.</p>
-            <a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener">GitHub →</a>
+            <p>A controlled vocabulary for Active Inference and Free Energy Principle concepts, with structured source data, versioned exports, and a browsable reference.</p>
+            <a href="https://github.com/ActiveInferenceInstitute/Active_Inference_Ontology" target="_blank" rel="noopener">Explore the ontology →</a>
         </div>
         <div class="r-card">
             <h3>Prepare &amp; Measure</h3>
             <p>Core infrastructure for tracking the proposal (Preparation) and ongoing activity cycles (Measurement) of Institute-engaging research projects.</p>
-            <a href="https://activeinference.org/research" target="_blank" rel="noopener">Learn more →</a>
+            <a href="https://activeinference.institute/prepare/" target="_blank" rel="noopener">Prepare a project →</a>
+            <a href="https://activeinference.institute/measure/" target="_blank" rel="noopener">Report progress →</a>
         </div>
     </div>
 </section>
 
 <!-- Publications -->
 <section id="past" class="research-section" style="background: #f8f8f7; max-width: none; padding-left: 0; padding-right: 0;">
-    <div style="max-width: 900px; margin: 0 auto; padding: 0 40px;">
+    <div id="publications" class="research-inset">
     <h2>Selected Publications</h2>
-    <p>A curated selection of Institute-affiliated research. For the full list, see the <a href="https://activeinference.org/research" target="_blank" rel="noopener">Institute research page</a>.</p>
+    <p>Selected work by Institute contributors and the wider ecosystem, including earlier Active Inference Lab research. Titles link to individual source records, grouped by publication type.</p>
+    <p class="source-note">Sources checked <time datetime="2026-10-21">21 October 2026</time>. Years identify the cited editions; additional repository links offer reading copies where available.</p>
 
-    <div class="paper-year">2023</div>
-    <ul>
-        <li><strong>"The Active Inference Institute and Active Inference Ecosystem"</strong> — Daniel Friedman et al. Overview of the Institute's structure, mission, and ecosystem. <a href="https://activeinference.org/research" target="_blank" rel="noopener">Read</a></li>
-        <li><strong>"Distributed Science — The Scientific Process as Multi-Scale Active Inference"</strong> — Balzan, Campbell, Friston, Ramstead, Friedman, Constant. <a href="https://activeinference.org/research" target="_blank" rel="noopener">Read</a></li>
-        <li><strong>"A Variational Synthesis of Evolutionary and Developmental Dynamics"</strong> — Friston, Friedman, Constant, Knight, Parr, Campbell. <em>Entropy</em>, 2023. <a href="https://activeinference.org/research" target="_blank" rel="noopener">Read</a></li>
-        <li><strong>"Generalized Notation Notation for Active Inference Models"</strong> — Smékal &amp; Friedman. <a href="https://activeinference.org/research" target="_blank" rel="noopener">Read</a></li>
-        <li><strong>"A Single-Pheromone Model Accounts for Empirical Patterns of Ant Colony Foraging"</strong> — Saund &amp; Friedman. <em>Cognitive Systems Research</em>, 2023. <a href="https://activeinference.org/research" target="_blank" rel="noopener">Read</a></li>
+    <h3 class="paper-year">Journal Articles &amp; Proceedings</h3>
+    <ul class="publication-list">
+        <li>
+            <strong><a href="https://doi.org/10.1016/j.neubiorev.2023.105500" target="_blank" rel="noopener">Federated inference and belief sharing</a></strong>
+            <span class="publication-meta">Karl J. Friston et al. · <em>Neuroscience &amp; Biobehavioral Reviews</em> 156, 105500 (2024).</span>
+            <span class="publication-meta"><span class="publication-type">Journal article</span><a href="https://discovery.ucl.ac.uk/id/eprint/10183657/" target="_blank" rel="noopener">UCL repository record &amp; reading copy</a></span>
+        </li>
+        <li>
+            <strong><a href="https://doi.org/10.3390/e26040303" target="_blank" rel="noopener">Shared Protentions in Multi-Agent Active Inference</a></strong>
+            <span class="publication-meta">Mahault Albarracin, Riddhi J. Pitliya, Toby St. Clere Smithe, Daniel Ari Friedman, Karl Friston &amp; Maxwell J. D. Ramstead. · <em>Entropy</em> 26(4), 303 (2024).</span>
+            <span class="publication-meta"><span class="publication-type">Journal article</span><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11049075/" target="_blank" rel="noopener">Shared Protentions in the open archive</a></span>
+        </li>
+        <li>
+            <strong><a href="https://doi.org/10.3390/e25070964" target="_blank" rel="noopener">A Variational Synthesis of Evolutionary and Developmental Dynamics</a></strong>
+            <span class="publication-meta">Karl Friston, Daniel A. Friedman, Axel Constant, V. Bleu Knight, Chris Fields, Thomas Parr &amp; John O. Campbell. · <em>Entropy</em> 25(7), 964 (2023).</span>
+            <span class="publication-meta"><span class="publication-type">Journal article</span><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10378262/" target="_blank" rel="noopener">Variational Synthesis in the open archive</a></span>
+        </li>
+        <li>
+            <strong><a href="https://doi.org/10.1016/j.cogsys.2023.02.005" target="_blank" rel="noopener">A single-pheromone model accounts for empirical patterns of ant colony foraging previously modeled using two pheromones</a></strong>
+            <span class="publication-meta">Eric Saund &amp; Daniel Ari Friedman. · <em>Cognitive Systems Research</em> 80, 81–89 (2023).</span>
+            <span class="publication-meta"><span class="publication-type">Journal article</span><a href="https://danielarifriedman.com/papers/2023_SinglePheromone/2023_SinglePheromone.pdf" target="_blank" rel="noopener">Author-hosted ant-foraging article (PDF)</a></span>
+        </li>
+        <li>
+            <strong><a href="https://doi.org/10.1007/978-3-031-28719-0_10" target="_blank" rel="noopener">Active Blockference: cadCAD with Active Inference for Cognitive Systems Modeling</a></strong>
+            <span class="publication-meta">Jakub Smékal, Arhan Choudhury, Amit Kumar Singh, Shady El Damaty &amp; Daniel Ari Friedman. · <em>Active Inference, IWAI 2022</em>, CCIS 1721, 143–150 (published 2023).</span>
+            <span class="publication-meta"><span class="publication-type">Proceedings chapter</span></span>
+        </li>
+        <li>
+            <strong><a href="https://doi.org/10.1088/1757-899X/1261/1/012026" target="_blank" rel="noopener">Thinking like a State : Embodied intelligence in the deep history of our collective mind</a></strong>
+            <span class="publication-meta">Avel Guénin—Carlut. · <em>IOP Conference Series: Materials Science and Engineering</em> 1261(1), 012026 (2022).</span>
+            <span class="publication-meta"><span class="publication-type">Proceedings article</span><a href="https://osf.io/dxnzt_v1/" target="_blank" rel="noopener">Earlier State preprint (2021; title differs)</a></span>
+        </li>
+        <li>
+            <strong><a href="https://doi.org/10.3389/fnbeh.2021.647732" target="_blank" rel="noopener">Active Inferants: An Active Inference Framework for Ant Colony Behavior</a></strong>
+            <span class="publication-meta">Daniel Ari Friedman, Alec Tschantz, Maxwell J. D. Ramstead, Karl Friston &amp; Axel Constant. · <em>Frontiers in Behavioral Neuroscience</em> 15, 647732 (2021).</span>
+            <span class="publication-meta"><span class="publication-type">Journal article</span></span>
+        </li>
     </ul>
 
-    <div class="paper-year">2022</div>
-    <ul>
-        <li><strong>"Active Blockference — cadCAD with Active Inference for Cognitive Systems Modeling"</strong> — Smékal et al. IWAI 2022. <a href="https://activeinference.org/research" target="_blank" rel="noopener">Read</a></li>
-        <li><strong>"The Free Energy Principle &amp; Active Inference: a Systematic Literature Analysis"</strong> — Knight, Cordes, Friedman. <a href="https://activeinference.org/research" target="_blank" rel="noopener">Read</a></li>
-        <li><strong>"An Active Inference Ontology for Decentralized Science"</strong> — From Situated Sensemaking to the Epistemic Commons. <a href="https://activeinference.org/research" target="_blank" rel="noopener">Read</a></li>
+    <h3 class="paper-year">Manuscripts, Preprints &amp; Institute Reports</h3>
+    <p>These records provide public versions of the work. A repository deposit or venue label alone does not establish independent peer review.</p>
+    <ul class="publication-list">
+        <li>
+            <strong><a href="https://zenodo.org/records/17982447" target="_blank" rel="noopener">The Active Inference Institute &amp; Active Inference Ecosystem</a></strong>
+            <span class="publication-meta">Active Inference Institute et al. · <em>Active Inference Journal</em>, Zenodo, v3 (2025). DOI: 10.5281/zenodo.17982447.</span>
+            <span class="publication-meta"><span class="publication-type">Institute overview</span>Updated organisational and ecosystem snapshot.</span>
+        </li>
+        <li>
+            <strong><a href="https://doi.org/10.31219/osf.io/dnw5k" target="_blank" rel="noopener">Distributed Science - The Scientific Process as Multi-Scale Active Inference</a></strong>
+            <span class="publication-meta">Francesco Balzan, John Campbell, Karl Friston, Maxwell J. D. Ramstead, Daniel Friedman &amp; Axel Constant. · OSF Preprints, v1 (2023).</span>
+            <span class="publication-meta"><span class="publication-type">Preprint</span></span>
+        </li>
+        <li>
+            <strong><a href="https://zenodo.org/records/8266281" target="_blank" rel="noopener">The Active Inference Institute and Active Inference Ecosystem</a></strong>
+            <span class="publication-meta">Active Inference Institute et al. · <em>Active Inference Journal</em>, Zenodo, 001.1 (2023). DOI: 10.5281/zenodo.8266281.</span>
+            <span class="publication-meta"><span class="publication-type">Institute overview</span>Historical 2023 snapshot.</span>
+        </li>
+        <li>
+            <strong><a href="https://zenodo.org/records/7803328" target="_blank" rel="noopener">Generalized Notation Notation for Active Inference Models</a></strong>
+            <span class="publication-meta">Jakub Smékal &amp; Daniel Ari Friedman. · <em>Active Inference Journal</em>, Zenodo, v1 (2023). DOI: 10.5281/zenodo.7803328.</span>
+            <span class="publication-meta"><span class="publication-type">Article deposit</span></span>
+        </li>
+        <li>
+            <strong><a href="https://zenodo.org/records/7484994" target="_blank" rel="noopener">An Active Inference Ontology for Decentralized Science: from Situated Sensemaking to the Epistemic Commons</a></strong>
+            <span class="publication-meta">Daniel Friedman et al. · Zenodo manuscript, v3 (2022). DOI: 10.5281/zenodo.7484994.</span>
+            <span class="publication-meta"><span class="publication-type">Manuscript</span></span>
+        </li>
+        <li>
+            <strong><a href="https://zenodo.org/records/7449368" target="_blank" rel="noopener">The Free Energy Principle &amp; Active Inference: a Systematic Literature Analysis</a></strong>
+            <span class="publication-meta">Virginia Bleu Knight, RJ Cordes &amp; Daniel Friedman. · Zenodo manuscript, v1 (2022). DOI: 10.5281/zenodo.7449368.</span>
+            <span class="publication-meta"><span class="publication-type">Manuscript</span></span>
+        </li>
+        <li>
+            <strong><a href="https://zenodo.org/records/4021163" target="_blank" rel="noopener">Active Inference &amp; Behavior Engineering for Teams</a></strong>
+            <span class="publication-meta">Alexander Vyatkin, Ivan Metelkin, Alexandra Mikhailova, RJ Cordes &amp; Daniel Ari Friedman. · Zenodo preprint, version 1 (2020). DOI: 10.5281/zenodo.4021163.</span>
+            <span class="publication-meta"><span class="publication-type">Preprint</span>Also listed as a poster in the <a href="https://iwaiworkshop.github.io/2021.html" target="_blank" rel="noopener">IWAI 2021 programme</a>.</span>
+        </li>
     </ul>
 
-    <div class="paper-year">2021</div>
-    <ul>
-        <li><strong>"Active InferAnts — The Basis for an Active Inference Framework for Ant Colony Behavior"</strong> — <em>Frontiers in Behavioral Neuroscience</em>. <a href="https://www.frontiersin.org/articles/10.3389/fnbeh.2021.647732/" target="_blank" rel="noopener">Read</a></li>
-        <li><strong>"Thinking like a State: Active Inference and the Deep Roots of Complex Societies"</strong> — Bleu Knight. <a href="https://osf.io/dxnzt/" target="_blank" rel="noopener">OSF Preprint</a></li>
-        <li><strong>1st Applied Active Inference Symposium — Karl Friston Transcript</strong> <a href="https://zenodo.org/record/5797041" target="_blank" rel="noopener">Zenodo</a></li>
-    </ul>
-
-    <div class="paper-year">2020</div>
-    <ul>
-        <li><strong>"Active Inference &amp; Behaviour Engineering for Teams"</strong> — Vyatkin et al. Poster at IWAI 2020. <a href="https://zenodo.org/record/4021163" target="_blank" rel="noopener">Zenodo</a></li>
+    <h3 class="paper-year">Symposium Record</h3>
+    <ul class="publication-list">
+        <li>
+            <strong><a href="https://zenodo.org/records/5797041" target="_blank" rel="noopener">Transcript of: Karl Friston, 1st Applied Active Inference Symposium, Active Inference Lab, June 21, 2021</a></strong>
+            <span class="publication-meta">Karl Friston et al. · Zenodo, v1.0 (deposited 21 December 2021). DOI: 10.5281/zenodo.5797041.</span>
+            <span class="publication-meta"><span class="publication-type">Edited transcript</span></span>
+        </li>
     </ul>
     </div>
 </section>
 
 <!-- Open Source -->
-<section class="research-section">
+<section id="software" class="research-section">
     <h2>Open-Source Repositories</h2>
-    <p>All Institute code is open-source. Browse the full collection at <a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener">github.com/ActiveInferenceInstitute</a>.</p>
+    <p>Explore public research code, educational resources, and project documentation at <a href="https://github.com/ActiveInferenceInstitute" target="_blank" rel="noopener">github.com/ActiveInferenceInstitute</a>. Check individual repositories for licences, data, and reproducibility instructions.</p>
     <div class="card-grid">
         <div class="r-card">
             <h3>ActiveInferenceInstitute</h3>
@@ -151,18 +230,28 @@
             <p>A Julia package for scalable Bayesian inference through reactive message passing — developed by BIASlab at TU Eindhoven in partnership with the Institute.</p>
             <a href="https://rxinfer.com" target="_blank" rel="noopener">Documentation →</a>
         </div>
+        <div class="r-card">
+            <h3>Generalized Notation Notation</h3>
+            <p>Notation and tools for specifying, checking, rendering, and executing state-space models for Active Inference.</p>
+            <a href="https://github.com/ActiveInferenceInstitute/Generalized_Notation_Notation" target="_blank" rel="noopener">Model notation &amp; tooling →</a>
+        </div>
+        <div class="r-card">
+            <h3>Active Inferants Research Code</h3>
+            <p>The ant-colony foraging simulation code accompanying Friedman and colleagues' 2021 article, separate from this site's educational demonstrations.</p>
+            <a href="https://github.com/ActiveInferenceInstitute/ants" target="_blank" rel="noopener">Article companion code →</a>
+        </div>
     </div>
 </section>
 
 <!-- Future -->
 <section id="future" class="research-section" style="background: #f8f8f7; max-width: none; padding-left: 0; padding-right: 0;">
-    <div style="max-width: 900px; margin: 0 auto; padding: 0 40px;">
-    <h2>Future Directions</h2>
-    <p>As we look to 2026 and beyond, the Institute is expanding foundational work bridging theory with real-world deployment — from cognitive modelling and AI safety to robotics and complex networks.</p>
+    <div class="research-inset">
+    <h2>Research Community &amp; Directions</h2>
+    <p>The Institute supports connections between foundational research, cognitive modelling, and applications. Explore community events and propose collaborative work through the programme links above.</p>
     <ul>
-        <li><strong>6th Applied Active Inference Symposium</strong> — Planning underway. <a href="https://symposium.activeinference.institute/" target="_blank" rel="noopener">symposium.activeinference.institute</a></li>
-        <li><strong>IWAI 2026</strong> — The 7th International Workshop on Active Inference, focusing on "Foundations" across computational theory, cognitive modelling, and empirical applications.</li>
-        <li><strong>Industry Partnerships</strong> — Actively seeking collaborators to translate foundational science into operational planning and decision-making platforms.</li>
+        <li><strong>Applied Active Inference Symposium</strong> — Visit the <a href="https://activeinference.institute/projects/symposium/" target="_blank" rel="noopener">symposium project page</a> for editions and programme updates.</li>
+        <li><strong>IWAI 2026</strong> — The 7th International Workshop on Active Inference, held 14–16 October 2026 in Madrid, focused on foundations. See the <a href="https://iwaiworkshop.github.io/" target="_blank" rel="noopener">organisers' programme and workshop information</a>.</li>
+        <li><strong>Collaborative Projects</strong> — Use <a href="https://activeinference.institute/prepare/" target="_blank" rel="noopener">Project Preparation</a> to describe research, software, educational, or applied work and request support.</li>
     </ul>
     </div>
 </section>
@@ -171,9 +260,10 @@
 <section class="cta-bar">
     <h2>Get Involved</h2>
     <p>Whether through fellowships, volunteer engagement, or collaborative research, there are many ways to contribute to the Institute's mission.</p>
-            <a href="https://activeinference.org/research" class="btn" target="_blank" rel="noopener">View Full Research Page</a>
+    <a href="https://activeinference.institute/prepare/" class="btn" target="_blank" rel="noopener">Propose a Research Project</a>
 </section>
 
+</main>
 <div id="site-footer"></div>
 <script src="../site-components.js"></script>
 </body>

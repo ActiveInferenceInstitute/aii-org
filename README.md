@@ -11,7 +11,7 @@ This repository contains the Institute's public-facing organizational website, b
 
 ## About Active Inference
 
-**Active Inference** is a unified framework for modelling perception, cognition, and action in biological and artificial systems. Building on Karl Friston's **Free Energy Principle** — the idea that adaptive systems minimize surprise (or "free energy") through predictive processing and action — Active Inference provides a principled, interpretable approach to understanding intelligent behaviour at all scales.
+**Active Inference** is a framework for modelling perception and action using generative models. Variational free energy is an upper bound on surprisal under a model; it is not a synonym for surprise. Perception updates beliefs about hidden causes, while action and policy selection depend on the model, prior preferences, and expected outcomes. The textbooks below develop these ideas and their assumptions; see also the mathematical formulation in [*Generalised free energy and active inference*](https://pmc.ncbi.nlm.nih.gov/articles/PMC6848054/).
 
 ---
 
@@ -28,8 +28,8 @@ This repository contains the Institute's public-facing organizational website, b
 
 ### Textbooks
 
-- **[Active Inference: The Free Energy Principle in Mind, Brain, and Behavior](https://mitpress.mit.edu/9780262045353/active-inference/)** — Thomas Parr, Giovanni Pezzulo & Karl Friston (MIT Press, 2022). The foundational textbook; the Institute hosts ongoing [Textbook Group](https://textbook-group.activeinference.institute/) cohorts (now in Cohort 7).
-- **[Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers](https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/)** — Sanjeev V. Namjoshi (MIT Press, 2025 · ISBN 9780262050951). An engineering-focused companion developed in collaboration with the Institute since 2023, endorsed by Karl Friston. The 12 interactive simulations in this repository accompany this textbook.
+- **[Active Inference: The Free Energy Principle in Mind, Brain, and Behavior](https://mitpress.mit.edu/9780262045353/active-inference/)** — Thomas Parr, Giovanni Pezzulo & Karl Friston (MIT Press, 2022). The Institute hosts recurring [Textbook Group](https://textbook-group.activeinference.institute/) cohorts.
+- **[Fundamentals of Active Inference: Principles, Algorithms, and Applications of the Free Energy Principle for Engineers](https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/)** — Sanjeev V. Namjoshi (MIT Press, 17 March 2026 · ISBN 9780262050951). An engineering-focused introduction with worked examples and simulations. The 12 interactive simulations in this repository accompany this textbook.
 
 <p align="center">
   <img src="assets/fundamentals-26.jpg" alt="Fundamentals of Active Inference cover" width="200">
@@ -80,16 +80,16 @@ aii-org/
 ### Technical Notes
 
 - **No build system or bundler.** Pure HTML, CSS, and vanilla JavaScript.
-- **No external dependencies.** No CDN, npm, or JS libraries.
+- **No external dependencies in the core site.** Most standalone simulations load Google Fonts; no package installation is needed to view them.
 - `site.css` → Design tokens, typography, header/footer styles.
-- `site-components.js` → Injects navigation, canvas logos, mega-menu; handles UK spelling localisation dynamically across depths (`basePath`).
+- `site-components.js` → Injects the header, footer, canvas logos, and desktop/mobile navigation; resolves links from the root and inner pages with `basePath`.
 - All `simulations/` are **standalone webapps** — inline styles and logic, rendering via the Canvas API with zero shared dependencies.
 
 ---
 
 ## Interactive Simulations
 
-12 companion demos for the foundational textbooks, covering concepts from Bayesian inference to hierarchical Markov blankets. Each is a self-contained HTML file with no dependencies. See [`simulations/README.md`](simulations/README.md) for a complete conceptual breakdown by difficulty level.
+12 companion demos for the foundational textbooks, covering concepts from Bayesian inference to hierarchical Markov blankets. Each is a self-contained HTML file; most request Google Fonts. These are educational illustrations, not empirical validation of the framework. See [`simulations/README.md`](simulations/README.md) for a conceptual breakdown by difficulty level.
 
 ## Documentation
 
@@ -102,7 +102,9 @@ This repository keeps documentation close to the files it describes:
 - [`assets/sab/README.md`](assets/sab/README.md) — Scientific Advisory Board headshots.
 - [`AGENTS.md`](AGENTS.md) and directory-level `AGENTS.md` files — repository conventions for maintainers and automated agents.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution, local preview, and pull-request guidance.
-- [`TO-DO.md`](TO-DO.md) — the current documentation review record and open work.
+- [`docs/research-sources.md`](docs/research-sources.md) — primary-source records and editorial decisions for the research bibliography.
+- [`scripts/check-site.mjs`](scripts/check-site.mjs) — local link, asset, and HTML fragment checks, including shared navigation; run with `bun scripts/check-site.mjs`.
+- [`TO-DO.md`](TO-DO.md) — outstanding scoped work; completed items are removed.
 
 ---
 
