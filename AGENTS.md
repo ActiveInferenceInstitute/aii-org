@@ -11,7 +11,7 @@ The codebase is organized into strict functional modules:
 - **`root/`** — `index.html` entry, shared `site.css` (design tokens), and `site-components.js`. No build system or bundler.
 - **`pages/`** — The core site UI. These files depend on root CSS/JS using dynamic `basePath` resolution. Header/footer are injected into `<div id="site-header"></div>` and `<div id="site-footer"></div>`.
 - `simulations/` — 12 catalogued standalone Canvas-based interactive demos demonstrating Active Inference concepts. These are self-contained HTML files (inline CSS/JS) with no root-component dependency; the folder also contains four intentionally unlinked experimental or legacy files: `cochlea.html`, `human_eye.html`, `t_maze_crr.html`, and `human_ai_fep(experiment_only_for_discussion_AICACP).html`.
-- **`assets/`** — Static media (11 simulation thumbnails, 2 cover images, BOD/SAB headshot subdirectories, and a PDF payload).
+- **`assets/`** — Static media (11 simulation thumbnails, 2 cover images, BOD/SAB headshot subdirectories retained as a media archive, and a PDF payload). The roster pages link the canonical membership roster instead of rendering portraits.
 
 ## Key Conventions
 
@@ -30,8 +30,8 @@ The codebase is organized into strict functional modules:
 | Site Pages | 8 | `/pages/` | history, vision-mission, bod, sab, simulations, research, education, tools |
 | Simulations | 12 | `/simulations/` | Self-contained HTML demos |
 | Base Media | 14 | `/assets/` | 11 simulation thumbnails, 2 cover images, 1 PDF |
-| BOD headshots| 10 | `/assets/bod/` | |
-| SAB headshots| 29 | `/assets/sab/` | |
+| BOD headshots| 10 | `/assets/bod/` | Retained as a media archive; the roster page links the canonical registry |
+| SAB headshots| 29 | `/assets/sab/` | Retained as a media archive; the roster page links the canonical registry |
 
 ## Editing Notes
 

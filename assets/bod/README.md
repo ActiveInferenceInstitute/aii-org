@@ -1,6 +1,6 @@
 # Board of Directors — Headshot Images
 
-Headshot photos for the 10 members of the Active Inference Institute Board of Directors. Used on `bod.html`.
+Archived headshot photos for the 10 members of the Active Inference Institute Board of Directors. `pages/bod.html` no longer renders portraits; it links the canonical membership roster maintained by the Institute registry.
 
 ## Members
 

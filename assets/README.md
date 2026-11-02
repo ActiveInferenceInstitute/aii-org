@@ -30,8 +30,8 @@ Used on `pages/simulations.html`.
 ### Subdirectories
 | Directory | Contents | Count |
 |-----------|----------|-------|
-| `bod/` | Board of Directors headshot photos | 10 images |
-| `sab/` | Scientific Advisory Board headshot photos | 29 images |
+| `bod/` | Board of Directors headshot photos, retained as a media archive (the roster page now links the canonical registry) | 10 images |
+| `sab/` | Scientific Advisory Board headshot photos, retained as a media archive (the roster page now links the canonical registry) | 29 images |
 
 ## Naming Conventions
 - Simulation thumbnails: `sim-{short-name}.png`

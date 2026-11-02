@@ -2,13 +2,12 @@
 
 ## Purpose
 
-Headshot photographs for the Scientific Advisory Board members, displayed on `sab.html`. 29 members have image files; 3 members (Ali Rahmjoo, Elliott Hauser, Jana Lumi) use HTML-rendered initial placeholders instead.
+Archived headshot photographs for the Scientific Advisory Board members. `pages/sab.html` no longer renders portraits; it links the canonical membership roster maintained by the Institute registry. 29 members have image files; 3 members (Ali Rahmjoo, Elliott Hauser, Jana Lumi) had HTML-rendered initial placeholders instead.
 
 ## Conventions
 
 - Format: JPEG (`.jpg`)
 - Naming: `firstname_lastname.jpg` (lowercase, underscores; hyphens preserved in surnames)
-- Referenced from `sab.html` as `src="../assets/sab/firstname_lastname.jpg"`
-- Images are square or near-square, displayed at 88×88px (desktop) via CSS `object-fit: cover`
-- All images include `loading="lazy"` and descriptive `alt` text
-- Members without headshots use a `<span class="pi">XX</span>` initials placeholder
+- Archived: no page currently references these files. If a page renders headshots again, reference them as `src="../assets/sab/firstname_lastname.jpg"` with descriptive `alt` text and `loading="lazy"`
+- Images are square or near-square, suitable for CSS `object-fit: cover` at small display sizes
+- Members without headshots used a `<span class="pi">XX</span>` initials placeholder
