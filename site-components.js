@@ -50,6 +50,7 @@
                 <li><a href="${basePath}pages/research.html#past" role="menuitem">Past Projects<span class="menu-desc">Completed research programmes</span></a></li>
                 <li><a href="${basePath}pages/research.html#current" role="menuitem">Current Projects<span class="menu-desc">Ongoing research and initiatives</span></a></li>
                 <li><a href="${basePath}pages/research.html#future" role="menuitem">Future Aspirations<span class="menu-desc">Where we are headed</span></a></li>
+                <li><a href="https://activeinference.institute/working-groups/" target="_blank" rel="noopener" role="menuitem">Working Groups<span class="menu-desc">Field and domain working groups</span></a></li>
               </ul>
             </div>
           </div>
@@ -72,6 +73,7 @@
               <ul>
                 <li><a href="https://www.youtube.com/c/ActiveInference" target="_blank" role="menuitem">Livestreams &amp; Lectures<span class="menu-desc">Weekly presentations on YouTube</span></a></li>
                 <li><a href="${basePath}pages/simulations.html" role="menuitem">Interactive Simulations<span class="menu-desc">Hands-on FEP and Active Inference demos</span></a></li>
+                <li><a href="https://activeinferenceinstitute.github.io/ActiveInferenceJournal/" target="_blank" rel="noopener" role="menuitem">Active Inference Journal<span class="menu-desc">Open-access research and proceedings</span></a></li>
               </ul>
             </div>
             <div class="mega-menu-col">
@@ -85,6 +87,7 @@
         </div>
       </div>
       <div class="nav-item"><a href="${basePath}pages/research.html">Research</a></div>
+      <div class="nav-item"><a href="https://symposium.activeinference.institute/" target="_blank" rel="noopener">Symposium</a></div>
       <div class="nav-item"><a href="${basePath}index.html#community">Community</a></div>
       <div class="nav-cta-wrap"><a href="https://discord.com/invite/FSUvYD2p9S" target="_blank" rel="noopener" class="nav-cta">Get Involved</a></div>
     </nav>
@@ -106,6 +109,7 @@
       <a href="${basePath}pages/research.html#past">Past Projects</a>
       <a href="${basePath}pages/research.html#current">Current Projects</a>
       <a href="${basePath}pages/research.html#future">Future Aspirations</a>
+      <a href="https://activeinference.institute/working-groups/" target="_blank">Working Groups</a>
     </div>
   </div>
   <div class="mobile-nav-section">
@@ -118,11 +122,13 @@
       <div class="mobile-subnav-label">Explore</div>
       <a href="https://www.youtube.com/c/ActiveInference" target="_blank">Livestreams &amp; Lectures</a>
       <a href="${basePath}pages/simulations.html">Interactive Simulations</a>
+      <a href="https://activeinferenceinstitute.github.io/ActiveInferenceJournal/" target="_blank">Active Inference Journal</a>
       <div class="mobile-subnav-label">Tools</div>
       <a href="${basePath}pages/tools.html#rxinfer">RxInfer.jl</a>
       <a href="https://github.com/ActiveInferenceInstitute" target="_blank">Open-Source Code</a>
     </div>
   </div>
+  <div class="mobile-nav-section"><a href="https://symposium.activeinference.institute/" target="_blank">Symposium</a></div>
   <div class="mobile-nav-section"><a href="${basePath}pages/research.html">Research</a></div>
   <div class="mobile-nav-section"><a href="${basePath}index.html#community">Community</a></div>
   <a href="https://discord.com/invite/FSUvYD2p9S" target="_blank" rel="noopener" class="mobile-nav-cta">Get Involved</a>
@@ -143,6 +149,7 @@
           <li><a href="${basePath}pages/vision-mission.html">Vision &amp; Mission</a></li>
           <li><a href="${basePath}pages/bod.html">Our People</a></li>
           <li><a href="${basePath}pages/history.html">History</a></li>
+          <li><a href="https://activeinference.institute/working-groups/" target="_blank">Working Groups</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -151,6 +158,7 @@
           <li><a href="${basePath}pages/simulations.html">Interactive Simulations</a></li>
           <li><a href="${basePath}pages/education.html#courses">Courses</a></li>
           <li><a href="${basePath}pages/education.html#textbook">Textbook Group</a></li>
+          <li><a href="https://activeinferenceinstitute.github.io/ActiveInferenceJournal/" target="_blank">Active Inference Journal</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -159,6 +167,7 @@
           <li><a href="https://discord.com/invite/FSUvYD2p9S" target="_blank">Discord</a></li>
           <li><a href="https://www.youtube.com/c/ActiveInference" target="_blank">YouTube</a></li>
           <li><a href="https://github.com/ActiveInferenceInstitute" target="_blank">GitHub</a></li>
+          <li><a href="https://symposium.activeinference.institute/" target="_blank">Symposium</a></li>
         </ul>
       </div>
     </div>
