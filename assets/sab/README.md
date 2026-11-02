@@ -1,6 +1,6 @@
 # Scientific Advisory Board — Headshot Images
 
-Headshot photos for the 29 members of the Active Inference Institute Scientific Advisory Board who have photo assets. Used on `sab.html`. Three additional SAB members (Ali Rahmjoo, Elliott Hauser, Jana Lumi) use initials placeholders rendered via HTML/CSS rather than image files.
+Archived headshot photos for the 29 members of the Active Inference Institute Scientific Advisory Board who have photo assets. `pages/sab.html` no longer renders portraits; it links the canonical membership roster maintained by the Institute registry. Three additional SAB members (Ali Rahmjoo, Elliott Hauser, Jana Lumi) had initials placeholders rendered via HTML/CSS rather than image files.
 
 ## Members
 

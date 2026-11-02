@@ -8,8 +8,8 @@ Informational pages that form the core structure of the institute's website. Inc
 |------|-------------|
 | `history.html` | Timeline of the Institute's origin and milestones |
 | `vision-mission.html` | Strategic framework and core objectives |
-| `bod.html` | Board of Directors directory with headshots |
-| `sab.html` | Scientific Advisory Board directory with headshots |
+| `bod.html` | Board of Directors: governance role and link to the canonical membership roster |
+| `sab.html` | Scientific Advisory Board: advisory role and link to the canonical membership roster |
 | `simulations.html` | Catalog index linking to all interactive simulations |
 | `research.html` | Research pathways, selected publications with direct source links, and community research resources |
 | `education.html` | Details on courses, textbook groups, and internships |
