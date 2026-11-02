@@ -44,6 +44,7 @@ This repository contains the Institute's public-facing organizational website, b
 | 2023 | 3rd | Enacting Ecosystems of Shared Intelligence | [Coda Page](https://coda.io/@active-inference-institute/3rd-applied-active-inference-symposium) |
 | 2024 | 4th | — | [Program](https://coda.io/d/Applied-Active-Inference-Symposium-2024_dQa03zJJkvJ/Symposium-Program_surazvwP#Session-timestamps_tuN06EQq) |
 | 2025 | 5th | Industry | [Program](https://coda.io/d/Applied-Active-Inference-Symposium-2025_d08cdDbWwRy/Symposium-Program_surazvwP#_luf3ZkIk) |
+| 2026 | 6th | — | [Symposium hub](https://symposium.activeinference.institute/) |
 
 ---
 
