@@ -23,9 +23,12 @@ Used on `pages/simulations.html`.
 ### Other Assets
 | File | Description |
 |------|-------------|
-| `textbook-cover.jpg` | Cover of *Active Inference* (MIT Press 2022) |
-| `fundamentals-26.jpg` | Cover of *Fundamentals of Active Inference* (MIT Press 2025) |
+| `textbook-cover.jpg` | Cover of *Active Inference: The Free Energy Principle in Mind, Brain, and Behavior* (Parr, Pezzulo & Friston, MIT Press 2022) |
+| `fundamentals-26.jpg` | Cover of *Fundamentals of Active Inference* (Namjoshi, MIT Press 2026) |
 | `2022_ActiveInference_Textbook.pdf` | Textbook reference |
+| `favicon-32.png`, `favicon-64.png` | Browser favicons |
+| `apple-touch-icon.png` | Apple touch icon |
+| `og-image.png` | Social-preview image |
 
 ### Subdirectories
 | Directory | Contents | Count |

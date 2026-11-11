@@ -71,9 +71,12 @@ aii-org/
 │   ├── Apple-Frog.html
 │   ├── fep_surprise.html
 │   ├── ...                           ← 12 catalogued demos plus experimental files
-├── assets/                         ← Static payload (images, PDF)
+├── assets/                         ← Static payload (images, icons, PDF)
 │   ├── bod/                        ← BOD headshots
 │   └── sab/                        ← SAB headshots
+├── docs/                           ← Cross-cutting documentation index
+├── scripts/                        ← check-site.mjs link/fragment check
+├── .github/                        ← CI workflow and Dependabot configuration
 ├── README.md                       ← This file
 └── AGENTS.md                       ← Agentic context & conventions
 ```
@@ -96,6 +99,7 @@ aii-org/
 
 This repository keeps documentation close to the files it describes:
 
+- [`docs/README.md`](docs/README.md) — index of the cross-cutting documentation: [site architecture](docs/site-architecture.md), [local development](docs/local-development.md), and [validation](docs/validation.md).
 - [`pages/README.md`](pages/README.md) — core site pages and shared-component requirements.
 - [`simulations/README.md`](simulations/README.md) — public simulation catalogue and experimental files.
 - [`assets/README.md`](assets/README.md) — site media, documents, and asset subdirectories.
