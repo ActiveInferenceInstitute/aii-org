@@ -8,7 +8,7 @@ This repository is the **public-facing organizational website** for the Active I
 
 The codebase is organized into strict functional modules:
 
-- **`root/`** — `index.html` entry, shared `site.css` (design tokens), and `site-components.js`. No build system or bundler.
+- **Repository root** — `index.html` entry, shared `site.css` (design tokens), and `site-components.js`. No build system or bundler.
 - **`pages/`** — The core site UI. These files depend on root CSS/JS using dynamic `basePath` resolution. Header/footer are injected into `<div id="site-header"></div>` and `<div id="site-footer"></div>`.
 - `simulations/` — 12 catalogued standalone Canvas-based interactive demos demonstrating Active Inference concepts. These are self-contained HTML files (inline CSS/JS) with no root-component dependency; the folder also contains four intentionally unlinked experimental or legacy files: `cochlea.html`, `human_eye.html`, `t_maze_crr.html`, and `human_ai_fep(experiment_only_for_discussion_AICACP).html`.
 - **`assets/`** — Static media (11 simulation thumbnails, 2 cover images, BOD/SAB headshot subdirectories retained as a media archive, and a PDF payload). The roster pages link the canonical membership roster instead of rendering portraits.
@@ -47,3 +47,14 @@ python3 -m http.server 8000
 ```
 
 Then open `http://localhost:8000` to test. All navigation, asset paths, and `basePath` logic work correctly under this setup.
+
+## Validation
+
+Run the repository link and fragment check before committing:
+
+```bash
+bun scripts/check-site.mjs
+```
+
+It resolves local HTML and inline Markdown links, assets, fragment targets, and links
+injected by the shared header/footer. There is no separate test suite or build step.

@@ -39,6 +39,7 @@ Institute repositories without touching this project's own content. The schema i
 | Task | Command | Working directory | Description |
 | --- | --- | --- | --- |
 | `inventory` | `git ls-files` | `.` | List tracked files. |
+| `check` | `bun scripts/check-site.mjs` | `.` | Check local links, assets, and HTML fragments. |
 
 ## Links
 

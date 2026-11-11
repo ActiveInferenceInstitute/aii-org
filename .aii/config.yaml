@@ -1,7 +1,7 @@
 # AII sidecar — InstituteOS metadata. Schema: aii_platform.aii_sidecar
 meta:
   sidecar_version: 1.2.1
-  updated: '2026-11-10'
+  updated: '2026-11-11'
 repo:
   name: aii-org
   slug: aii-org
@@ -12,6 +12,7 @@ repo:
 institute:
   category: website
   steward: Active Inference Institute
+  maturity: wip
 ecosystem:
   relations:
   - repo: ActiveInferenceInstitute/InstituteOS
@@ -53,6 +54,9 @@ tasks:
   inventory:
     cmd: git ls-files
     description: List tracked files.
+  check:
+    cmd: bun scripts/check-site.mjs
+    description: Check local links, assets, and HTML fragments.
 docs:
 - README.md
 - AGENTS.md
