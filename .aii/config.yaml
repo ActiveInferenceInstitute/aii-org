@@ -1,11 +1,14 @@
-# AII sidecar — InstituteOS metadata. Schema: instituteos.platform.aii_sidecar
+# AII sidecar — InstituteOS metadata. Schema: aii_platform.aii_sidecar
 meta:
-  updated: '2026-06-30'
+  sidecar_version: 1.2.1
+  updated: '2026-11-10'
 repo:
   name: aii-org
   slug: aii-org
   full_name: ActiveInferenceInstitute/aii-org
-  description: Active Inference Institute organizational website.
+  description: 'The Institute''s public organizational website: a static GitHub Pages
+    site with self-contained simulations, community resources, and organizational
+    information.'
 institute:
   category: website
   steward: Active Inference Institute
@@ -21,21 +24,39 @@ artifacts:
 - path: README.md
   kind: doc
   description: Repository overview.
+- path: AGENTS.md
+  kind: doc
+  description: Agent guidance.
+- path: LICENSE
+  kind: doc
+  description: License.
+- path: CITATION.cff
+  kind: citation
+  description: Machine-readable citation metadata.
+- path: docs
+  kind: doc
+  description: Documentation tree.
 provenance:
   license: CC-BY-4.0
   citation:
     text: Active Inference Institute — aii-org.
 instituteos:
   tags:
-  - aii
-  - org
-  - inference
-  - institute
-  - organizational
-  - html
+  - aii-org
+  - website
+  - static-site
+  - organization
 capabilities:
 - documentation
+- citation
 tasks:
   inventory:
     cmd: git ls-files
     description: List tracked files.
+docs:
+- README.md
+- AGENTS.md
+- docs/INTEGRATION.md
+- docs/README.md
+- docs/AGENTS.md
+schema: aii-sidecar/v1
