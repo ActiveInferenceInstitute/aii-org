@@ -58,7 +58,7 @@ PDF title-page text was extracted in memory with `pdftotext`; successful downloa
 - **Authors:** Jakub Smékal; Daniel Ari Friedman.
 - **Date / venue / status:** 2023-04-05, version `v1`; Zenodo record names *Active Inference Journal* and classifies it as `Journal article`. This confirms the deposited venue/type, not an independently verified peer-review process.
 - **DOI / recommended Read URL:** [10.5281/zenodo.7803328](https://doi.org/10.5281/zenodo.7803328); accessible [versioned record](https://zenodo.org/records/7803328), HTTP 200.
-- **Evidence / affiliation:** [Zenodo API](https://zenodo.org/api/records/7803328) explicitly affiliates both authors with the Institute. The [Institute repository README](https://github.com/ActiveInferenceInstitute/GeneralizedNotationNotation/blob/main/README.md), citation section, repeats the original 2023 title and venue.
+- **Evidence / affiliation:** [Zenodo API](https://zenodo.org/api/records/7803328) explicitly affiliates both authors with the Institute. The [Institute repository README](https://github.com/ActiveInferenceInstitute/Generalized_Notation_Notation/blob/main/README.md), citation section, repeats the original 2023 title and venue.
 - **Correction:** **retain both occurrences of “Notation”**; the repetition is the verified title, not a typo. Cite the article's version DOI. The repository's project concept DOI `10.5281/zenodo.7803313` is a different identifier and should not silently replace this article version.
 
 ### E05. Single-pheromone ant-foraging paper
