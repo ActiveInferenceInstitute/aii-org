@@ -1,6 +1,6 @@
 # Interactive Simulations — Active Inference Institute
 
-A curated collection of 12 interactive, browser-based standalone simulations demonstrating the core concepts of the Free Energy Principle and Active Inference.
+This directory contains 16 standalone educational simulation HTML files. The public catalogue presents 12 main entries and three supplemental “More To Explore” entries. One discussion experiment remains unlisted. These are educational illustrations, not empirical validation of the framework.
 
 ## Catalogue
 
@@ -28,12 +28,18 @@ A curated collection of 12 interactive, browser-based standalone simulations dem
 | `hierarchical_blankets.html` | Hierarchical Markov Blankets | Nested Systems, Hierarchy |
 | `tree_with_quiz.html` | Tree Morphology Quiz | Precision, Prior Preferences, Hierarchy, Bounded Rationality, Markov Blankets |
 
-### Additional Files
+### Supplemental catalogue entries
+
+| File | Exposure and runtime |
+|------|----------------------|
+| `cochlea.html` | Listed under “More To Explore”; Canvas 2D and optional microphone capture requiring permission |
+| `human_eye.html` | Listed under “More To Explore”; requires WebGL plus a Canvas 2D overlay |
+| `t_maze_crr.html` | Listed under “More To Explore”; standalone CRR T-maze variant |
+
+### Unlisted discussion experiment
+
 | File | Note |
 |------|------|
-| `t_maze_crr.html` | Experimental CRR variant kept out of the public catalogue |
-| `human_ai_fep(experiment_only_for_discussion_AICACP).html` | Discussion-only experiment kept out of the public catalogue |
-| `cochlea.html` | Experimental sensory-inference simulation kept out of the public catalogue |
-| `human_eye.html` | Experimental sensory-inference simulation kept out of the public catalogue |
+| `human_ai_fep(experiment_only_for_discussion_AICACP).html` | Retained for discussion and not linked from the public catalogue; unlisted is not a privacy boundary |
 
-The public catalogue in [`pages/simulations.html`](../pages/simulations.html) is the source of truth for which simulations are presented as Institute resources. The additional files above remain in the repository for development or discussion and are intentionally unlinked from that catalogue.
+The public catalogue in [`pages/simulations.html`](../pages/simulations.html) is the source of truth for presented entries. Preserve the 12-main-plus-three-supplemental exposure unless its owner explicitly approves a change. Most files use Canvas 2D; `human_eye.html` also requires working WebGL. No external graphics-library installation is needed. Some simulations request Google Fonts.

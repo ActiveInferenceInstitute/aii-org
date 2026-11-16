@@ -14,7 +14,7 @@ aii-org/
 ├── site.css            ← Shared design tokens and layout
 ├── site-components.js  ← Shared header, footer, and navigation injection
 ├── pages/              ← Core informational pages (8)
-├── simulations/        ← Standalone Canvas demos (12 catalogued + 4 experimental)
+├── simulations/        ← 16 standalone demos: 12 main + 3 supplemental + 1 unlisted
 ├── assets/             ← Images, icons, and a reference PDF
 │   ├── bod/            ← Board of Directors headshots (media archive)
 │   └── sab/            ← Scientific Advisory Board headshots (media archive)
@@ -35,10 +35,10 @@ contents of their directories.
 - computes a `basePath` dynamically from the page's URL depth, so navigation
   links resolve correctly whether the page is served from the repository root or
   nested in `pages/`;
-- localises text for `en-GB` visitors (for example, "behaviour", "organisation",
-  "programme"); and
 - draws the π-symbol logo with the Canvas API in both the header and footer, so
   no logo image file is required.
+
+UK spelling is an authoring convention. The shared component does not rewrite text according to browser locale; preserve publication titles and attributed quotations.
 
 Design tokens (colours, type, and breakpoints) are defined in the `:root` block
 of `site.css`. The core site loads no external CSS or JavaScript libraries;
@@ -68,9 +68,11 @@ way.
 
 The `simulations/` directory is deliberately independent of the shared
 components: each catalogue simulation is a self-contained single-file HTML
-application with inline styles and logic, rendered with the Canvas API.
+application with inline styles and logic. Most use Canvas 2D; `human_eye.html` requires WebGL and a Canvas 2D overlay.
 [`../simulations/README.md`](../simulations/README.md) is the catalogue and
 convention reference.
+
+The public catalogue presents 12 main entries and three supplemental entries (`cochlea.html`, `human_eye.html`, and `t_maze_crr.html`). The discussion experiment `human_ai_fep(experiment_only_for_discussion_AICACP).html` remains unlisted but directly accessible; that is not a privacy boundary.
 
 ## Adding content
 
