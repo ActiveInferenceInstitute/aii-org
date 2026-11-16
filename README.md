@@ -66,11 +66,11 @@ aii-org/
 │   ├── research.html               ← Past, current & future projects
 │   ├── education.html              ← Courses, textbook groups, internships
 │   └── tools.html                  ← RxInfer.jl & open-source code
-├── simulations/                    ← 12 standalone Canvas interactive demos
+├── simulations/                    ← 16 standalone HTML applications
 │   ├── Ink.html                    ← 100% independent HTML/JS applications
 │   ├── Apple-Frog.html
 │   ├── fep_surprise.html
-│   ├── ...                           ← 12 catalogued demos plus experimental files
+│   ├── ...                         ← 12 main + 3 supplemental + 1 unlisted discussion file
 ├── assets/                         ← Static payload (images, icons, PDF)
 │   ├── bod/                        ← BOD headshots
 │   └── sab/                        ← SAB headshots
@@ -87,13 +87,13 @@ aii-org/
 - **No external dependencies in the core site.** Most standalone simulations load Google Fonts; no package installation is needed to view them.
 - `site.css` → Design tokens, typography, header/footer styles.
 - `site-components.js` → Injects the header, footer, canvas logos, and desktop/mobile navigation; resolves links from the root and inner pages with `basePath`.
-- All `simulations/` are **standalone webapps** — inline styles and logic, rendering via the Canvas API with zero shared dependencies.
+- All `simulations/` are **standalone webapps** with inline styles and logic and no shared application runtime. Most use Canvas 2D; `human_eye.html` requires WebGL plus a Canvas 2D overlay.
 
 ---
 
 ## Interactive Simulations
 
-12 companion demos for the foundational textbooks, covering concepts from Bayesian inference to hierarchical Markov blankets. Each is a self-contained HTML file; most request Google Fonts. These are educational illustrations, not empirical validation of the framework. See [`simulations/README.md`](simulations/README.md) for a conceptual breakdown by difficulty level.
+The public catalogue presents 12 main companion demos plus three supplemental “More To Explore” entries: `cochlea.html`, `human_eye.html`, and `t_maze_crr.html`. The directory also retains one unlisted discussion experiment, `human_ai_fep(experiment_only_for_discussion_AICACP).html`; unlisted does not mean private. Each is a self-contained HTML file; most request Google Fonts. These are educational illustrations, not empirical validation of the framework. See [`simulations/README.md`](simulations/README.md) for the inventory and runtime requirements.
 
 ## Documentation
 
